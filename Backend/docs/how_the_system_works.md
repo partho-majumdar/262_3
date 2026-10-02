@@ -6,8 +6,13 @@ machine, and every claim has a file you can point at.
 
 **If a teacher asks "does it actually work?"**, the short version is: the
 server runs, `/analyze` returns a real verdict on a live URL, all three
-modality branches load, all four explanation methods execute, and 571 backend
+modality branches load, all four explanation methods execute, and 582 backend
 tests plus 30 frontend tests pass.
+
+**Read §8b before the presentation.** A 97 %-accuracy BERT baseline would have
+shipped the failure described there silently: on four *verified, live* phishing
+URLs from PhishTank, both our checkpoints return "legitimate" with a confidence
+above 0.999. Finding that is the strongest result in this project.
 
 ---
 
@@ -23,8 +28,11 @@ measure four live signals that do not have trained models behind them — the TL
 certificate, JavaScript behaviour at runtime, page layout geometry, and
 brand-image impersonation — and we train a small graph network over domain
 structure. The system also audits itself: we built an adversarial evaluation
-that deliberately attacks the model, found that a free domain name evaded
-detection 100% of the time, diagnosed why, and fixed it.
+that deliberately attacks the model, found that swapping a phishing host onto a
+free domain name evaded detection 100% of the time, diagnosed the cause to a
+label prior in the dataset, and then went further and checked the model against
+*real, verified* phishing from PhishTank — where it fails completely. Both
+findings are in §8 and §8b.
 
 ---
 
@@ -367,6 +375,102 @@ attacker who finds a pattern outside the augmented set is not covered. The
 free-TLD prior still exists in the data; we compensated for it, we did not
 remove it.
 
+**And it does not generalise to real phishing.** The benchmark above reuses real
+PhiUSIIL phishing URLs and rewrites only the host, so the result stays inside the
+training distribution. Real phishing does not work that way — see §8b, where the
+adversarially-trained model fails on every genuine PhishTank URL tested.
+
+---
+
+## 8b. The most important result — it misses real phishing
+
+The §8 benchmark is a synthetic attack on the benchmark. The honest test is live,
+verified phishing. We tested four confirmed entries from **PhishTank**
+(URL modality only, so this is the strongest branch and not the fusion head):
+
+| URL | Shipped model | Adversarial-trained model |
+| --- | ---: | ---: |
+| `https://centrala-administracja.vercel.app/` | 0.000009 → legitimate | 0.000005 → legitimate |
+| `https://login-outlook365.yzz.me/` | 0.000017 → legitimate | 0.000005 → legitimate |
+| `https://login-outlook365.yzz.me/?i=1` | 0.000016 → legitimate | — |
+| `https://fb-meta-verified-14259.vercel.app/` | 0.000011 → legitimate | 0.000006 → legitimate |
+
+**All four are missed, with high confidence, by both checkpoints.** This is not a
+threshold artefact — the model is not uncertain, it is confidently wrong.
+
+### Root cause, measured directly
+
+Every one of these sits on a free/PAAS hosting platform. PhiUSIIL's label prior
+over those platforms is **0.0 % phishing**:
+
+| Registered domain | Rows in PhiUSIIL | Labelled phishing |
+| --- | ---: | ---: |
+| `web.app` | 5,754 | 0.0 % |
+| `weeblysite.com` | 3,097 | 0.0 % |
+| `workers.dev` | 1,438 | 0.0 % |
+| `glitch.me` | 515 | 0.0 % |
+| `github.io` | 407 | 0.0 % |
+| `netlify.app` | 283 | 0.0 % |
+| `wixsite.com` | 455 | 0.0 % |
+| `blogspot.com` | 253 | 0.0 % |
+| `vercel.app` | 70 | 0.0 % |
+| `pages.dev` | 127 | 0.0 % |
+| `herokuapp.com` | 70 | 0.0 % |
+| `yzz.me` | **absent from the dataset** | — |
+
+That is **~12,600 rows with zero counter-examples.** The model learned
+*"free hosting ⇒ safe"* and is reasoning correctly from what it was taught.
+Modern phishing deploys on exactly these platforms because they are free,
+instant, and anonymous.
+
+The remaining features compound it. Measured against the corpus:
+
+| Feature | These URLs | PhiUSIIL phishing mean | PhiUSIIL legitimate mean |
+| --- | --- | ---: | ---: |
+| `host_entropy` | 3.78 – 4.12 | 3.37 | 3.62 |
+| `url_length` | 32 – 42 | 27.3 | 39.7 |
+| `n_brand_tokens` | 0 – 1 | 0.00 | 0.04 |
+
+Every one of them sits *closer to the legitimate class than to the phishing
+class*. "Brand token in the subdomain" is 5,344 legitimate rows against 653
+phishing rows in PhiUSIIL — an 8:1 signal pointing the wrong way.
+
+### Why adversarial training did not fix it
+
+It could not. Augmenting a corpus that contains **no positive examples** of
+PAAS-hosted phishing cannot teach the model to detect it. The adversarially
+trained model scores these URLs *lower* still (5 × 10⁻⁶), because the same
+12,600 all-legitimate rows dominate its training set.
+
+This is a **dataset bias problem, not a modelling bug.** No architecture, loss
+function, or hyperparameter fixes it.
+
+### What would actually fix it
+
+Out-of-distribution signal from outside the corpus:
+
+1. **Blocklist / reputation check** (PhishTank, URLhaus) — catches these
+   immediately, and is the single highest-value addition.
+2. **Abuse-platform prior** — treat `vercel.app`, `web.app`, `pages.dev`,
+   `workers.dev`, `netlify.app` and similar as elevated-risk by policy rather
+   than by learned prior.
+3. **Passive / historical DNS** — new registrable domains on new infrastructure
+   is the signal, and it also fixes the empty graph in §11.
+4. **Brand-token coverage** — the current brand list does not contain "meta" or
+   "fb", so `fb-meta-verified-14259.vercel.app` scores `n_brand_tokens = 0` and
+   the one signal that should fire never does.
+5. **Fresh, in-distribution training data** — URLhaus 2024/2025 rather than a
+   2022 crawl.
+
+### Presenting this
+
+Do not hide it and do not offer it as a bug someone else introduced. The arc is:
+we built an adversarial evaluation, it found a 100 % evasion on the benchmark,
+we closed that, **and then we checked whether closing it actually mattered** —
+it did not, because the benchmark was measuring the wrong thing. A system that
+reports its own catastrophic real-world failure is more valuable than one that
+reports 99.95 % and stops.
+
 ---
 
 ## 9. Unicode / IDN hardening
@@ -514,6 +618,22 @@ domain so the model cannot memorise domains and score itself. The real-world
 evidence is the adversarial result: 100% evasion before hardening, which shows
 how a single dataset artifact can produce a perfect-looking score.
 
+**"I tried a real phishing URL from PhishTank and your system said it was safe."**
+That is a correct reading of our own evaluation — see §8b. Every verified URL we
+tested on a free-hosting platform is missed with high confidence, by both
+checkpoints, because PhiUSIIL contains ~12,600 free-hosting rows labelled 100 %
+legitimate and zero counter-examples. It is a dataset bias we found, measured,
+and published rather than one we were asked about. The fix is out-of-distribution
+signal — blocklist reputation and abuse-platform priors — which we list as the
+top next step.
+
+**"So does your detector actually work?"**
+On the distribution it was trained on, yes, measurably and with a leak-free split:
+F1 0.9995 on a held-out test split with zero registered-domain overlap. On
+unseen, modern phishing, no — and we can say precisely where the boundary is and
+why. A detector whose failure mode is characterised is more useful than one that
+reports only a headline number.
+
 **"How do you know it isn't leaking?"**
 Splits are grouped by registered domain — 0 domain overlap between train and
 test, asserted in the split tests. We also ran a leakage experiment on PhiUSIIL's
@@ -541,7 +661,7 @@ removed by re-crawling with balanced collection.
 **"What is your GNN actually doing if it has no IP edges?"**
 It is aggregating over shared TLDs, shared subdomains and containment, not
 hosting relationships. It beats a majority baseline (MCC 0.286 vs 0.000) so it
-learnes *something* about name structure, but it is weak and not competitive.
+learns *something* about name structure, but it is weak and not competitive.
 DNS is the next step and the code already accepts it.
 
 **"Are your certificate/JS/layout/logo signals part of the model?"**
@@ -569,11 +689,14 @@ n-gram structure (`.tk`, `-login`, digit runs) is exactly the phishing signal.
 We also cannot fine-tune a large BERT on a CPU-only box in the time available.
 
 **"What would you do next?"**
-In priority order: (1) re-crawl with balanced availability to kill the
-confound; (2) feed DNS into the graph; (3) a labelled crawl to train heads for
-the certificate/JS/layout signals; (4) fix the vision head, which currently
-separates nothing; (5) train on the full 164,760 rows rather than the 40,000
-dev cap.
+In priority order: (1) add blocklist/reputation checking (PhishTank, URLhaus) —
+this alone catches every real phishing URL in §8b; (2) add an abuse-platform
+prior for free-hosting registrable domains; (3) re-crawl with balanced
+availability to kill the multimodal confound; (4) feed DNS into the graph, which
+fixes both the empty graph and the domain-age signal; (5) a labelled crawl to
+train heads for the certificate/JS/layout signals; (6) fix the vision head,
+which currently separates nothing; (7) train on the full 164,760 rows rather
+than the 40,000 dev cap.
 
 ---
 
@@ -593,7 +716,7 @@ npm run dev
 Verify before you demo:
 
 ```powershell
-# backend  -> expect: 571 passed
+# backend  -> expect: 582 passed
 .\.venv\Scripts\python.exe -X utf8 -m pytest tests -q
 # frontend -> expect: 30 passed
 npm test ; npm run typecheck
@@ -601,15 +724,25 @@ npm test ; npm run typecheck
 
 **Demo order that works best:**
 
-1. Analyse a live phishing-looking URL with all modalities — show the verdict,
-   the per-modality scores, the four explanation panels, the leave-one-out
-   ablation, and the three signal groups.
+1. Analyse a live URL with all modalities — show the verdict, the per-modality
+   scores, the four explanation panels, the leave-one-out ablation, and the three
+   signal groups.
 2. Mention the availability confound *immediately* after showing fusion.
-3. Finish on the adversarial arc: 100% evasion found → diagnosed to a free-TLD
-   label prior → closed with adversarial training, 0.000 on all eleven families.
+3. Finish on the adversarial arc: 100 % evasion found → diagnosed to a free-TLD
+   label prior → closed with adversarial training, 0.000 on all eleven families
+   on the benchmark.
+4. **Then close with §8b**: we checked the fix against real PhishTank URLs and it
+   still fails completely, because the benchmark was measuring the wrong thing.
+   That is the strongest thing in the project, so it is the last thing they hear.
 
 **Demo risks, stated plainly:**
 
+- **Do not improvise a phishing URL.** If you type something like
+  `secure-login-verify.apple-id.account-check.top`, the model will answer
+  "legitimate" — see §8b. Use the "try:" chips in the dashboard, which are
+  held-out PhiUSIIL URLs verified against the shipped checkpoint (3 legitimate,
+  4 phishing). If someone else at the defence improvises one, use it: that is the
+  §8b demonstration happening live, and the honest answer is in §8b.
 - Typing a **legitimate** site shows HTML and vision scoring ~0.94. Expected.
   Frame it as the recall-heavy branches, and point at the URL branch and the
   fused verdict being correct.
@@ -618,3 +751,6 @@ npm test ; npm run typecheck
   an uncalibrated sigmoid as a frequency.
 - `--include_signals` is off by default in the API (it opens a socket and a
   browser). The dashboard turns it on.
+- The **Deployment notes panel was removed from the UI**; both deployment facts
+  (no authentication, calibration inactive) are still returned by `GET /health`
+  and documented in `docs/security.md`. If asked, quote the endpoint.

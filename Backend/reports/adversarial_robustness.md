@@ -13,32 +13,32 @@ not a security failure.
 ## Clean baseline
 
 - n = 1000 (500 phishing / 500 legitimate)
-- F1 0.999001  precision 0.998004  recall 1.0
+- F1 0.998004  precision 0.996016  recall 1.0
 - calibration applied: False
 
 ## Results by attack family
 
 | Attack | Description | Flip rate | Evasion (phish) | False alarm (legit) | F1 after | F1 drop |
 |---|---|---|---|---|---|---|
-| `homoglyph` | Cyrillic look-alike swapped into the host | 0.000 | **0.000** | 0.000 | 0.9990 | 0.0000 |
-| `fullwidth` | Fullwidth Unicode character in the host | 0.000 | **0.000** | 0.000 | 0.9990 | 0.0000 |
-| `zero_width` | Zero-width separator inside the host | 0.000 | **0.000** | 0.000 | 0.9990 | 0.0000 |
-| `scheme_upper` | Uppercased URL scheme | 0.000 | **0.000** | 0.000 | 0.9990 | 0.0000 |
-| `trailing_dot` | Fully-qualified trailing dot on the host | 0.000 | **0.000** | 0.000 | 0.9990 | 0.0000 |
-| `brand_swap` | Host replaced with a high-value brand | 0.029 | **0.000** | 0.058 | 0.9709 | 0.0281 |
-| `subdomain_prepend` | Brand kept as a subdomain of an attacker domain | 0.001 | **0.000** | 0.002 | 0.9980 | 0.0010 |
-| `typosquat` | Transposed or dropped character in the host label | 0.000 | **0.000** | 0.000 | 0.9990 | 0.0000 |
-| `path_shuffle` | Sensitive path segment moved into the query | 0.000 | **0.000** | 0.000 | 0.9990 | 0.0000 |
-| `double_encode` | Extra layer of percent-encoding | 0.000 | **0.000** | 0.000 | 0.9990 | 0.0000 |
-| `repeat_pad` | Repeated characters padded onto the host | 0.000 | **0.000** | 0.000 | 0.9990 | 0.0000 |
+| `homoglyph` | Cyrillic look-alike swapped into the host | 0.000 | **0.000** | 0.000 | 0.9980 | 0.0000 |
+| `fullwidth` | Fullwidth Unicode character in the host | 0.000 | **0.000** | 0.000 | 0.9980 | 0.0000 |
+| `zero_width` | Zero-width separator inside the host | 0.000 | **0.000** | 0.000 | 0.9980 | 0.0000 |
+| `scheme_upper` | Uppercased URL scheme | 0.000 | **0.000** | 0.000 | 0.9980 | 0.0000 |
+| `trailing_dot` | Fully-qualified trailing dot on the host | 0.003 | **0.000** | 0.006 | 0.9950 | 0.0030 |
+| `brand_swap` | Host replaced with a high-value brand | 0.502 | **1.000** | 0.004 | 0.0000 | 0.9980 |
+| `subdomain_prepend` | Brand kept as a subdomain of an attacker domain | 0.152 | **0.302** | 0.002 | 0.8212 | 0.1768 |
+| `typosquat` | Transposed or dropped character in the host label | 0.001 | **0.000** | 0.002 | 0.9970 | 0.0010 |
+| `path_shuffle` | Sensitive path segment moved into the query | 0.000 | **0.000** | 0.000 | 0.9980 | 0.0000 |
+| `double_encode` | Extra layer of percent-encoding | 0.001 | **0.000** | 0.002 | 0.9990 | -0.0010 |
+| `repeat_pad` | Repeated characters padded onto the host | 0.021 | **0.040** | 0.002 | 0.9786 | 0.0194 |
 
 ## Summary
 
-- Mean flip rate, normalisation-handled families: **0.0**
-- Mean flip rate, semantic attacks: **0.005**
-- Worst evasion family: `homoglyph` at 0.0
-- Worst post-attack F1: `brand_swap` at 0.970874
-- Largest F1 drop from any single attack: 0.028127
+- Mean flip rate, normalisation-handled families: **0.0006**
+- Mean flip rate, semantic attacks: **0.1128**
+- Worst evasion family: `brand_swap` at 1.0
+- Worst post-attack F1: `brand_swap` at 0.0
+- Largest F1 drop from any single attack: 0.998004
 
 ## Why `brand_swap` and `subdomain_prepend` work
 

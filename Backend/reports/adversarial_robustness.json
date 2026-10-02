@@ -1,5 +1,6 @@
 {
   "seed": 42,
+  "checkpoint": "url_model.pt",
   "threshold": 0.5,
   "n_urls": 1000,
   "n_phishing": 500,

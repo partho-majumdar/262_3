@@ -650,7 +650,10 @@ def main(argv: list[str] | None = None) -> int:
 
     report = run(cfg, paths, args.seed, args.per_class, args.ckpt)
     out.write_text(json.dumps(report, indent=2, default=str), encoding="utf-8")
-    (out.parent / "adversarial_robustness.md").write_text(render_markdown(report), encoding="utf-8")
+    # Derive the markdown name from --out. Hardcoding it here meant a second
+    # run (e.g. against the adversarially-trained checkpoint) silently
+    # overwrote the first run's markdown while leaving its JSON intact.
+    out.with_suffix(".md").write_text(render_markdown(report), encoding="utf-8")
 
     print(json.dumps({
         "baseline_f1": report["baseline"]["f1"],

@@ -207,7 +207,7 @@ will trust nothing else in the deck; one who is shown it will trust the rest.
 
 ---
 
-## 6. The total failure mode — found, diagnosed, and fixed
+## 6. The adversarial failure mode — found, diagnosed, and closed *on the benchmark*
 
 This is the strongest result in the project, and it is a full before/after.
 
@@ -271,6 +271,38 @@ Two things follow, and both are worth saying out loud:
    construction." The free-TLD prior in the training data still exists; we
    compensated for it, we did not remove it.
 
+### 6b. The closing arc does not generalise — and that is the best result
+
+We checked whether closing the benchmark gap actually mattered, by testing four
+**verified, live** phishing URLs from PhishTank. **Both checkpoints miss all
+four, with high confidence:**
+
+| URL | Shipped | Adversarial-trained |
+|---|---:|---:|
+| `https://centrala-administracja.vercel.app/` | 0.000009 | 0.000005 |
+| `https://login-outlook365.yzz.me/` | 0.000017 | 0.000005 |
+| `https://login-outlook365.yzz.me/?i=1` | 0.000016 | — |
+| `https://fb-meta-verified-14259.vercel.app/` | 0.000011 | 0.000006 |
+
+Every one sits on a free/PAAS host, and PhiUSIIL labels **~12,600 such rows
+100 % legitimate** (`web.app` 5,754 · `weeblysite.com` 3,097 · `workers.dev`
+1,438 · `vercel.app` 70 · `pages.dev` 127 · `yzz.me` absent entirely). The model
+learned *"free hosting ⇒ safe"* from zero counter-examples and is reasoning
+correctly from what it was taught.
+
+**This is a dataset bias, not a modelling bug.** Adversarial training could not
+fix it: you cannot learn to detect a class for which the corpus has no positive
+examples. The augmented model scores these URLs *lower* still, because the same
+all-legitimate rows dominate its training set.
+
+The benchmark attack rewrote the host of a real PhiUSIIL phishing URL, so the
+result stayed inside the training distribution. Real phishing does not work that
+way. **The fix is out-of-distribution signal** — blocklist reputation
+(PhishTank/URLhaus), an abuse-platform prior for free-hosting registrable
+domains, passive DNS for domain age, and brand-token coverage that includes
+"meta"/"fb" (currently `fb-meta-verified-14259.vercel.app` scores
+`n_brand_tokens = 0`, so the one signal that should fire never does).
+
 **One caveat about the artifact:** `reports/metrics_url_adv.json` was written by
 the run that produced this checkpoint, and at that time the metrics writer did
 not yet record `adversarial_augment_ratio`, so the file alone does not say the
@@ -288,11 +320,14 @@ unambiguous.
    understood as a benchmark number.
 3. When showing the fusion result, show the availability confound immediately
    after. Volunteering the weakest point is what makes the rest credible.
-4. Close on the `brand_swap` arc: we measured a 100% evasion, diagnosed it to a
-   free-TLD label prior in PhiUSIIL, and closed it with adversarial training.
-   A found-then-fixed failure with a measured cause is worth more than the
-   headline accuracy, and it is the part most likely to score well under
-   questioning.
+4. Close on the full adversarial arc: we measured a 100% evasion on the
+   benchmark, diagnosed it to a free-TLD label prior in PhiUSIIL, and closed it
+   with adversarial training (0.000 evasion on all eleven families). **Then
+   immediately show that the fix does not generalise** — four verified PhishTank
+   URLs are still missed, because the benchmark was measuring the wrong thing.
+   A system that reports its own catastrophic real-world failure, with the
+   measured cause and the concrete fix, is worth more than a headline accuracy,
+   and it is the part most likely to score well under questioning.
 5. Keep the honesty boundaries intact: the GNN beats a constant baseline but is
    weak and has zero DNS edges; the certificate / JS / layout / logo signals are
    observed but not scored; continual learning improved adaptation but did not
