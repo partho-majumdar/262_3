@@ -1,11 +1,3 @@
-# ---------------------------------------------------------------------------
-# Raw and derived data: never committed (datasets, collected HTML, screenshots)
-# ---------------------------------------------------------------------------
-# The real PhiUSIIL file lives at the project root (Dataset/) rather than under
-# backend/data, so it needs its own rule. 54 MB, third-party redistribution terms.
-Dataset/*.csv
-Dataset/*.zip
-Dataset/*.parquet
 
 backend/data/*
 !backend/data/.gitkeep
