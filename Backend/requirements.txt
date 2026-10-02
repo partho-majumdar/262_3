@@ -1,0 +1,58 @@
+# ---------------------------------------------------------------------------
+# Runtime + training dependencies for the multimodal phishing URL detector.
+# Every pin below is verified installable on this machine (Python 3.10.11,
+# Windows 11 x64, CPU-only PyTorch). See reports/environment_summary.md.
+# ---------------------------------------------------------------------------
+
+# --- Core numerics / data -------------------------------------------------
+numpy==1.26.4                # pinned: last 1.x line fully compatible with torch 2.1.0+cpu; used by preprocessing, metrics and XAI
+pandas==2.3.3                # dataset loading, manifest IO, grouped-split bookkeeping
+scipy==1.15.3                 # statistical helpers for bootstrap confidence intervals
+scikit-learn==1.7.2           # calibration primitives (isotonic/Platt), metrics, stratification helpers
+PyYAML==6.0.3                 # config files for every training script
+tqdm==4.70.1                  # progress bars for long training / collection runs
+joblib==1.6.0                 # checkpoint (de)serialisation of sklearn calibrators
+
+# --- Deep learning --------------------------------------------------------
+torch==2.1.0+cpu             # pinned CPU build: this host has no CUDA-enabled wheel for torch (see environment report)
+torchvision==0.16.0+cpu       # ResNet18 / MobileNetV3 pretrained weights + image transforms for the vision model
+captum==0.7.0                 # Integrated Gradients attribution for the URL and HTML models (real XAI, not templated)
+
+# --- Parsing (static only, never executes JS) ----------------------------
+beautifulsoup4==4.12.3        # safe static HTML parsing for the HTML encoder
+lxml==5.3.0                   # fast HTML tree builder backend for BeautifulSoup
+html5lib==1.1                 # spec-compliant fallback parser for malformed phishing markup
+
+# --- Web backend ----------------------------------------------------------
+fastapi==0.115.6              # REST API + SSE progress endpoint
+uvicorn[standard]==0.32.1     # ASGI server
+pydantic==2.13.5              # request/response schemas (matches the version already resolved on this host)
+pydantic-settings==2.7.0      # typed .env configuration
+SQLAlchemy==2.0.36            # ORM for the SQLite analysis-history store
+aiosqlite==0.20.0             # async SQLite driver used by FastAPI's async endpoints
+sse-starlette==2.2.1          # server-sent events for the live progress stepper
+python-multipart==0.0.20      # multipart handling required by FastAPI file/form routes
+
+# --- Secure fetching (P3) -------------------------------------------------
+httpx==0.27.2                 # HTTP client supporting IP-pinned connections + streaming size caps (SSRF defence)
+dnspython==2.7.0              # explicit DNS resolution so every resolved A/AAAA record can be validated
+tldextract==5.1.1             # registered-domain extraction for the grouped split (needs PSL snapshot)
+certifi==2026.7.22            # CA bundle for TLS verification when fetching remote pages
+slowapi==0.1.9                # rate limiting for POST /api/analyze
+
+# --- Screenshots (P3, must run inside the sandbox) -----------------------
+playwright==1.49.0            # headless Chromium driver for screenshot capture in the isolated service
+
+# --- Logging / utilities --------------------------------------------------
+structlog==24.4.0             # structured JSON logs (analysis_id, stage, duration, status, error)
+python-dotenv==1.0.1          # .env loading for local development
+
+# --- Testing --------------------------------------------------------------
+pytest==8.3.4                 # backend test runner
+pytest-asyncio==0.25.0        # async FastAPI / HTTPX test support
+pytest-cov==6.0.0             # coverage reporting for the security and model test suites
+
+# --- Notebooks (optional) -------------------------------------------------
+# Only needed for notebooks/*.ipynb. The pipeline itself does not import these,
+# so they are kept out of the main install path. Install with:
+#   pip install -r requirements-notebooks.txt

@@ -1,0 +1,934 @@
+{
+  "provenance": {
+    "csv_path": "E:\\UIU\\TRIMESTER - 11\\Computer Security\\CS_Project\\Dataset\\Phishing_URL_Dataset.csv",
+    "size_bytes": 54160642,
+    "sha256": "748ae7c7a677ac4ffc0eeefbee653dcef1d685b134ad2f5376596b92d79438ba",
+    "inspected_at_utc": "2026-10-01T06:55:19.734964+00:00"
+  },
+  "shape": {
+    "n_rows": 235795,
+    "n_columns": 55
+  },
+  "detection": {
+    "url": {
+      "strategy": "name_match",
+      "url_parse_rate": 1.0
+    },
+    "label": {
+      "strategy": "name_match",
+      "n_distinct": 2,
+      "value_mapping": {
+        "1": "phishing",
+        "0": "legitimate"
+      },
+      "phishing_value": "1",
+      "counts": {
+        "1": 134850,
+        "0": 100945
+      }
+    }
+  },
+  "label_values": {
+    "1": 134850,
+    "0": 100945
+  },
+  "label_mapping": {
+    "1": "phishing",
+    "0": "legitimate"
+  },
+  "phishing_class_value": "1",
+  "duplicates": {
+    "unique_urls": 235370,
+    "duplicate_url_rows": 425,
+    "duplicate_full_rows": 0,
+    "malformed_urls": 0
+  },
+  "url_length_stats": {
+    "min": 14.0,
+    "p50": 28.0,
+    "p90": 50.0,
+    "p95": 74.0,
+    "p99": 145.0,
+    "max": 6097.0,
+    "mean": 35.34
+  },
+  "domain_grouping": {
+    "registered_domains": 175510,
+    "domains_with_both_labels": 120,
+    "top_domains": [
+      [
+        "web.app",
+        5754
+      ],
+      [
+        "firebaseapp.com",
+        5594
+      ],
+      [
+        "repl.co",
+        3754
+      ],
+      [
+        "weeblysite.com",
+        3097
+      ],
+      [
+        "ipfs.io",
+        1559
+      ],
+      [
+        "workers.dev",
+        1438
+      ],
+      [
+        "square.site",
+        1199
+      ],
+      [
+        "dweb.link",
+        975
+      ],
+      [
+        "xsph.ru",
+        928
+      ],
+      [
+        "pantheonsite.io",
+        900
+      ],
+      [
+        "google.com",
+        782
+      ],
+      [
+        "godaddysites.com",
+        781
+      ],
+      [
+        "duckdns.org",
+        643
+      ],
+      [
+        "webwave.dev",
+        567
+      ],
+      [
+        "weebly.com",
+        555
+      ],
+      [
+        "glitch.me",
+        515
+      ],
+      [
+        "cf-ipfs.com",
+        494
+      ],
+      [
+        "fleek.co",
+        471
+      ],
+      [
+        "wixsite.com",
+        455
+      ],
+      [
+        "tw1.ru",
+        429
+      ],
+      [
+        "github.io",
+        407
+      ],
+      [
+        "deliverylifesupport.com",
+        393
+      ],
+      [
+        "cloudflare-ipfs.com",
+        360
+      ],
+      [
+        "windows.net",
+        359
+      ],
+      [
+        "amazonaws.com",
+        318
+      ]
+    ]
+  },
+  "columns": [
+    {
+      "name": "URL",
+      "dtype": "object",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 235493,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "https://www.southbankmosaics.com",
+        "https://www.uni-mainz.de",
+        "https://www.voicefmradio.co.uk"
+      ],
+      "role": "url"
+    },
+    {
+      "name": "URLLength",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 764,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "31",
+        "23",
+        "29"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "Domain",
+      "dtype": "object",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 221873,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "www.southbankmosaics.com",
+        "www.uni-mainz.de",
+        "www.voicefmradio.co.uk"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "DomainLength",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 190,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "24",
+        "16",
+        "22"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "IsDomainIP",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "TLD",
+      "dtype": "object",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 1096,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "com",
+        "de",
+        "uk"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "URLSimilarityIndex",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 42140,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "100",
+        "100",
+        "100"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "CharContinuationRate",
+      "dtype": "float64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 1424,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "1",
+        "0.666666667",
+        "0.866666667"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "TLDLegitimateProb",
+      "dtype": "float64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 816,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0.5229071",
+        "0.0326503",
+        "0.028555"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "URLCharProb",
+      "dtype": "float64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 229563,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0.061933179",
+        "0.050207214",
+        "0.06412872"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "TLDLength",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 21,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "3",
+        "2",
+        "2"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfSubDomain",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 19,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "1",
+        "1",
+        "2"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "HasObfuscation",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfObfuscatedChar",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 28,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "ObfuscationRatio",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 193,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfLettersInURL",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 656,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "18",
+        "9",
+        "15"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "LetterRatioInURL",
+      "dtype": "float64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 1289,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0.581",
+        "0.391",
+        "0.517"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfDegitsInURL",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 292,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "DegitRatioInURL",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 1022,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfEqualsInURL",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 41,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfQMarkInURL",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 9,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfAmpersandInURL",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 47,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfOtherSpecialCharsInURL",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 124,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "1",
+        "2",
+        "2"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "SpacialCharRatioInURL",
+      "dtype": "float64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 435,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0.032",
+        "0.087",
+        "0.069"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "IsHTTPS",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "1",
+        "1",
+        "1"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "LineOfCode",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 15410,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "558",
+        "618",
+        "467"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "LargestLineLength",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 33869,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "9381",
+        "9381",
+        "682"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "HasTitle",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "1",
+        "1",
+        "1"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "Title",
+      "dtype": "object",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 199033,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "\u00e0\u00b8\u201a\u00e0\u00b9\u02c6\u00e0\u00b8\u00b2\u00e0\u00b8\u00a7\u00e0\u00b8\u00aa\u00e0\u00b8\u201d \u00e0\u00b8\u201a\u00e0\u00b9\u02c6\u00e0\u00b8\u00b2\u00e0\u00b8\u00a7\u00e0\u00b8\u00a7\u00e0\u00b8\u00b1\u00e0\u00b8\u2122\u00e0\u00b8\u2122\u00e0\u00b8\u00b5\u00e0\u00b9\u2030 \u00e0\u00b8\u201a\u00e0\u00b9\u02c6\u00e0\u00b8\u00b2\u00e0\u00b8\u00a7\u00e0\u00b8\u0081\u00e0\u00b8\u00b5\u00e0\u00b8\u00ac\u00e0\u00b8\u00b2 \u00e0\u00b8\u201a\u00e0\u00b9\u02c6\u00e0\u00b8\u00b2\u00e0\u00b8\u00a7\u00e0\u00b8\u0161\u00e0\u00b8\u00b1\u00e0\u00b8\u2122\u00e0\u00b9\u20ac\u00e0\u00b8\u2014\u00e0\u00b8\u00b4\u00e0\u00b8\u2021 \u00e0\u00b8\u00ad\u00e0\u00b8\u00b1\u00e0\u00b8\u017e\u00e0\u00b9\u20ac\u00e0\u00b8\u201d\u00e0\u00b8\u2014\u00e0\u00b8\u00aa\u00e0\u00b8\u201d\u00e0\u00b9\u0192\u00e0\u00b8\u00ab\u00e0\u00b8\u00a1\u00e0\u00b9\u02c6\u00e0\u00b8\u2014\u00e0\u00b8\u00b8\u00e0\u00b8\u0081\u00e0\u00b8\u00a7\u00e0\u00b8\u00b1\u00e0\u00b8\u2122 &#8211; \u00e0\u00b8\u201a\u00e0\u00b9\u02c6\u00e0\u00b8\u00b2\u00e0\u00b8\u00a7\u00e0\u00b8\u00aa\u00e0\u00b8\u201d \u00e0\u00b8\u201a\u00e0\u00b9\u02c6\u00e0\u00b8\u00b2\u00e0\u00b8\u00a7\u00e0\u00b8\u0081\u00e0\u00b8\u00b5\u00e0\u00b8\u00ac\u00e0\u00b8\u00b2 \u00e0\u00b8\u201a\u00e0\u00b9\u02c6\u00e0\u00b8\u00b2\u00e0\u00b8\u00a7\u00e0\u00b8\u0161\u00e0\u00b8\u00b1\u00e0\u00b8\u2122\u00e0\u00b9\u20ac\u00e0\u00b8\u2014\u00e0\u00b8\u00b4\u00e0\u00b8\u2021 \u00e0\u00b8\u201a\u00e0\u00b9\u02c6\u00e0\u00b8\u00b2\u00e0\u00b8\u00a7\u00e0\u00b8\u00a7\u00e0\u00b8\u00b1\u00e0\u00b8\u2122\u00e0\u00b8\u2122\u00e0\u00b8\u00b5\u00e0\u00b9\u2030 \u00e0\u00b8\u00ad\u00e0\u00b8\u00b1\u00e0\u00b8\u203a\u00e0\u00b9\u20ac\u00e0\u00b8\u201d\u00e0\u00b8\u2022\u00e0\u00b8\u201a\u00e0\u00b9\u02c6\u00e0\u00b8\u00b2\u00e0\u00b8\u00a7\u00e0\u00b8\u00aa\u00e0\u00b8\u00b2\u00e0\u00b8\u00a3\u00e0\u00b8\u00a3\u00e0\u00b8\u00a7\u00e0\u00b8\u201d\u00e0\u00b9\u20ac\u00e0\u00b8\u00a3\u00e0\u00b9\u2021\u00e0\u00b8\u00a7\u00e0\u00b8\u2014\u00e0\u00b8\u00b1\u00e0\u00b8\u2122\u00e0\u00b9\u0192\u00e0\u00b8\u02c6 \u00e0\u00b8\u017e\u00e0\u00b8\u00a3\u00e0\u00b9\u2030\u00e0\u00b8\u00ad\u00e0\u00b8\u00a1\u00e0\u00b8\u00a3\u00e0\u00b8\u00b1\u00e0\u00b8\u0161\u00e0\u00b8\u0160\u00e0\u00b8\u00a1\u00e0\u00b8\u00aa\u00e0\u00b8\u00b2\u00e0\u00b8\u00a3\u00e0\u00b8\u00b0\u00e0\u00b8\u2122\u00e0\u00b9\u02c6\u00e0\u00b8\u00b2\u00e0\u00b8\u00a3\u00e0\u00b8\u00b9\u00e0\u00b9\u2030\u00e0\u00b8\u2022\u00e0\u00b9\u02c6\u00e0\u00b8\u00b2\u00e0\u00b8\u2021\u00e0\u00b9\u2020 \u00e0\u00b9\u201e\u00e0\u00b8\u201d\u00e0\u00b9\u2030\u00e0\u00b8\u0178\u00e0\u00b8\u00a3\u00e0\u00b8\u00b5\u00e0\u00b8\u2022\u00e0\u00b8\u00a5\u00e0\u00b8\u00ad\u00e0\u00b8\u201d 24\u00e0\u00b8\u0160\u00e0\u00b8\u00b1\u00e0\u00b9\u02c6\u00e0\u00b8\u00a7\u00e0\u00b9\u201a\u00e0\u00b8\u00a1\u00e0\u00b8\u2021",
+        "johannes gutenberg-universit\u00c3\u00a4t mainz",
+        "voice fm southampton"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "DomainTitleMatchScore",
+      "dtype": "float64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 257,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "55.55555556",
+        "46.66666667"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "URLTitleMatchScore",
+      "dtype": "float64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 721,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "55.55555556",
+        "46.66666667"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "HasFavicon",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "1",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "Robots",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "1",
+        "1",
+        "1"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "IsResponsive",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "1",
+        "0",
+        "1"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfURLRedirect",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfSelfRedirect",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "HasDescription",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "1"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfPopup",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 165,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfiFrame",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 174,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "1",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "HasExternalFormSubmit",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "HasSocialNet",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "1",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "HasSubmitButton",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "1",
+        "1",
+        "1"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "HasHiddenFields",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "1",
+        "0",
+        "1"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "HasPasswordField",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "Bank",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "1",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "Pay",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "Crypto",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "HasCopyrightInfo",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "1",
+        "1",
+        "1"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfImage",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 1420,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "34",
+        "50",
+        "10"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfCSS",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 331,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "20",
+        "9",
+        "2"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfJS",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 391,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "28",
+        "8",
+        "7"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfSelfRef",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 2059,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "119",
+        "39",
+        "42"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfEmptyRef",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 429,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "0",
+        "0",
+        "2"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "NoOfExternalRef",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 1790,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "124",
+        "217",
+        "5"
+      ],
+      "role": "engineered"
+    },
+    {
+      "name": "label",
+      "dtype": "int64",
+      "n_rows_seen": 235795,
+      "n_missing": 0,
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "sample_values": [
+        "1",
+        "1",
+        "1"
+      ],
+      "role": "label"
+    }
+  ],
+  "errors": []
+}

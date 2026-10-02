@@ -1,0 +1,138 @@
+﻿# ===========================================================================
+# dev profile - small capacity, CPU friendly.
+#
+# SAME ARCHITECTURE as full.yaml. Only capacity / budget knobs differ, so a
+# dev run is a valid (if noisier) preview of the full run and the two are
+# directly comparable. Never compare a dev metric against a full metric
+# without saying which profile produced it.
+# ===========================================================================
+profile: dev
+
+paths:
+  dataset_csv: ../Dataset/Phishing_URL_Dataset.csv  # real PhiUSIIL file (54,160,642 bytes / 235,795 rows)
+  splits_dir: data/splits               # produced by training/make_splits.py
+  manifest: data/manifest.csv           # produced by the P3 collector
+  checkpoints_dir: checkpoints
+  reports_dir: reports
+
+runtime:
+  seed: 42
+  device: auto                         # resolves to cpu on this host
+  num_workers: 0                       # CPU-only box: workers add contention, not throughput
+  deterministic: true
+
+split:
+  grouping: registered_domain
+  train: 0.70
+  val: 0.15
+  test: 0.15
+
+url_model:
+  enabled: true
+  char_vocab_size: 128                 # printable ASCII + UNK + PAD
+  max_length: 256                      # re-derived from the dataset p99 in P2
+  embedding_dim: 64
+  cnn_channels: 48
+  cnn_kernel_sizes: [3, 5, 7]
+  lstm_hidden: 48
+  lstm_layers: 1
+  bidirectional: true
+  embedding_out: 128
+  dropout: 0.35
+  handcrafted_branch: true             # documented, ablated separately
+  epochs: 5
+  batch_size: 32
+  lr: 0.001
+  weight_decay: 0.0001
+  early_stopping_patience: 2
+  max_train_rows: 40000                # subsample for fast iteration; full.yaml removes this cap
+  class_weighting: weighted            # weighted | focal
+  focal_gamma: 2.0                     # only used if class_weighting == focal
+  leakage_experiment: true             # P2: train the engineered-column variant and report it separately
+
+html_model:
+  enabled: true
+  vocab_size: 4096
+  max_tokens: 512
+  text_token_budget: 128               # capped visible-text snippet
+  embedding_dim: 128
+  transformer_layers: 2
+  transformer_heads: 4
+  transformer_ff: 256
+  embedding_out: 128
+  dropout: 0.2
+  epochs: 5
+  batch_size: 16
+  lr: 0.0008
+  weight_decay: 0.0001
+  early_stopping_patience: 2
+  max_train_rows: 8000
+
+vision_model:
+  enabled: true
+  backbone: resnet18                   # dev; full.yaml uses deit_tiny
+  pretrained: true
+  image_size: 224
+  embedding_out: 128
+  dropout: 0.2
+  epochs: 3
+  batch_size: 16
+  lr: 0.0003
+  backbone_lr_multiplier: 0.1
+  weight_decay: 0.0001
+  early_stopping_patience: 1
+  max_train_rows: 2000
+  augment:
+    random_resized_crop: 224
+    horizontal_flip: 0.0               # screenshots are not mirrorable without lying about the text
+    color_jitter: 0.2
+    random_grayscale: 0.1
+  xai: grad_cam                        # dev; full.yaml uses attention_rollout
+
+fusion:
+  enabled: true
+  shared_dim: 128
+  hidden_dims: [128, 64]
+  dropout: 0.2
+  epochs: 8
+  batch_size: 64
+  lr: 0.001
+  weight_decay: 0.0001
+  early_stopping_patience: 3
+  modality_dropout: 0.3                # per-modality independent dropout
+  auxiliary_unimodal_loss_weight: 0.2
+  min_available_modalities: 2          # fusion trains only on samples with >= 2 modalities
+  baselines:
+    - concatenation_mlp
+    - probability_average
+    - weighted_average
+  calibration:
+    method: temperature                 # temperature | platt | isotonic
+    compare: [temperature, platt, isotonic]
+    fit_on: val
+
+xai:
+  url_method: integrated_gradients
+  html_method: integrated_gradients
+  vision_method: auto                  # resolves to the vision backbone's native method
+  ig_steps: 32
+  fusion_method: alpha_weights_and_lomo
+
+collection:
+  concurrency: 8
+  screenshot_concurrency: 3             # each capture launches its own browser
+  delay_seconds: 1.0
+  request_timeout: 10
+  connect_timeout: 5
+  max_response_size_mb: 5
+  max_redirects: 5
+  max_per_domain: 1
+  respect_robots: true
+  user_agent: "MMRESearchBot/1.0 (+academic research; contact: set-your-email@example.com)"
+
+evaluation:
+  bootstrap_samples: 200
+  bootstrap_confidence: 0.95
+  recall_at_fpr_points: [0.01, 0.05, 0.10]
+  primary_metric: phishing_recall      # recall on the phishing class is the headline number
+

@@ -1,0 +1,85 @@
+# ---------------------------------------------------------------------------
+# Raw and derived data: never committed (datasets, collected HTML, screenshots)
+# ---------------------------------------------------------------------------
+# The real PhiUSIIL file lives at the project root (Dataset/) rather than under
+# backend/data, so it needs its own rule. 54 MB, third-party redistribution terms.
+Dataset/*.csv
+Dataset/*.zip
+Dataset/*.parquet
+
+backend/data/*
+!backend/data/.gitkeep
+backend/.venv/
+backend/data/**/*.html
+backend/data/**/*.png
+backend/data/**/*.jpg
+backend/data/raw/
+backend/data/collected/
+
+# Collected multimodal manifest itself is derived-from-sources metadata and is
+# small, but it contains live URLs -> keep it local too, ship only the report.
+backend/data/manifest.csv
+backend/data/splits/
+
+# ---------------------------------------------------------------------------
+# Trained weights: reproducible from training/, large, and license-restricted
+# for the pretrained backbones.
+# ---------------------------------------------------------------------------
+backend/checkpoints/*
+!backend/checkpoints/.gitkeep
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+# ---------------------------------------------------------------------------
+# Secrets / local config
+# ---------------------------------------------------------------------------
+backend/.env
+.env
+.env.local
+*.pem
+*.key
+!.env.example
+
+# ---------------------------------------------------------------------------
+# Generated reports: every number in docs must be traceable to one of these.
+# Reports are committed deliberately at the end of each phase.
+# ---------------------------------------------------------------------------
+# backend/reports/ is intentionally NOT ignored - it is the research record.
+
+# ---------------------------------------------------------------------------
+# Logs
+# ---------------------------------------------------------------------------
+backend/logs/*
+!backend/logs/.gitkeep
+*.log
+
+# ---------------------------------------------------------------------------
+# Frontend
+# ---------------------------------------------------------------------------
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/coverage/
+frontend/playwright-report/
+frontend/test-results/
+
+# ---------------------------------------------------------------------------
+# Tooling / OS
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage.xml
+.venv/
+Thumbs.db
+.DS_Store
+desktop.ini
+.gitigonore

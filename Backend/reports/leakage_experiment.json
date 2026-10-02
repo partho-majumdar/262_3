@@ -1,0 +1,440 @@
+{
+  "experiment": "PhiUSIIL page-derived engineered columns vs URL string only",
+  "generated_at_utc": "2026-10-01T08:46:44.074270+00:00",
+  "seed": 42,
+  "epochs": 5,
+  "note": "This is a LEAKAGE EXPERIMENT. The engineered columns are computed by fetching the page, so they are unavailable to a system that receives only a URL string. Metrics here must not be quoted as achievable system performance; they quantify what collection-time information is worth.",
+  "dataset": {
+    "csv": "E:\\UIU\\TRIMESTER - 11\\Computer Security\\CS_Project\\Dataset\\Phishing_URL_Dataset.csv",
+    "splits_dir": "E:\\UIU\\TRIMESTER - 11\\Computer Security\\CS_Project\\Backend\\data\\splits",
+    "n_engineered_columns": 31,
+    "engineered_column_names": [
+      "URLSimilarityIndex",
+      "TLDLegitimateProb",
+      "LineOfCode",
+      "LargestLineLength",
+      "HasTitle",
+      "Title",
+      "DomainTitleMatchScore",
+      "URLTitleMatchScore",
+      "HasFavicon",
+      "Robots",
+      "IsResponsive",
+      "NoOfURLRedirect",
+      "NoOfSelfRedirect",
+      "HasDescription",
+      "NoOfPopup",
+      "NoOfiFrame",
+      "HasExternalFormSubmit",
+      "HasSocialNet",
+      "HasSubmitButton",
+      "HasHiddenFields",
+      "HasPasswordField",
+      "Bank",
+      "Pay",
+      "Crypto",
+      "HasCopyrightInfo",
+      "NoOfImage",
+      "NoOfCSS",
+      "NoOfJS",
+      "NoOfSelfRef",
+      "NoOfEmptyRef",
+      "NoOfExternalRef"
+    ],
+    "url_derived_columns_excluded": [
+      "CharContinuationRate",
+      "DegitRatioInURL",
+      "Domain",
+      "DomainLength",
+      "HasObfuscation",
+      "IsDomainIP",
+      "IsHTTPS",
+      "LetterRatioInURL",
+      "NoOfAmpersandInURL",
+      "NoOfDegitsInURL",
+      "NoOfEqualsInURL",
+      "NoOfLettersInURL",
+      "NoOfObfuscatedChar",
+      "NoOfOtherSpecialCharsInURL",
+      "NoOfQMarkInURL",
+      "NoOfSubDomain",
+      "ObfuscationRatio",
+      "SpacialCharRatioInURL",
+      "TLD",
+      "TLDLength",
+      "URL",
+      "URLCharProb",
+      "URLLength"
+    ],
+    "notable_page_derived_present": [
+      "URLSimilarityIndex",
+      "TLDLegitimateProb",
+      "LineOfCode",
+      "LargestLineLength",
+      "HasTitle",
+      "Title",
+      "DomainTitleMatchScore",
+      "URLTitleMatchScore",
+      "HasFavicon",
+      "Robots",
+      "IsResponsive",
+      "NoOfURLRedirect",
+      "NoOfSelfRedirect",
+      "HasDescription",
+      "NoOfPopup",
+      "NoOfiFrame",
+      "HasExternalFormSubmit",
+      "HasSocialNet",
+      "HasSubmitButton",
+      "HasHiddenFields",
+      "HasPasswordField",
+      "Bank",
+      "Pay",
+      "Crypto",
+      "HasCopyrightInfo",
+      "NoOfImage",
+      "NoOfCSS",
+      "NoOfJS",
+      "NoOfSelfRef",
+      "NoOfEmptyRef",
+      "NoOfExternalRef"
+    ],
+    "rows": {
+      "train": 164860,
+      "val": 35319,
+      "test": 35314
+    }
+  },
+  "results": {
+    "engineered_mlp": {
+      "architecture": "MLP(128, 64) over 31 engineered columns",
+      "n_samples": 35314,
+      "accuracy": 0.9994619697570368,
+      "precision": 0.9993081636687092,
+      "recall": 0.9997528056558066,
+      "specificity": 0.9990720487837211,
+      "f1": 0.9995304352124162,
+      "fpr": 0.0009279512162789157,
+      "roc_auc": 0.9999900004833127,
+      "pr_auc": 0.9999923565021493,
+      "mcc": 0.9989007016909782,
+      "balanced_accuracy": 0.9994124272197639,
+      "brier": 0.0004407540260473148,
+      "confusion_matrix": {
+        "tp": 20222,
+        "tn": 15073,
+        "fp": 14,
+        "fn": 5
+      },
+      "negative_class": {
+        "precision": 0.9996683910332935,
+        "recall": 0.9990720487837211,
+        "f1": 0.9993701309464612,
+        "support": 15087
+      },
+      "recall_at_fpr": {
+        "0.01": 1.0,
+        "0.05": 1.0,
+        "0.1": 1.0
+      },
+      "ece": 0.0002255943872814208,
+      "calibration_curve": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 15059,
+          "mean_predicted": 9.220545769204765e-05,
+          "empirical_rate": 6.640547181087722e-05,
+          "gap": 2.579998588117043e-05
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 9,
+          "mean_predicted": 0.14877259896861184,
+          "empirical_rate": 0.1111111111111111,
+          "gap": 0.03766148785750073
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.30000000000000004,
+          "count": 3,
+          "mean_predicted": 0.2513475567102432,
+          "empirical_rate": 0.3333333333333333,
+          "gap": 0.08198577662309009
+        },
+        {
+          "bin_lower": 0.30000000000000004,
+          "bin_upper": 0.4,
+          "count": 3,
+          "mean_predicted": 0.32172756393750507,
+          "empirical_rate": 0.3333333333333333,
+          "gap": 0.011605769395828247
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 4,
+          "mean_predicted": 0.4601411372423172,
+          "empirical_rate": 0.25,
+          "gap": 0.2101411372423172
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6000000000000001,
+          "count": 2,
+          "mean_predicted": 0.5331672430038452,
+          "empirical_rate": 0.5,
+          "gap": 0.033167243003845215
+        },
+        {
+          "bin_lower": 0.6000000000000001,
+          "bin_upper": 0.7000000000000001,
+          "count": 3,
+          "mean_predicted": 0.677215039730072,
+          "empirical_rate": 0.3333333333333333,
+          "gap": 0.3438817063967387
+        },
+        {
+          "bin_lower": 0.7000000000000001,
+          "bin_upper": 0.8,
+          "count": 2,
+          "mean_predicted": 0.7593235969543457,
+          "empirical_rate": 0.5,
+          "gap": 0.2593235969543457
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 8,
+          "mean_predicted": 0.8597413375973701,
+          "empirical_rate": 0.625,
+          "gap": 0.23474133759737015
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 20221,
+          "mean_predicted": 0.999783555122271,
+          "empirical_rate": 0.9996538252311953,
+          "gap": 0.00012972989107573607
+        }
+      ]
+    },
+    "engineered_logistic_regression": {
+      "architecture": "LogisticRegression over 31 engineered columns",
+      "n_samples": 35314,
+      "accuracy": 0.9990938438013253,
+      "precision": 0.9987158591396256,
+      "recall": 0.9997033667869679,
+      "specificity": 0.9982766620269106,
+      "f1": 0.9992093689776151,
+      "fpr": 0.0017233379730894147,
+      "roc_auc": 0.999985450482028,
+      "pr_auc": 0.9999888574166643,
+      "mcc": 0.9981488190636998,
+      "balanced_accuracy": 0.9989900144069392,
+      "brier": 0.0007824533660780281,
+      "confusion_matrix": {
+        "tp": 20221,
+        "tn": 15061,
+        "fp": 26,
+        "fn": 6
+      },
+      "negative_class": {
+        "precision": 0.9996017787217097,
+        "recall": 0.9982766620269106,
+        "f1": 0.9989387809245872,
+        "support": 15087
+      },
+      "recall_at_fpr": {
+        "0.01": 1.0,
+        "0.05": 1.0,
+        "0.1": 1.0
+      },
+      "ece": 0.0011204048495712376,
+      "calibration_curve": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 14939,
+          "mean_predicted": 0.0005291796726955057,
+          "empirical_rate": 0.0,
+          "gap": 0.0005291796726955057
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 98,
+          "mean_predicted": 0.15585847948446804,
+          "empirical_rate": 0.0,
+          "gap": 0.15585847948446804
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.30000000000000004,
+          "count": 12,
+          "mean_predicted": 0.2698112927489486,
+          "empirical_rate": 0.0,
+          "gap": 0.2698112927489486
+        },
+        {
+          "bin_lower": 0.30000000000000004,
+          "bin_upper": 0.4,
+          "count": 10,
+          "mean_predicted": 0.35358665911315185,
+          "empirical_rate": 0.2,
+          "gap": 0.15358665911315184
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 8,
+          "mean_predicted": 0.43939302595350604,
+          "empirical_rate": 0.5,
+          "gap": 0.060606974046493955
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6000000000000001,
+          "count": 4,
+          "mean_predicted": 0.5378790764385103,
+          "empirical_rate": 0.5,
+          "gap": 0.037879076438510295
+        },
+        {
+          "bin_lower": 0.6000000000000001,
+          "bin_upper": 0.7000000000000001,
+          "count": 13,
+          "mean_predicted": 0.6620759803052356,
+          "empirical_rate": 0.46153846153846156,
+          "gap": 0.20053751876677406
+        },
+        {
+          "bin_lower": 0.7000000000000001,
+          "bin_upper": 0.8,
+          "count": 12,
+          "mean_predicted": 0.7396344864172151,
+          "empirical_rate": 0.8333333333333334,
+          "gap": 0.0936988469161183
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 51,
+          "mean_predicted": 0.8566986375623478,
+          "empirical_rate": 0.8431372549019608,
+          "gap": 0.013561382660386978
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 20167,
+          "mean_predicted": 0.9993279391028415,
+          "empirical_rate": 0.9996528982992017,
+          "gap": 0.0003249591963602194
+        }
+      ]
+    }
+  },
+  "single_column_auc_on_test": {
+    "URLSimilarityIndex": 0.993603764830649,
+    "NoOfCSS": 0.9898340895854915,
+    "LineOfCode": 0.9897233985567581,
+    "NoOfSelfRef": 0.9829243072239645,
+    "NoOfEmptyRef": 0.9748263912356404,
+    "NoOfJS": 0.9721505415423982,
+    "HasSubmitButton": 0.8968832356846039,
+    "NoOfImage": 0.8876060026186051,
+    "LargestLineLength": 0.8816522448338225,
+    "NoOfPopup": 0.857366328703975,
+    "NoOfURLRedirect": 0.8332383289132782,
+    "HasHiddenFields": 0.800036222401297,
+    "HasPasswordField": 0.7706542311019023,
+    "Robots": 0.7649560451033615,
+    "HasExternalFormSubmit": 0.7625528284723346,
+    "DomainTitleMatchScore": 0.23961417804518437,
+    "NoOfExternalRef": 0.7473738996636208,
+    "URLTitleMatchScore": 0.7345660589388717,
+    "HasFavicon": 0.7199392450141742,
+    "IsResponsive": 0.6908015610938077,
+    "Crypto": 0.6752086493450132,
+    "TLDLegitimateProb": 0.6563314558982696,
+    "HasTitle": 0.6553940851798712,
+    "Pay": 0.5764039083033146,
+    "Bank": 0.5483816792351727,
+    "NoOfiFrame": 0.5422252112743206,
+    "HasSocialNet": 0.5355630820255717,
+    "HasDescription": 0.4793609172729187,
+    "HasCopyrightInfo": 0.5164416270766582,
+    "Title": 0.510089599175821,
+    "NoOfSelfRedirect": 0.49925591667863317
+  },
+  "strongest_single_columns": [
+    {
+      "column": "URLSimilarityIndex",
+      "auc": 0.993603764830649
+    },
+    {
+      "column": "NoOfCSS",
+      "auc": 0.9898340895854915
+    },
+    {
+      "column": "LineOfCode",
+      "auc": 0.9897233985567581
+    },
+    {
+      "column": "NoOfSelfRef",
+      "auc": 0.9829243072239645
+    },
+    {
+      "column": "NoOfEmptyRef",
+      "auc": 0.9748263912356404
+    },
+    {
+      "column": "NoOfJS",
+      "auc": 0.9721505415423982
+    },
+    {
+      "column": "HasSubmitButton",
+      "auc": 0.8968832356846039
+    },
+    {
+      "column": "NoOfImage",
+      "auc": 0.8876060026186051
+    },
+    {
+      "column": "LargestLineLength",
+      "auc": 0.8816522448338225
+    },
+    {
+      "column": "NoOfPopup",
+      "auc": 0.857366328703975
+    },
+    {
+      "column": "NoOfURLRedirect",
+      "auc": 0.8332383289132782
+    },
+    {
+      "column": "HasHiddenFields",
+      "auc": 0.800036222401297
+    }
+  ],
+  "comparison_to_url_only_model": {
+    "url_only_model": {
+      "recall": 0.9999011222623226,
+      "precision": 0.9991601620393242,
+      "f1": 0.9995305048308581,
+      "roc_auc": 0.9998251015583814,
+      "pr_auc": 0.9997781818280927
+    },
+    "engineered_mlp": {
+      "recall": 0.9997528056558066,
+      "precision": 0.9993081636687092,
+      "f1": 0.9995304352124162,
+      "roc_auc": 0.9999900004833127,
+      "pr_auc": 0.9999923565021493
+    },
+    "delta_recall_mlp_minus_url": -0.00014831660651604128
+  }
+}

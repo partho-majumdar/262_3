@@ -1,0 +1,137 @@
+﻿# ===========================================================================
+# full profile - production capacity.
+#
+# Identical architecture to dev.yaml. Every difference is a capacity or budget
+# knob. If a knob here implies a *structural* change, that change belongs in
+# both files and must be called out in docs/architecture.md instead.
+# ===========================================================================
+profile: full
+
+paths:
+  dataset_csv: ../Dataset/Phishing_URL_Dataset.csv  # real PhiUSIIL file (54,160,642 bytes / 235,795 rows)
+  splits_dir: data/splits
+  manifest: data/manifest.csv
+  checkpoints_dir: checkpoints
+  reports_dir: reports
+
+runtime:
+  seed: 42
+  device: auto                         # resolves to cuda when a CUDA torch build is present
+  num_workers: 4
+  deterministic: true
+
+split:
+  grouping: registered_domain
+  train: 0.70
+  val: 0.15
+  test: 0.15
+
+url_model:
+  enabled: true
+  char_vocab_size: 128
+  max_length: 256
+  embedding_dim: 128
+  cnn_channels: 128
+  cnn_kernel_sizes: [3, 5, 7]
+  lstm_hidden: 128
+  lstm_layers: 1
+  bidirectional: true
+  embedding_out: 128
+  dropout: 0.3
+  handcrafted_branch: true
+  epochs: 40
+  batch_size: 128
+  lr: 0.0008
+  weight_decay: 0.0001
+  early_stopping_patience: 6
+  max_train_rows: null                 # no cap
+  class_weighting: weighted
+  focal_gamma: 2.0
+  leakage_experiment: true
+
+html_model:
+  enabled: true
+  vocab_size: 16384
+  max_tokens: 1024
+  text_token_budget: 256
+  embedding_dim: 256
+  transformer_layers: 4
+  transformer_heads: 8
+  transformer_ff: 512
+  embedding_out: 128
+  dropout: 0.2
+  epochs: 30
+  batch_size: 32
+  lr: 0.0005
+  weight_decay: 0.0001
+  early_stopping_patience: 5
+  max_train_rows: null
+
+vision_model:
+  enabled: true
+  backbone: deit_tiny                  # full; dev.yaml uses resnet18
+  pretrained: true
+  image_size: 224
+  embedding_out: 128
+  dropout: 0.2
+  epochs: 15
+  batch_size: 32
+  lr: 0.0002
+  backbone_lr_multiplier: 0.1
+  weight_decay: 0.0001
+  early_stopping_patience: 4
+  max_train_rows: null
+  augment:
+    random_resized_crop: 224
+    horizontal_flip: 0.0
+    color_jitter: 0.2
+    random_grayscale: 0.1
+  xai: attention_rollout               # full; dev.yaml uses grad_cam
+
+fusion:
+  enabled: true
+  shared_dim: 128
+  hidden_dims: [256, 128]
+  dropout: 0.2
+  epochs: 40
+  batch_size: 128
+  lr: 0.0008
+  weight_decay: 0.0001
+  early_stopping_patience: 8
+  modality_dropout: 0.2
+  auxiliary_unimodal_loss_weight: 0.1
+  min_available_modalities: 2
+  baselines:
+    - concatenation_mlp
+    - probability_average
+    - weighted_average
+  calibration:
+    method: temperature
+    compare: [temperature, platt, isotonic]
+    fit_on: val
+
+xai:
+  url_method: integrated_gradients
+  html_method: integrated_gradients
+  vision_method: auto
+  ig_steps: 64
+  fusion_method: alpha_weights_and_lomo
+
+collection:
+  concurrency: 16
+  screenshot_concurrency: 4
+  delay_seconds: 1.0
+  request_timeout: 10
+  connect_timeout: 5
+  max_response_size_mb: 5
+  max_redirects: 5
+  max_per_domain: 1
+  respect_robots: true
+  user_agent: "MMRESearchBot/1.0 (+academic research; contact: set-your-email@example.com)"
+
+evaluation:
+  bootstrap_samples: 1000
+  bootstrap_confidence: 0.95
+  recall_at_fpr_points: [0.01, 0.05, 0.10]
+  primary_metric: phishing_recall
+

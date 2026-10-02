@@ -1,0 +1,17 @@
+# ---------------------------------------------------------------------------
+# Optional notebook dependencies.
+#
+# The training pipeline, the API and the test suite do NOT need any of this.
+# Install only if you intend to open notebooks/*.ipynb:
+#
+#   pip install -r requirements-notebooks.txt
+#   python -m jupyter lab --notebook-dir notebooks
+#
+# Versions are the ones verified on this machine (Python 3.10.11, Windows 11
+# x64). They are not part of the frozen runtime set in requirements.txt.
+# ---------------------------------------------------------------------------
+
+jupyterlab==4.6.4            # notebook UI
+nbformat==5.11.1             # notebook reader/writer used by _build_notebooks.py
+nbconvert==7.17.1            # headless execution of the notebooks
+ipykernel==7.3.0             # kernel backing the Python 3 notebook kernel

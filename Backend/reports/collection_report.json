@@ -1,0 +1,20 @@
+{
+  "n": 2100,
+  "html_ok": {
+    "overall_rate": 0.4766666666666667,
+    "by_label": {
+      "0": 0.09141583054626533,
+      "1": 0.7639235245220283
+    },
+    "availability_gap_phishing_minus_legit": 0.6725076939757629
+  },
+  "shot_ok": {
+    "overall_rate": 0.46190476190476193,
+    "by_label": {
+      "0": 0.09141583054626533,
+      "1": 0.7381546134663342
+    },
+    "availability_gap_phishing_minus_legit": 0.6467387829200688
+  },
+  "n_with_both_modalities": 970
+}

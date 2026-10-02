@@ -1,0 +1,102 @@
+{
+  "file": "C:\\Users\\Asus\\AppData\\Local\\Temp\\kilo\\newds\\phishing_site_urls.csv",
+  "size_bytes": 31567326,
+  "sha256": "b1a7c26b354632c80817e10af154c4e5007f9480fb43a8ac2730491500fa2780",
+  "first_line": "URL,Label",
+  "head_400": "URL,Label\r\nnobell.it/70ffb52d079109dca5664cce6f317373782/login.SkyPe.com/en/cgi-bin/verification/login/70ffb52d079109dca5664cce6f317373/index.php?cmd=_profile-ach&outdated_page_tmpl=p/gen/failed-to-load&nav=0.5.1&login_access=1322408526,bad\r\nwww.dghjdgf.com/paypal.co.uk/cycgi-bin/webscrcmd=_home-customer&nav=1/loading.php,bad\r\nserviciosbys.com/paypal.cgi.bin.get-into.herf.secure.dispatch35463256rz",
+  "encoding_bom": false,
+  "has_header": true,
+  "header": [
+    "URL",
+    "Label"
+  ],
+  "n_columns": 2,
+  "url_col_idx": 0,
+  "label_col_idx": 1,
+  "n_rows": 549346,
+  "label_counts": {
+    "good": 392924,
+    "bad": 156422
+  },
+  "n_unique_urls": 507192,
+  "duplicate_url_rows": 42154,
+  "duplicate_url_examples": [
+    "jhomitevd2abj3fk.tor2web.org/",
+    "jhomitevd2abj3fk.onion.to/",
+    "zjfq4lnfbs7pncr5.tor2web.org/",
+    "zjfq4lnfbs7pncr5.onion.to/",
+    "mphtadhci5mrdlju.tor2web.org/"
+  ],
+  "empty_url_rows": 0,
+  "malformed_short_rows": 0,
+  "scheme_counts": {
+    "none": 549196,
+    "http": 102,
+    "error": 13,
+    "ftp": 10,
+    "https": 7,
+    "hxxp": 6,
+    "www.quocvietthuphap.com": 3,
+    "htpp": 2,
+    "2b68.f444c4f547116bfd052461b0b3ab1bc2b445a.comb3af1139274f266b2hxxp": 2,
+    "https.portal.apple.com.idmswebauth.login.html.appidkey.05c7e09b5896b0334b3af1139274f266b2hxxp": 2
+  },
+  "urls_without_scheme": 549239,
+  "urls_without_hostname": 1778,
+  "n_unique_hosts": 189744,
+  "n_hosts_with_both_labels": 73,
+  "top_hosts": [
+    [
+      "en.wikipedia.org",
+      13206
+    ],
+    [
+      "youtube.com",
+      8617
+    ],
+    [
+      "facebook.com",
+      7735
+    ],
+    [
+      "amazon.com",
+      4618
+    ],
+    [
+      "imdb.com",
+      3470
+    ],
+    [
+      "linkedin.com",
+      3426
+    ],
+    [
+      "tools.ietf.org",
+      3190
+    ],
+    [
+      "myspace.com",
+      2923
+    ],
+    [
+      "mylife.com",
+      2822
+    ],
+    [
+      "manta.com",
+      2075
+    ]
+  ],
+  "unique_hosts_per_class": {
+    "bad": 59303,
+    "good": 130514
+  },
+  "phiusiil_url_column_index": 0,
+  "phiusiil_unique_urls": 235370,
+  "exact_url_overlap_with_phiusiil": 0,
+  "phiusiil_unique_hosts": 219094,
+  "new_unique_hosts": 187198,
+  "host_overlap_with_phiusiil": 7358,
+  "host_overlap_ratio_of_new": 0.0393,
+  "new_only_hosts": 179840
+}

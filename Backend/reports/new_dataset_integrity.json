@@ -1,0 +1,112 @@
+{
+  "file": "C:\\Users\\Asus\\AppData\\Local\\Temp\\kilo\\newds\\phishing_site_urls.csv",
+  "size_bytes": 31567326,
+  "total_lines": 549355,
+  "non_ascii_bytes": 10616,
+  "non_ascii_pct": 0.034,
+  "control_bytes": 949,
+  "null_bytes": 0,
+  "max_line_len": 2312,
+  "mean_line_len": 56.5,
+  "lines_with_gt20pct_garbage": 130,
+  "pct_lines_garbled": 0.02,
+  "dirty_runs": 17,
+  "dirty_run_samples": [
+    {
+      "line_start": 18232,
+      "line_end": 18334,
+      "n_lines": 103,
+      "byte_offset": 1496548,
+      "sample_hex": "2265737863632e636f6d2f6a732f696e6465782e68746d3f75732e626174746c652e6e65742f6e6f67686e2f656e2f3f726566354d2b39642762627773266260",
+      "sample_repr": "b'\"esxcc.com/js/index.htm?us.battle.net/noghn/en/?ref5M+9d\\'bbws&b`|tNEfnud&d\\xc2\\xad\\r\\xc3\\x85j'"
+    },
+    {
+      "line_start": 98217,
+      "line_end": 98217,
+      "n_lines": 1,
+      "byte_offset": 6931540,
+      "sample_hex": "646f776e32343630373138322e79796b322e636f6d2f696e6465782e68746d6c3f25324634313735322532467a6f6c31253246c3afc2bfc2bdc3afc2bfc2bdc3",
+      "sample_repr": "b'down24607182.yyk2.com/index.html?%2F41752%2Fzol1%2F\\xc3\\xaf\\xc2\\xbf\\xc2\\xbd\\xc3\\xaf\\xc2\\xbf\\xc2\\xbd\\xc3\\xaf\\xc2\\xbf\\xc2\\xbd<br/>pdf\\xc3\\xaf\\xc2'"
+    },
+    {
+      "line_start": 98242,
+      "line_end": 98242,
+      "n_lines": 1,
+      "byte_offset": 6932880,
+      "sample_hex": "646f776e32343630373332362e79796b322e636f6d2f696e6465782e68746d6c3f2532463433303238312532467a6f6c3125324644697265637458c3af3c6272",
+      "sample_repr": "b'down24607326.yyk2.com/index.html?%2F430281%2Fzol1%2FDirectX\\xc3\\xaf<br/>\\xc2\\xbf\\xc2\\xbd\\xc3\\x9e\\xc2\\xb8\\xc3\\xaf\\xc2\\xbf\\xc2\\xbd'"
+    },
+    {
+      "line_start": 98262,
+      "line_end": 98262,
+      "n_lines": 1,
+      "byte_offset": 6933948,
+      "sample_hex": "646f776e363839392e71746a352e636f6d2f696e6465782e68746d6c3f2532463437333238253246706336253246c397c2a8c392c2b5706466c397c2aac3afc2",
+      "sample_repr": "b'down6899.qtj5.com/index.html?%2F47328%2Fpc6%2F\\xc3\\x97\\xc2\\xa8\\xc3\\x92\\xc2\\xb5pdf\\xc3\\x97\\xc2\\xaa\\xc3\\xaf\\xc2\\xbf\\xc2\\xbd\\xc3\\xaf\\xc2\\xbf<br/>\\xc2\\xbd\\xc3\\xaf'"
+    },
+    {
+      "line_start": 98485,
+      "line_end": 98485,
+      "n_lines": 1,
+      "byte_offset": 6945846,
+      "sample_hex": "75726c2e323232627a2e636f6d2f646f776e2fc3a9c2ad253934c3a6253936c2b93fc3a7c2bdc2aec3a5c2a4c2a73f4033345f34373839302e6578652c626164",
+      "sample_repr": "b'url.222bz.com/down/\\xc3\\xa9\\xc2\\xad%94\\xc3\\xa6%96\\xc2\\xb9?\\xc3\\xa7\\xc2\\xbd\\xc2\\xae\\xc3\\xa5\\xc2\\xa4\\xc2\\xa7?@34_47890.exe,bad\\r'"
+    },
+    {
+      "line_start": 98498,
+      "line_end": 98498,
+      "n_lines": 1,
+      "byte_offset": 6946567,
+      "sample_hex": "75726c2e323232627a2e636f6d2f646f776e2fc3a9c2ad253934c3a6253936c2b93fc3a7c2bdc2aec3a5c2a4c2a73f4033345f34373839302e6578652c626164",
+      "sample_repr": "b'url.222bz.com/down/\\xc3\\xa9\\xc2\\xad%94\\xc3\\xa6%96\\xc2\\xb9?\\xc3\\xa7\\xc2\\xbd\\xc2\\xae\\xc3\\xa5\\xc2\\xa4\\xc2\\xa7?@34_47890.exe,bad\\r'"
+    },
+    {
+      "line_start": 261498,
+      "line_end": 261498,
+      "n_lines": 1,
+      "byte_offset": 16512323,
+      "sample_hex": "776e2e636f6d2f54c3a96cc3a92d5175c3a96265632c676f6f640d",
+      "sample_repr": "b'wn.com/T\\xc3\\xa9l\\xc3\\xa9-Qu\\xc3\\xa9bec,good\\r'"
+    },
+    {
+      "line_start": 480247,
+      "line_end": 480247,
+      "n_lines": 1,
+      "byte_offset": 28267629,
+      "sample_hex": "7a6f6f6d696e666f2e636f6d2f70656f706c652f47c383c692c382c2a972696e2d4c616a6f69655f4672616ec383c692c382c2a76f69735f3131373034313437",
+      "sample_repr": "b'zoominfo.com/people/G\\xc3\\x83\\xc6\\x92\\xc3\\x82\\xc2\\xa9rin-Lajoie_Fran\\xc3\\x83\\xc6\\x92\\xc3\\x82\\xc2\\xa7ois_1170414701.aspx,good\\r'"
+    },
+    {
+      "line_start": 480415,
+      "line_end": 480415,
+      "n_lines": 1,
+      "byte_offset": 28276913,
+      "sample_hex": "7a6f6f6d696e666f2e636f6d2f70656f706c652f536167616e5f4672616ec383c692c386e28099c383e2809ac382c2a76f6973655f313437333034303438332e",
+      "sample_repr": "b'zoominfo.com/people/Sagan_Fran\\xc3\\x83\\xc6\\x92\\xc3\\x86\\xe2\\x80\\x99\\xc3\\x83\\xe2\\x80\\x9a\\xc3\\x82\\xc2\\xa7oise_1473040483.aspx,good\\r'"
+    },
+    {
+      "line_start": 487828,
+      "line_end": 487828,
+      "n_lines": 1,
+      "byte_offset": 28860472,
+      "sample_hex": "68747470e2808a3a2f2fe2808a6374636c75626564656c757461e2808a2e6f7267e2808a2fe2808a427246696768746572e2808a2fe2808a626f74e2808a2fe2",
+      "sample_repr": "b'http\\xe2\\x80\\x8a://\\xe2\\x80\\x8actclubedeluta\\xe2\\x80\\x8a.org\\xe2\\x80\\x8a/\\xe2\\x80\\x8aBrFighter\\xe2\\x80\\x8a/\\xe2\\x80\\x8abot\\xe2\\x80\\x8a/\\xe2\\x80\\x8akeylogger\\xe2\\x80\\x8a.\\xe2'"
+    }
+  ],
+  "label_counts_all": {
+    "bad": 156422,
+    "good": 392924
+  },
+  "label_counts_clean_only": {
+    "bad": 156393,
+    "good": 392829
+  },
+  "garbled_bad_pct": 0.02,
+  "garbled_good_pct": 0.02,
+  "first_dirty_byte_offset": 1496548,
+  "clean_prefix_pct": 4.74,
+  "embedded_magic_first_occurrence": {
+    "bmp_tentative": 34389
+  },
+  "distinct_bytes_first_1mb": 92
+}

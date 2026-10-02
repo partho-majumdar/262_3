@@ -1,0 +1,211 @@
+{
+  "seed": 42,
+  "checkpoint": "url_adv_model.pt",
+  "threshold": 0.5,
+  "n_urls": 1000,
+  "n_phishing": 500,
+  "n_legitimate": 500,
+  "calibrated": false,
+  "baseline": {
+    "accuracy": 0.999,
+    "precision": 0.998004,
+    "recall": 1.0,
+    "f1": 0.999001
+  },
+  "families": {
+    "homoglyph": {
+      "description": "Cyrillic look-alike swapped into the host",
+      "reversible_by_normaliser": true,
+      "n_variants_applied": 999,
+      "flip_rate": 0.0,
+      "evasion_rate_on_phishing": 0.0,
+      "false_alarm_rate_on_legitimate": 0.0,
+      "f1_after": 0.999001,
+      "recall_after": 1.0,
+      "f1_drop": 0.0,
+      "mean_abs_prob_shift": 1e-05,
+      "example_base": "http://www.deshj23.top",
+      "example_attack": "http://www.d\u0435shj23.top"
+    },
+    "fullwidth": {
+      "description": "Fullwidth Unicode character in the host",
+      "reversible_by_normaliser": true,
+      "n_variants_applied": 1000,
+      "flip_rate": 0.0,
+      "evasion_rate_on_phishing": 0.0,
+      "false_alarm_rate_on_legitimate": 0.0,
+      "f1_after": 0.999001,
+      "recall_after": 1.0,
+      "f1_drop": 0.0,
+      "mean_abs_prob_shift": 1.7e-05,
+      "example_base": "http://www.deshj23.top",
+      "example_attack": "http://ww\uff57.deshj23.top"
+    },
+    "zero_width": {
+      "description": "Zero-width separator inside the host",
+      "reversible_by_normaliser": true,
+      "n_variants_applied": 792,
+      "flip_rate": 0.0,
+      "evasion_rate_on_phishing": 0.0,
+      "false_alarm_rate_on_legitimate": 0.0,
+      "f1_after": 0.999001,
+      "recall_after": 1.0,
+      "f1_drop": 0.0,
+      "mean_abs_prob_shift": 1.8e-05,
+      "example_base": "http://www.deshj23.top",
+      "example_attack": "http://www.\u200cdeshj23.top"
+    },
+    "scheme_upper": {
+      "description": "Uppercased URL scheme",
+      "reversible_by_normaliser": true,
+      "n_variants_applied": 1000,
+      "flip_rate": 0.0,
+      "evasion_rate_on_phishing": 0.0,
+      "false_alarm_rate_on_legitimate": 0.0,
+      "f1_after": 0.999001,
+      "recall_after": 1.0,
+      "f1_drop": 0.0,
+      "mean_abs_prob_shift": 0.0,
+      "example_base": "http://www.deshj23.top",
+      "example_attack": "HTTP://www.deshj23.top"
+    },
+    "trailing_dot": {
+      "description": "Fully-qualified trailing dot on the host",
+      "reversible_by_normaliser": true,
+      "n_variants_applied": 1000,
+      "flip_rate": 0.0,
+      "evasion_rate_on_phishing": 0.0,
+      "false_alarm_rate_on_legitimate": 0.0,
+      "f1_after": 0.999001,
+      "recall_after": 1.0,
+      "f1_drop": 0.0,
+      "mean_abs_prob_shift": 0.000161,
+      "example_base": "http://www.deshj23.top",
+      "example_attack": "http://www.deshj23.top."
+    },
+    "brand_swap": {
+      "description": "Host replaced with a high-value brand",
+      "reversible_by_normaliser": false,
+      "n_variants_applied": 1000,
+      "flip_rate": 0.029,
+      "evasion_rate_on_phishing": 0.0,
+      "false_alarm_rate_on_legitimate": 0.058,
+      "f1_after": 0.970874,
+      "recall_after": 1.0,
+      "f1_drop": 0.028127,
+      "mean_abs_prob_shift": 0.029681,
+      "example_base": "http://www.deshj23.top",
+      "example_attack": "http://paypal-59.deshj23.top"
+    },
+    "subdomain_prepend": {
+      "description": "Brand kept as a subdomain of an attacker domain",
+      "reversible_by_normaliser": false,
+      "n_variants_applied": 1000,
+      "flip_rate": 0.001,
+      "evasion_rate_on_phishing": 0.0,
+      "false_alarm_rate_on_legitimate": 0.002,
+      "f1_after": 0.998004,
+      "recall_after": 1.0,
+      "f1_drop": 0.000997,
+      "mean_abs_prob_shift": 0.00089,
+      "example_base": "http://www.deshj23.top",
+      "example_attack": "http://www.www.deshj23.top.secure-login-38.tk"
+    },
+    "typosquat": {
+      "description": "Transposed or dropped character in the host label",
+      "reversible_by_normaliser": false,
+      "n_variants_applied": 956,
+      "flip_rate": 0.0,
+      "evasion_rate_on_phishing": 0.0,
+      "false_alarm_rate_on_legitimate": 0.0,
+      "f1_after": 0.999001,
+      "recall_after": 1.0,
+      "f1_drop": 0.0,
+      "mean_abs_prob_shift": 2.2e-05,
+      "example_base": "http://www.deshj23.top",
+      "example_attack": "http://www.desj23.top"
+    },
+    "path_shuffle": {
+      "description": "Sensitive path segment moved into the query",
+      "reversible_by_normaliser": false,
+      "n_variants_applied": 32,
+      "flip_rate": 0.0,
+      "evasion_rate_on_phishing": 0.0,
+      "false_alarm_rate_on_legitimate": 0.0,
+      "f1_after": 0.999001,
+      "recall_after": 1.0,
+      "f1_drop": 0.0,
+      "mean_abs_prob_shift": 0.0,
+      "example_base": "https://elqarar.com/att-card/att/att/index.html",
+      "example_attack": "https://elqarar.com/att-card/att/att?next=index.html"
+    },
+    "double_encode": {
+      "description": "Extra layer of percent-encoding",
+      "reversible_by_normaliser": false,
+      "n_variants_applied": 67,
+      "flip_rate": 0.0,
+      "evasion_rate_on_phishing": 0.0,
+      "false_alarm_rate_on_legitimate": 0.0,
+      "f1_after": 0.999001,
+      "recall_after": 1.0,
+      "f1_drop": 0.0,
+      "mean_abs_prob_shift": 0.0,
+      "example_base": "https://3lgkrehsbm.ru/1709d737d",
+      "example_attack": "https://3lgkrehsbm.ru/1709d737%2564"
+    },
+    "repeat_pad": {
+      "description": "Repeated characters padded onto the host",
+      "reversible_by_normaliser": false,
+      "n_variants_applied": 1000,
+      "flip_rate": 0.0,
+      "evasion_rate_on_phishing": 0.0,
+      "false_alarm_rate_on_legitimate": 0.0,
+      "f1_after": 0.999001,
+      "recall_after": 1.0,
+      "f1_drop": 0.0,
+      "mean_abs_prob_shift": 0.000103,
+      "example_base": "http://www.deshj23.top",
+      "example_attack": "http://www.deshj23.topzzzz"
+    }
+  },
+  "tld_prior": {
+    "tk": {
+      "n_rows": 209,
+      "phishing_rate": 0.0191
+    },
+    "ml": {
+      "n_rows": 994,
+      "phishing_rate": 0.001
+    },
+    "ga": {
+      "n_rows": 1112,
+      "phishing_rate": 0.0045
+    },
+    "cf": {
+      "n_rows": 1205,
+      "phishing_rate": 0.0
+    },
+    "gq": {
+      "n_rows": 493,
+      "phishing_rate": 0.0
+    },
+    "weeblysite.com": {
+      "n_rows": 3079,
+      "phishing_rate": 0.0
+    },
+    "web.app": {
+      "n_rows": 5718,
+      "phishing_rate": 0.0
+    }
+  },
+  "summary": {
+    "baseline_f1": 0.999001,
+    "mean_flip_rate_normaliser_handled": 0.0,
+    "mean_flip_rate_semantic_attacks": 0.005,
+    "worst_evasion_family": "homoglyph",
+    "worst_evasion_rate": 0.0,
+    "worst_f1_family": "brand_swap",
+    "worst_f1_after": 0.970874,
+    "min_f1_drop": 0.028127
+  }
+}

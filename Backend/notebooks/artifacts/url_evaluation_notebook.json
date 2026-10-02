@@ -1,0 +1,34 @@
+{
+  "url_model_test": {
+    "accuracy": 0.9994335080016995,
+    "precision": 0.9991108037346244,
+    "recall": 0.9999011222623226,
+    "f1": 0.9995058067704472,
+    "specificity": 0.9988062077198567,
+    "roc_auc": 0.999873953508695,
+    "pr_auc": 0.999871273317477,
+    "mcc": 0.9988426654433192
+  },
+  "bootstrap_ci": {
+    "recall": {
+      "low": 0.9997535116214833,
+      "high": 1.0,
+      "n_resamples": 200,
+      "confidence": 0.95
+    },
+    "precision": {
+      "low": 0.9987182280921759,
+      "high": 0.9995076844292184,
+      "n_resamples": 200,
+      "confidence": 0.95
+    },
+    "f1": {
+      "low": 0.9993071062555403,
+      "high": 0.999703341118862,
+      "n_resamples": 200,
+      "confidence": 0.95
+    }
+  },
+  "seed": 42,
+  "caveat": "Benchmark separability on PhiUSIIL; not a real-world generalisation claim."
+}

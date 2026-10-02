@@ -1,0 +1,61 @@
+{
+  "rows": 2100,
+  "availability_by_split_label": [
+    {
+      "split": "test",
+      "label": 0,
+      "n": 299,
+      "html_rate": 0.09364548494983277,
+      "shot_rate": 0.09364548494983277
+    },
+    {
+      "split": "test",
+      "label": 1,
+      "n": 401,
+      "html_rate": 0.7556109725685786,
+      "shot_rate": 0.713216957605985
+    },
+    {
+      "split": "train",
+      "label": 0,
+      "n": 299,
+      "html_rate": 0.06354515050167224,
+      "shot_rate": 0.06354515050167224
+    },
+    {
+      "split": "train",
+      "label": 1,
+      "n": 401,
+      "html_rate": 0.770573566084788,
+      "shot_rate": 0.7556109725685786
+    },
+    {
+      "split": "val",
+      "label": 0,
+      "n": 299,
+      "html_rate": 0.11705685618729098,
+      "shot_rate": 0.11705685618729098
+    },
+    {
+      "split": "val",
+      "label": 1,
+      "n": 401,
+      "html_rate": 0.7655860349127181,
+      "shot_rate": 0.7456359102244389
+    }
+  ],
+  "mask_only_baseline": {
+    "accuracy": 0.8257142857142857,
+    "precision": 0.9180819180819181,
+    "recall": 0.7639235245220283,
+    "f1": 0.8339382940108893,
+    "specificity": 0.9085841694537347
+  },
+  "availability_gap_phishing_minus_legit": 0.6725,
+  "contingency": {
+    "html_ok_and_phishing": 919,
+    "html_ok_and_legit": 82,
+    "no_html_and_phishing": 284,
+    "no_html_and_legit": 815
+  }
+}

@@ -1,0 +1,3882 @@
+{
+  "run": {
+    "generated_at_utc": "2026-10-01T20:43:07.720844+00:00",
+    "seed": 42,
+    "config_file": "configs\\dev.yaml",
+    "checkpoint": "E:\\UIU\\TRIMESTER - 11\\Computer Security\\CS_Project\\Backend\\checkpoints\\url_model.pt",
+    "torch_version": "2.1.0+cpu",
+    "rounds": 11,
+    "steps_per_round": 8,
+    "lr": 0.001,
+    "batch_size": 32,
+    "batch_per_round": 240,
+    "buffer_capacity": 600,
+    "ewc_lambda": 50.0,
+    "baseline_ran": true
+  },
+  "stream": {
+    "source_pool": 600,
+    "clean_pool": 600,
+    "source_phishing_fraction": 0.5083333333333333,
+    "clean_phishing_fraction": 0.49166666666666664,
+    "families": [
+      {
+        "round": 1,
+        "family": "brand_swap",
+        "description": "Host replaced with a high-value brand",
+        "reversible_by_normaliser": false,
+        "n_changed": 240,
+        "n_batch": 240
+      },
+      {
+        "round": 2,
+        "family": "subdomain_prepend",
+        "description": "Brand kept as a subdomain of an attacker domain",
+        "reversible_by_normaliser": false,
+        "n_changed": 240,
+        "n_batch": 240
+      },
+      {
+        "round": 3,
+        "family": "typosquat",
+        "description": "Transposed or dropped character in the host label",
+        "reversible_by_normaliser": false,
+        "n_changed": 231,
+        "n_batch": 240
+      },
+      {
+        "round": 4,
+        "family": "path_shuffle",
+        "description": "Sensitive path segment moved into the query",
+        "reversible_by_normaliser": false,
+        "n_changed": 8,
+        "n_batch": 240
+      },
+      {
+        "round": 5,
+        "family": "double_encode",
+        "description": "Extra layer of percent-encoding",
+        "reversible_by_normaliser": false,
+        "n_changed": 15,
+        "n_batch": 240
+      },
+      {
+        "round": 6,
+        "family": "repeat_pad",
+        "description": "Repeated characters padded onto the host",
+        "reversible_by_normaliser": false,
+        "n_changed": 240,
+        "n_batch": 240
+      },
+      {
+        "round": 7,
+        "family": "homoglyph",
+        "description": "Cyrillic look-alike swapped into the host",
+        "reversible_by_normaliser": true,
+        "n_changed": 240,
+        "n_batch": 240
+      },
+      {
+        "round": 8,
+        "family": "fullwidth",
+        "description": "Fullwidth Unicode character in the host",
+        "reversible_by_normaliser": true,
+        "n_changed": 240,
+        "n_batch": 240
+      },
+      {
+        "round": 9,
+        "family": "zero_width",
+        "description": "Zero-width separator inside the host",
+        "reversible_by_normaliser": true,
+        "n_changed": 186,
+        "n_batch": 240
+      },
+      {
+        "round": 10,
+        "family": "scheme_upper",
+        "description": "Uppercased URL scheme",
+        "reversible_by_normaliser": true,
+        "n_changed": 240,
+        "n_batch": 240
+      },
+      {
+        "round": 11,
+        "family": "trailing_dot",
+        "description": "Fully-qualified trailing dot on the host",
+        "reversible_by_normaliser": true,
+        "n_changed": 240,
+        "n_batch": 240
+      }
+    ]
+  },
+  "arms": [
+    {
+      "arm": "rehearsal_ewc",
+      "settings": {
+        "lr": 0.001,
+        "steps_per_round": 8,
+        "batch_size": 32,
+        "buffer_capacity": 600,
+        "ewc_lambda": 50.0,
+        "rehearsal": true,
+        "seed": 42
+      },
+      "rounds": [
+        {
+          "round": 0,
+          "family": null,
+          "update": null,
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 1.0,
+            "balanced_accuracy": 1.0,
+            "brier": 0.000139,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 295,
+              "fp": 0,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.995,
+            "precision": 0.989933,
+            "recall": 1.0,
+            "specificity": 0.990164,
+            "f1": 0.994941,
+            "roc_auc": 0.997811,
+            "pr_auc": 0.996344,
+            "mcc": 0.990048,
+            "balanced_accuracy": 0.995082,
+            "brier": 0.004716,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 302,
+              "fp": 3,
+              "fn": 0
+            }
+          },
+          "stream_seen": 0,
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.0,
+            "max_abs_prob_shift": 0.0,
+            "verdict_flips": 0
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.0,
+            "max_abs_prob_shift": 0.0,
+            "verdict_flips": 0
+          }
+        },
+        {
+          "round": 1,
+          "family": "brand_swap",
+          "family_description": "Host replaced with a high-value brand",
+          "reversible_by_normaliser": false,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 240,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 1.570714,
+            "loss_first": 4.911977,
+            "loss_last": 0.743133,
+            "n_train_urls": 240,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 240,
+              "n_seen": 240,
+              "phishing": 120,
+              "legitimate": 120,
+              "phishing_fraction": 0.5
+            },
+            "rehearsal_active": true,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.691667,
+            "train_metrics": {
+              "n_samples": 240,
+              "available": true,
+              "accuracy": 0.845833,
+              "precision": 0.764331,
+              "recall": 1.0,
+              "specificity": 0.691667,
+              "f1": 0.866426,
+              "roc_auc": 0.989931,
+              "pr_auc": 0.988801,
+              "mcc": 0.727092,
+              "balanced_accuracy": 0.845833,
+              "brier": 0.120026,
+              "confusion_matrix": {
+                "tp": 120,
+                "tn": 83,
+                "fp": 37,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 2.0714535,
+              "since_initial": 2.0714535,
+              "relative_to_initial": 1.0
+            },
+            "ewc": {
+              "lambda": 50.0,
+              "penalty": 6.92711639,
+              "active": true,
+              "fisher_mean": 0.003543509878
+            }
+          },
+          "stream_seen": 240,
+          "buffer": {
+            "capacity": 600,
+            "size": 240,
+            "n_seen": 240,
+            "phishing": 120,
+            "legitimate": 120,
+            "phishing_fraction": 0.5
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.913333,
+            "precision": 0.854342,
+            "recall": 1.0,
+            "specificity": 0.823729,
+            "f1": 0.92145,
+            "roc_auc": 0.999911,
+            "pr_auc": 0.999915,
+            "mcc": 0.838896,
+            "balanced_accuracy": 0.911864,
+            "brier": 0.065918,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 243,
+              "fp": 52,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.915,
+            "precision": 0.852601,
+            "recall": 1.0,
+            "specificity": 0.832787,
+            "f1": 0.920437,
+            "roc_auc": 0.997927,
+            "pr_auc": 0.996923,
+            "mcc": 0.842636,
+            "balanced_accuracy": 0.916393,
+            "brier": 0.067742,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 254,
+              "fp": 51,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 240,
+            "available": true,
+            "accuracy": 0.845833,
+            "precision": 0.764331,
+            "recall": 1.0,
+            "specificity": 0.691667,
+            "f1": 0.866426,
+            "roc_auc": 0.989931,
+            "pr_auc": 0.988801,
+            "mcc": 0.727092,
+            "balanced_accuracy": 0.845833,
+            "brier": 0.120026,
+            "confusion_matrix": {
+              "tp": 120,
+              "tn": 83,
+              "fp": 37,
+              "fn": 0
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.088238,
+            "max_abs_prob_shift": 0.988911,
+            "verdict_flips": 48
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.091488,
+            "max_abs_prob_shift": 0.993148,
+            "verdict_flips": 52
+          }
+        },
+        {
+          "round": 2,
+          "family": "subdomain_prepend",
+          "family_description": "Brand kept as a subdomain of an attacker domain",
+          "reversible_by_normaliser": false,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 240,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.248198,
+            "loss_first": 0.685002,
+            "loss_last": 0.079882,
+            "n_train_urls": 480,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 480,
+              "n_seen": 480,
+              "phishing": 240,
+              "legitimate": 240,
+              "phishing_fraction": 0.5
+            },
+            "rehearsal_active": true,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.95,
+            "train_metrics": {
+              "n_samples": 480,
+              "available": true,
+              "accuracy": 0.975,
+              "precision": 0.952381,
+              "recall": 1.0,
+              "specificity": 0.95,
+              "f1": 0.97561,
+              "roc_auc": 0.999531,
+              "pr_auc": 0.999541,
+              "mcc": 0.95119,
+              "balanced_accuracy": 0.975,
+              "brier": 0.018448,
+              "confusion_matrix": {
+                "tp": 240,
+                "tn": 228,
+                "fp": 12,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 1.70291779,
+              "since_initial": 2.48307071,
+              "relative_to_initial": 0.68581124
+            },
+            "ewc": {
+              "lambda": 50.0,
+              "penalty": 0.03721919,
+              "active": true,
+              "fisher_mean": 9.292702e-06
+            }
+          },
+          "stream_seen": 480,
+          "buffer": {
+            "capacity": 600,
+            "size": 480,
+            "n_seen": 480,
+            "phishing": 240,
+            "legitimate": 240,
+            "phishing_fraction": 0.5
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.98,
+            "precision": 0.962145,
+            "recall": 1.0,
+            "specificity": 0.959322,
+            "f1": 0.980707,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 0.960733,
+            "balanced_accuracy": 0.979661,
+            "brier": 0.015743,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 283,
+              "fp": 12,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.978333,
+            "precision": 0.957792,
+            "recall": 1.0,
+            "specificity": 0.957377,
+            "f1": 0.978441,
+            "roc_auc": 0.9985,
+            "pr_auc": 0.997941,
+            "mcc": 0.957585,
+            "balanced_accuracy": 0.978689,
+            "brier": 0.017114,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 292,
+              "fp": 13,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 480,
+            "available": true,
+            "accuracy": 0.975,
+            "precision": 0.952381,
+            "recall": 1.0,
+            "specificity": 0.95,
+            "f1": 0.97561,
+            "roc_auc": 0.999531,
+            "pr_auc": 0.999541,
+            "mcc": 0.95119,
+            "balanced_accuracy": 0.975,
+            "brier": 0.018448,
+            "confusion_matrix": {
+              "tp": 240,
+              "tn": 228,
+              "fp": 12,
+              "fn": 0
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.016307,
+            "max_abs_prob_shift": 0.979718,
+            "verdict_flips": 10
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.0194,
+            "max_abs_prob_shift": 0.982156,
+            "verdict_flips": 12
+          }
+        },
+        {
+          "round": 3,
+          "family": "typosquat",
+          "family_description": "Transposed or dropped character in the host label",
+          "reversible_by_normaliser": false,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 231,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.038247,
+            "loss_first": 0.043095,
+            "loss_last": 0.00561,
+            "n_train_urls": 640,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 600,
+              "n_seen": 720,
+              "phishing": 304,
+              "legitimate": 296,
+              "phishing_fraction": 0.5066666666666667
+            },
+            "rehearsal_active": true,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.96875,
+            "train_metrics": {
+              "n_samples": 640,
+              "available": true,
+              "accuracy": 0.984375,
+              "precision": 0.969697,
+              "recall": 1.0,
+              "specificity": 0.96875,
+              "f1": 0.984615,
+              "roc_auc": 0.998706,
+              "pr_auc": 0.998391,
+              "mcc": 0.969223,
+              "balanced_accuracy": 0.984375,
+              "brier": 0.01527,
+              "confusion_matrix": {
+                "tp": 320,
+                "tn": 310,
+                "fp": 10,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 1.28457689,
+              "since_initial": 2.9973302,
+              "relative_to_initial": 0.4285737
+            },
+            "ewc": {
+              "lambda": 50.0,
+              "penalty": 0.00072171,
+              "active": true,
+              "fisher_mean": 1.2581727e-05
+            }
+          },
+          "stream_seen": 720,
+          "buffer": {
+            "capacity": 600,
+            "size": 600,
+            "n_seen": 720,
+            "phishing": 304,
+            "legitimate": 296,
+            "phishing_fraction": 0.5066666666666667
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.98,
+            "precision": 0.962145,
+            "recall": 1.0,
+            "specificity": 0.959322,
+            "f1": 0.980707,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 0.960733,
+            "balanced_accuracy": 0.979661,
+            "brier": 0.018018,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 283,
+              "fp": 12,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.976667,
+            "precision": 0.954693,
+            "recall": 1.0,
+            "specificity": 0.954098,
+            "f1": 0.976821,
+            "roc_auc": 0.999011,
+            "pr_auc": 0.998791,
+            "mcc": 0.954395,
+            "balanced_accuracy": 0.977049,
+            "brier": 0.021235,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 291,
+              "fp": 14,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 720,
+            "available": true,
+            "accuracy": 0.981944,
+            "precision": 0.965147,
+            "recall": 1.0,
+            "specificity": 0.963889,
+            "f1": 0.982265,
+            "roc_auc": 0.998785,
+            "pr_auc": 0.998493,
+            "mcc": 0.964518,
+            "balanced_accuracy": 0.981944,
+            "brier": 0.017708,
+            "confusion_matrix": {
+              "tp": 360,
+              "tn": 347,
+              "fp": 13,
+              "fn": 0
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.019445,
+            "max_abs_prob_shift": 0.997907,
+            "verdict_flips": 11
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.021524,
+            "max_abs_prob_shift": 0.997891,
+            "verdict_flips": 12
+          }
+        },
+        {
+          "round": 4,
+          "family": "path_shuffle",
+          "family_description": "Sensitive path segment moved into the query",
+          "reversible_by_normaliser": false,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 8,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.028156,
+            "loss_first": 0.003243,
+            "loss_last": 0.001239,
+            "n_train_urls": 676,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 600,
+              "n_seen": 960,
+              "phishing": 311,
+              "legitimate": 289,
+              "phishing_fraction": 0.5183333333333333
+            },
+            "rehearsal_active": true,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.987952,
+            "train_metrics": {
+              "n_samples": 676,
+              "available": true,
+              "accuracy": 0.994083,
+              "precision": 0.988506,
+              "recall": 1.0,
+              "specificity": 0.987952,
+              "f1": 0.99422,
+              "roc_auc": 0.999982,
+              "pr_auc": 0.999983,
+              "mcc": 0.988229,
+              "balanced_accuracy": 0.993976,
+              "brier": 0.006007,
+              "confusion_matrix": {
+                "tp": 344,
+                "tn": 328,
+                "fp": 4,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 1.27735052,
+              "since_initial": 3.32293121,
+              "relative_to_initial": 0.38440474
+            },
+            "ewc": {
+              "lambda": 50.0,
+              "penalty": 0.00447238,
+              "active": true,
+              "fisher_mean": 2.449718e-06
+            }
+          },
+          "stream_seen": 960,
+          "buffer": {
+            "capacity": 600,
+            "size": 600,
+            "n_seen": 960,
+            "phishing": 311,
+            "legitimate": 289,
+            "phishing_fraction": 0.5183333333333333
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.99,
+            "precision": 0.980707,
+            "recall": 1.0,
+            "specificity": 0.979661,
+            "f1": 0.99026,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 0.980184,
+            "balanced_accuracy": 0.989831,
+            "brier": 0.009522,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 289,
+              "fp": 6,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.983333,
+            "precision": 0.967213,
+            "recall": 1.0,
+            "specificity": 0.967213,
+            "f1": 0.983333,
+            "roc_auc": 0.999211,
+            "pr_auc": 0.999073,
+            "mcc": 0.967213,
+            "balanced_accuracy": 0.983607,
+            "brier": 0.014105,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 295,
+              "fp": 10,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 960,
+            "available": true,
+            "accuracy": 0.988542,
+            "precision": 0.977597,
+            "recall": 1.0,
+            "specificity": 0.977083,
+            "f1": 0.988671,
+            "roc_auc": 0.99997,
+            "pr_auc": 0.99997,
+            "mcc": 0.97734,
+            "balanced_accuracy": 0.988542,
+            "brier": 0.011215,
+            "confusion_matrix": {
+              "tp": 480,
+              "tn": 469,
+              "fp": 11,
+              "fn": 0
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.013084,
+            "max_abs_prob_shift": 0.998028,
+            "verdict_flips": 7
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.01395,
+            "max_abs_prob_shift": 0.976454,
+            "verdict_flips": 6
+          }
+        },
+        {
+          "round": 5,
+          "family": "double_encode",
+          "family_description": "Extra layer of percent-encoding",
+          "reversible_by_normaliser": false,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 15,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.049732,
+            "loss_first": 0.002035,
+            "loss_last": 0.003451,
+            "n_train_urls": 658,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 600,
+              "n_seen": 1200,
+              "phishing": 311,
+              "legitimate": 289,
+              "phishing_fraction": 0.5183333333333333
+            },
+            "rehearsal_active": true,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.993808,
+            "train_metrics": {
+              "n_samples": 658,
+              "available": true,
+              "accuracy": 0.99696,
+              "precision": 0.994065,
+              "recall": 1.0,
+              "specificity": 0.993808,
+              "f1": 0.997024,
+              "roc_auc": 0.999797,
+              "pr_auc": 0.999802,
+              "mcc": 0.993937,
+              "balanced_accuracy": 0.996904,
+              "brier": 0.003021,
+              "confusion_matrix": {
+                "tp": 335,
+                "tn": 321,
+                "fp": 2,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 1.13290817,
+              "since_initial": 3.57776765,
+              "relative_to_initial": 0.31665225
+            },
+            "ewc": {
+              "lambda": 50.0,
+              "penalty": 0.00017327,
+              "active": true,
+              "fisher_mean": 4.111424e-06
+            }
+          },
+          "stream_seen": 1200,
+          "buffer": {
+            "capacity": 600,
+            "size": 600,
+            "n_seen": 1200,
+            "phishing": 311,
+            "legitimate": 289,
+            "phishing_fraction": 0.5183333333333333
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 1.0,
+            "balanced_accuracy": 1.0,
+            "brier": 0.0,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 295,
+              "fp": 0,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.996667,
+            "precision": 0.993266,
+            "recall": 1.0,
+            "specificity": 0.993443,
+            "f1": 0.996622,
+            "roc_auc": 0.999389,
+            "pr_auc": 0.999305,
+            "mcc": 0.993354,
+            "balanced_accuracy": 0.996721,
+            "brier": 0.003131,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 303,
+              "fp": 2,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 1200,
+            "available": true,
+            "accuracy": 0.993333,
+            "precision": 0.986842,
+            "recall": 1.0,
+            "specificity": 0.986667,
+            "f1": 0.993377,
+            "roc_auc": 0.999758,
+            "pr_auc": 0.999757,
+            "mcc": 0.986754,
+            "balanced_accuracy": 0.993333,
+            "brier": 0.00645,
+            "confusion_matrix": {
+              "tp": 600,
+              "tn": 592,
+              "fp": 8,
+              "fn": 0
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.00515,
+            "max_abs_prob_shift": 0.884315,
+            "verdict_flips": 1
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.002928,
+            "max_abs_prob_shift": 0.273549,
+            "verdict_flips": 0
+          }
+        },
+        {
+          "round": 6,
+          "family": "repeat_pad",
+          "family_description": "Repeated characters padded onto the host",
+          "reversible_by_normaliser": false,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 240,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.09274,
+            "loss_first": 0.042647,
+            "loss_last": 0.000866,
+            "n_train_urls": 753,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 600,
+              "n_seen": 1440,
+              "phishing": 305,
+              "legitimate": 295,
+              "phishing_fraction": 0.5083333333333333
+            },
+            "rehearsal_active": true,
+            "recall_phishing": 0.994819,
+            "recall_legitimate": 0.989101,
+            "train_metrics": {
+              "n_samples": 753,
+              "available": true,
+              "accuracy": 0.992032,
+              "precision": 0.989691,
+              "recall": 0.994819,
+              "specificity": 0.989101,
+              "f1": 0.992248,
+              "roc_auc": 0.999859,
+              "pr_auc": 0.999867,
+              "mcc": 0.984065,
+              "balanced_accuracy": 0.99196,
+              "brier": 0.006975,
+              "confusion_matrix": {
+                "tp": 384,
+                "tn": 363,
+                "fp": 4,
+                "fn": 2
+              }
+            },
+            "drift": {
+              "since_previous_update": 1.30791337,
+              "since_initial": 3.92607901,
+              "relative_to_initial": 0.33313475
+            },
+            "ewc": {
+              "lambda": 50.0,
+              "penalty": 0.03077994,
+              "active": true,
+              "fisher_mean": 3.9821787e-05
+            }
+          },
+          "stream_seen": 1440,
+          "buffer": {
+            "capacity": 600,
+            "size": 600,
+            "n_seen": 1440,
+            "phishing": 305,
+            "legitimate": 295,
+            "phishing_fraction": 0.5083333333333333
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.991667,
+            "precision": 0.983871,
+            "recall": 1.0,
+            "specificity": 0.983051,
+            "f1": 0.99187,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 0.983461,
+            "balanced_accuracy": 0.991525,
+            "brier": 0.006422,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 290,
+              "fp": 5,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.993333,
+            "precision": 0.986622,
+            "recall": 1.0,
+            "specificity": 0.986885,
+            "f1": 0.993266,
+            "roc_auc": 0.999266,
+            "pr_auc": 0.999133,
+            "mcc": 0.986754,
+            "balanced_accuracy": 0.993443,
+            "brier": 0.00681,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 301,
+              "fp": 4,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 1440,
+            "available": true,
+            "accuracy": 0.988889,
+            "precision": 0.980874,
+            "recall": 0.997222,
+            "specificity": 0.980556,
+            "f1": 0.988981,
+            "roc_auc": 0.999859,
+            "pr_auc": 0.999861,
+            "mcc": 0.977914,
+            "balanced_accuracy": 0.988889,
+            "brier": 0.010514,
+            "confusion_matrix": {
+              "tp": 718,
+              "tn": 706,
+              "fp": 14,
+              "fn": 2
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.005865,
+            "max_abs_prob_shift": 0.9965,
+            "verdict_flips": 1
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.011105,
+            "max_abs_prob_shift": 0.99105,
+            "verdict_flips": 5
+          }
+        },
+        {
+          "round": 7,
+          "family": "homoglyph",
+          "family_description": "Cyrillic look-alike swapped into the host",
+          "reversible_by_normaliser": true,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 240,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.009732,
+            "loss_first": 0.073022,
+            "loss_last": 0.001254,
+            "n_train_urls": 760,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 600,
+              "n_seen": 1680,
+              "phishing": 296,
+              "legitimate": 304,
+              "phishing_fraction": 0.49333333333333335
+            },
+            "rehearsal_active": true,
+            "recall_phishing": 0.994805,
+            "recall_legitimate": 0.994667,
+            "train_metrics": {
+              "n_samples": 760,
+              "available": true,
+              "accuracy": 0.994737,
+              "precision": 0.994805,
+              "recall": 0.994805,
+              "specificity": 0.994667,
+              "f1": 0.994805,
+              "roc_auc": 0.999972,
+              "pr_auc": 0.999973,
+              "mcc": 0.989472,
+              "balanced_accuracy": 0.994736,
+              "brier": 0.004171,
+              "confusion_matrix": {
+                "tp": 383,
+                "tn": 373,
+                "fp": 2,
+                "fn": 2
+              }
+            },
+            "drift": {
+              "since_previous_update": 1.49606137,
+              "since_initial": 4.18570699,
+              "relative_to_initial": 0.35742143
+            },
+            "ewc": {
+              "lambda": 50.0,
+              "penalty": 0.00036186,
+              "active": true,
+              "fisher_mean": 1.319338e-06
+            }
+          },
+          "stream_seen": 1680,
+          "buffer": {
+            "capacity": 600,
+            "size": 600,
+            "n_seen": 1680,
+            "phishing": 296,
+            "legitimate": 304,
+            "phishing_fraction": 0.49333333333333335
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 1.0,
+            "balanced_accuracy": 1.0,
+            "brier": 0.0,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 295,
+              "fp": 0,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.996667,
+            "precision": 0.993266,
+            "recall": 1.0,
+            "specificity": 0.993443,
+            "f1": 0.996622,
+            "roc_auc": 0.999322,
+            "pr_auc": 0.999193,
+            "mcc": 0.993354,
+            "balanced_accuracy": 0.996721,
+            "brier": 0.003325,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 303,
+              "fp": 2,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 1680,
+            "available": true,
+            "accuracy": 0.993452,
+            "precision": 0.991696,
+            "recall": 0.995238,
+            "specificity": 0.991667,
+            "f1": 0.993464,
+            "roc_auc": 0.999936,
+            "pr_auc": 0.999937,
+            "mcc": 0.986911,
+            "balanced_accuracy": 0.993452,
+            "brier": 0.005586,
+            "confusion_matrix": {
+              "tp": 836,
+              "tn": 833,
+              "fp": 7,
+              "fn": 4
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.004522,
+            "max_abs_prob_shift": 0.899861,
+            "verdict_flips": 1
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.003006,
+            "max_abs_prob_shift": 0.273548,
+            "verdict_flips": 0
+          }
+        },
+        {
+          "round": 8,
+          "family": "fullwidth",
+          "family_description": "Fullwidth Unicode character in the host",
+          "reversible_by_normaliser": true,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 240,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.044054,
+            "loss_first": 0.000387,
+            "loss_last": 2.4e-05,
+            "n_train_urls": 775,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 600,
+              "n_seen": 1920,
+              "phishing": 293,
+              "legitimate": 307,
+              "phishing_fraction": 0.48833333333333334
+            },
+            "rehearsal_active": true,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.994845,
+            "train_metrics": {
+              "n_samples": 775,
+              "available": true,
+              "accuracy": 0.997419,
+              "precision": 0.994859,
+              "recall": 1.0,
+              "specificity": 0.994845,
+              "f1": 0.997423,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0,
+              "mcc": 0.994852,
+              "balanced_accuracy": 0.997423,
+              "brier": 0.002027,
+              "confusion_matrix": {
+                "tp": 387,
+                "tn": 386,
+                "fp": 2,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 1.06309918,
+              "since_initial": 4.50564759,
+              "relative_to_initial": 0.23594814
+            },
+            "ewc": {
+              "lambda": 50.0,
+              "penalty": 1e-08,
+              "active": true,
+              "fisher_mean": 3.2043332e-05
+            }
+          },
+          "stream_seen": 1920,
+          "buffer": {
+            "capacity": 600,
+            "size": 600,
+            "n_seen": 1920,
+            "phishing": 293,
+            "legitimate": 307,
+            "phishing_fraction": 0.48833333333333334
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 1.0,
+            "balanced_accuracy": 1.0,
+            "brier": 0.0,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 295,
+              "fp": 0,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.996667,
+            "precision": 0.993266,
+            "recall": 1.0,
+            "specificity": 0.993443,
+            "f1": 0.996622,
+            "roc_auc": 0.999366,
+            "pr_auc": 0.999078,
+            "mcc": 0.993354,
+            "balanced_accuracy": 0.996721,
+            "brier": 0.003332,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 303,
+              "fp": 2,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 1920,
+            "available": true,
+            "accuracy": 0.996354,
+            "precision": 0.992761,
+            "recall": 1.0,
+            "specificity": 0.992708,
+            "f1": 0.996367,
+            "roc_auc": 0.999998,
+            "pr_auc": 0.999998,
+            "mcc": 0.992735,
+            "balanced_accuracy": 0.996354,
+            "brier": 0.003354,
+            "confusion_matrix": {
+              "tp": 960,
+              "tn": 953,
+              "fp": 7,
+              "fn": 0
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.004548,
+            "max_abs_prob_shift": 0.901215,
+            "verdict_flips": 1
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.003027,
+            "max_abs_prob_shift": 0.27355,
+            "verdict_flips": 0
+          }
+        },
+        {
+          "round": 9,
+          "family": "zero_width",
+          "family_description": "Zero-width separator inside the host",
+          "reversible_by_normaliser": true,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 186,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.000106,
+            "loss_first": 0.000175,
+            "loss_last": 4e-06,
+            "n_train_urls": 743,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 600,
+              "n_seen": 2160,
+              "phishing": 292,
+              "legitimate": 308,
+              "phishing_fraction": 0.4866666666666667
+            },
+            "rehearsal_active": true,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.994751,
+            "train_metrics": {
+              "n_samples": 743,
+              "available": true,
+              "accuracy": 0.997308,
+              "precision": 0.994505,
+              "recall": 1.0,
+              "specificity": 0.994751,
+              "f1": 0.997245,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0,
+              "mcc": 0.994628,
+              "balanced_accuracy": 0.997375,
+              "brier": 0.002679,
+              "confusion_matrix": {
+                "tp": 362,
+                "tn": 379,
+                "fp": 2,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 1.21791943,
+              "since_initial": 4.85573658,
+              "relative_to_initial": 0.25082074
+            },
+            "ewc": {
+              "lambda": 50.0,
+              "penalty": 0.0,
+              "active": true,
+              "fisher_mean": 0.0
+            }
+          },
+          "stream_seen": 2160,
+          "buffer": {
+            "capacity": 600,
+            "size": 600,
+            "n_seen": 2160,
+            "phishing": 292,
+            "legitimate": 308,
+            "phishing_fraction": 0.4866666666666667
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 1.0,
+            "balanced_accuracy": 1.0,
+            "brier": 0.0,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 295,
+              "fp": 0,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.995,
+            "precision": 0.989933,
+            "recall": 1.0,
+            "specificity": 0.990164,
+            "f1": 0.994941,
+            "roc_auc": 0.998839,
+            "pr_auc": 0.997617,
+            "mcc": 0.990048,
+            "balanced_accuracy": 0.995082,
+            "brier": 0.005004,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 302,
+              "fp": 3,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 2160,
+            "available": true,
+            "accuracy": 0.996296,
+            "precision": 0.992647,
+            "recall": 1.0,
+            "specificity": 0.992593,
+            "f1": 0.99631,
+            "roc_auc": 0.999999,
+            "pr_auc": 0.999999,
+            "mcc": 0.99262,
+            "balanced_accuracy": 0.996296,
+            "brier": 0.00364,
+            "confusion_matrix": {
+              "tp": 1080,
+              "tn": 1072,
+              "fp": 8,
+              "fn": 0
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.006039,
+            "max_abs_prob_shift": 0.995663,
+            "verdict_flips": 2
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.003031,
+            "max_abs_prob_shift": 0.27355,
+            "verdict_flips": 0
+          }
+        },
+        {
+          "round": 10,
+          "family": "scheme_upper",
+          "family_description": "Uppercased URL scheme",
+          "reversible_by_normaliser": true,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 240,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 3e-06,
+            "loss_first": 4e-06,
+            "loss_last": 0.0,
+            "n_train_urls": 778,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 600,
+              "n_seen": 2400,
+              "phishing": 288,
+              "legitimate": 312,
+              "phishing_fraction": 0.48
+            },
+            "rehearsal_active": true,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.997494,
+            "train_metrics": {
+              "n_samples": 778,
+              "available": true,
+              "accuracy": 0.998715,
+              "precision": 0.997368,
+              "recall": 1.0,
+              "specificity": 0.997494,
+              "f1": 0.998682,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0,
+              "mcc": 0.997431,
+              "balanced_accuracy": 0.998747,
+              "brier": 0.000359,
+              "confusion_matrix": {
+                "tp": 379,
+                "tn": 398,
+                "fp": 1,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 0.98396879,
+              "since_initial": 5.07780153,
+              "relative_to_initial": 0.1937785
+            },
+            "ewc": {
+              "lambda": 50.0,
+              "penalty": 0.0,
+              "active": true,
+              "fisher_mean": 2e-12
+            }
+          },
+          "stream_seen": 2400,
+          "buffer": {
+            "capacity": 600,
+            "size": 600,
+            "n_seen": 2400,
+            "phishing": 288,
+            "legitimate": 312,
+            "phishing_fraction": 0.48
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 1.0,
+            "balanced_accuracy": 1.0,
+            "brier": 0.0,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 295,
+              "fp": 0,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.998333,
+            "precision": 0.996622,
+            "recall": 1.0,
+            "specificity": 0.996721,
+            "f1": 0.998308,
+            "roc_auc": 0.998338,
+            "pr_auc": 0.996576,
+            "mcc": 0.996671,
+            "balanced_accuracy": 0.998361,
+            "brier": 0.001667,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 304,
+              "fp": 1,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 2400,
+            "available": true,
+            "accuracy": 0.998333,
+            "precision": 0.996678,
+            "recall": 1.0,
+            "specificity": 0.996667,
+            "f1": 0.998336,
+            "roc_auc": 0.999997,
+            "pr_auc": 0.999997,
+            "mcc": 0.996672,
+            "balanced_accuracy": 0.998333,
+            "brier": 0.001041,
+            "confusion_matrix": {
+              "tp": 1200,
+              "tn": 1196,
+              "fp": 4,
+              "fn": 0
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.006138,
+            "max_abs_prob_shift": 0.975324,
+            "verdict_flips": 2
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.00303,
+            "max_abs_prob_shift": 0.27355,
+            "verdict_flips": 0
+          }
+        },
+        {
+          "round": 11,
+          "family": "trailing_dot",
+          "family_description": "Fully-qualified trailing dot on the host",
+          "reversible_by_normaliser": true,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 240,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.021415,
+            "loss_first": 0.0,
+            "loss_last": 0.0,
+            "n_train_urls": 779,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 600,
+              "n_seen": 2640,
+              "phishing": 292,
+              "legitimate": 308,
+              "phishing_fraction": 0.4866666666666667
+            },
+            "rehearsal_active": true,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.9975,
+            "train_metrics": {
+              "n_samples": 779,
+              "available": true,
+              "accuracy": 0.998716,
+              "precision": 0.997368,
+              "recall": 1.0,
+              "specificity": 0.9975,
+              "f1": 0.998682,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0,
+              "mcc": 0.997434,
+              "balanced_accuracy": 0.99875,
+              "brier": 0.001279,
+              "confusion_matrix": {
+                "tp": 379,
+                "tn": 399,
+                "fp": 1,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 0.58309376,
+              "since_initial": 5.19768651,
+              "relative_to_initial": 0.11218333
+            },
+            "ewc": {
+              "lambda": 50.0,
+              "penalty": 0.0,
+              "active": true,
+              "fisher_mean": 0.0
+            }
+          },
+          "stream_seen": 2640,
+          "buffer": {
+            "capacity": 600,
+            "size": 600,
+            "n_seen": 2640,
+            "phishing": 292,
+            "legitimate": 308,
+            "phishing_fraction": 0.4866666666666667
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 1.0,
+            "balanced_accuracy": 1.0,
+            "brier": 0.0,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 295,
+              "fp": 0,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.996667,
+            "precision": 0.993266,
+            "recall": 1.0,
+            "specificity": 0.993443,
+            "f1": 0.996622,
+            "roc_auc": 0.998361,
+            "pr_auc": 0.996622,
+            "mcc": 0.993354,
+            "balanced_accuracy": 0.996721,
+            "brier": 0.00332,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 303,
+              "fp": 2,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 2640,
+            "available": true,
+            "accuracy": 0.998106,
+            "precision": 0.996226,
+            "recall": 1.0,
+            "specificity": 0.996212,
+            "f1": 0.99811,
+            "roc_auc": 0.999999,
+            "pr_auc": 0.999999,
+            "mcc": 0.996219,
+            "balanced_accuracy": 0.998106,
+            "brier": 0.001701,
+            "confusion_matrix": {
+              "tp": 1320,
+              "tn": 1315,
+              "fp": 5,
+              "fn": 0
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.004553,
+            "max_abs_prob_shift": 0.902263,
+            "verdict_flips": 1
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.00303,
+            "max_abs_prob_shift": 0.27355,
+            "verdict_flips": 0
+          }
+        }
+      ],
+      "seconds": 328.66,
+      "forgetting": {
+        "original": {
+          "n_points": 12,
+          "final_mean_abs_prob_shift": 0.00303,
+          "max_mean_abs_prob_shift": 0.091488,
+          "f1_at_round_0": 1.0,
+          "f1_final": 1.0,
+          "final_change": 0.0,
+          "worst_f1": 0.92145,
+          "worst_change": -0.07855,
+          "recovered": true,
+          "final_verdict_flips": 0,
+          "n_samples": 600
+        },
+        "clean": {
+          "n_points": 12,
+          "final_mean_abs_prob_shift": 0.004553,
+          "max_mean_abs_prob_shift": 0.088238,
+          "f1_at_round_0": 0.994941,
+          "f1_final": 0.996622,
+          "final_change": 0.001681,
+          "worst_f1": 0.920437,
+          "worst_change": -0.074504,
+          "recovered": true,
+          "final_verdict_flips": 1,
+          "n_samples": 600
+        },
+        "stream": {
+          "n_points": 11,
+          "final_mean_abs_prob_shift": null,
+          "max_mean_abs_prob_shift": null,
+          "f1_at_round_0": 0.866426,
+          "f1_final": 0.99811,
+          "final_change": 0.131684,
+          "worst_f1": 0.866426,
+          "worst_change": 0.0,
+          "recovered": true,
+          "final_verdict_flips": null,
+          "n_samples": 2640
+        }
+      }
+    },
+    {
+      "arm": "baseline_no_ewc_no_rehearsal",
+      "settings": {
+        "lr": 0.001,
+        "steps_per_round": 8,
+        "batch_size": 32,
+        "buffer_capacity": 600,
+        "ewc_lambda": 0.0,
+        "rehearsal": false,
+        "seed": 42
+      },
+      "rounds": [
+        {
+          "round": 0,
+          "family": null,
+          "update": null,
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 1.0,
+            "balanced_accuracy": 1.0,
+            "brier": 0.000139,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 295,
+              "fp": 0,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.995,
+            "precision": 0.989933,
+            "recall": 1.0,
+            "specificity": 0.990164,
+            "f1": 0.994941,
+            "roc_auc": 0.997811,
+            "pr_auc": 0.996344,
+            "mcc": 0.990048,
+            "balanced_accuracy": 0.995082,
+            "brier": 0.004716,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 302,
+              "fp": 3,
+              "fn": 0
+            }
+          },
+          "stream_seen": 0,
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.0,
+            "max_abs_prob_shift": 0.0,
+            "verdict_flips": 0
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.0,
+            "max_abs_prob_shift": 0.0,
+            "verdict_flips": 0
+          }
+        },
+        {
+          "round": 1,
+          "family": "brand_swap",
+          "family_description": "Host replaced with a high-value brand",
+          "reversible_by_normaliser": false,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 240,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 1.673554,
+            "loss_first": 4.883862,
+            "loss_last": 0.420228,
+            "n_train_urls": 240,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 0,
+              "n_seen": 0,
+              "phishing": 0,
+              "legitimate": 0,
+              "phishing_fraction": 0.0
+            },
+            "rehearsal_active": false,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.691667,
+            "train_metrics": {
+              "n_samples": 240,
+              "available": true,
+              "accuracy": 0.845833,
+              "precision": 0.764331,
+              "recall": 1.0,
+              "specificity": 0.691667,
+              "f1": 0.866426,
+              "roc_auc": 0.9925,
+              "pr_auc": 0.991533,
+              "mcc": 0.727092,
+              "balanced_accuracy": 0.845833,
+              "brier": 0.127304,
+              "confusion_matrix": {
+                "tp": 120,
+                "tn": 83,
+                "fp": 37,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 2.10455348,
+              "since_initial": 2.10455348,
+              "relative_to_initial": 1.0
+            },
+            "ewc": {
+              "lambda": 0.0,
+              "penalty": 0.0,
+              "active": false,
+              "fisher_mean": null
+            }
+          },
+          "stream_seen": 240,
+          "buffer": {
+            "capacity": 600,
+            "size": 0,
+            "n_seen": 0,
+            "phishing": 0,
+            "legitimate": 0,
+            "phishing_fraction": 0.0
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.911667,
+            "precision": 0.851955,
+            "recall": 1.0,
+            "specificity": 0.820339,
+            "f1": 0.92006,
+            "roc_auc": 0.999933,
+            "pr_auc": 0.999936,
+            "mcc": 0.835998,
+            "balanced_accuracy": 0.910169,
+            "brier": 0.065179,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 242,
+              "fp": 53,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.913333,
+            "precision": 0.850144,
+            "recall": 1.0,
+            "specificity": 0.829508,
+            "f1": 0.919003,
+            "roc_auc": 0.998111,
+            "pr_auc": 0.99735,
+            "mcc": 0.839763,
+            "balanced_accuracy": 0.914754,
+            "brier": 0.067239,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 253,
+              "fp": 52,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 240,
+            "available": true,
+            "accuracy": 0.845833,
+            "precision": 0.764331,
+            "recall": 1.0,
+            "specificity": 0.691667,
+            "f1": 0.866426,
+            "roc_auc": 0.9925,
+            "pr_auc": 0.991533,
+            "mcc": 0.727092,
+            "balanced_accuracy": 0.845833,
+            "brier": 0.127304,
+            "confusion_matrix": {
+              "tp": 120,
+              "tn": 83,
+              "fp": 37,
+              "fn": 0
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.092958,
+            "max_abs_prob_shift": 0.986693,
+            "verdict_flips": 49
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.095652,
+            "max_abs_prob_shift": 0.990914,
+            "verdict_flips": 53
+          }
+        },
+        {
+          "round": 2,
+          "family": "subdomain_prepend",
+          "family_description": "Brand kept as a subdomain of an attacker domain",
+          "reversible_by_normaliser": false,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 240,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.164631,
+            "loss_first": 0.340499,
+            "loss_last": 0.033921,
+            "n_train_urls": 240,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 0,
+              "n_seen": 0,
+              "phishing": 0,
+              "legitimate": 0,
+              "phishing_fraction": 0.0
+            },
+            "rehearsal_active": false,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.975,
+            "train_metrics": {
+              "n_samples": 240,
+              "available": true,
+              "accuracy": 0.9875,
+              "precision": 0.97561,
+              "recall": 1.0,
+              "specificity": 0.975,
+              "f1": 0.987654,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0,
+              "mcc": 0.975305,
+              "balanced_accuracy": 0.9875,
+              "brier": 0.004918,
+              "confusion_matrix": {
+                "tp": 120,
+                "tn": 117,
+                "fp": 3,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 1.83001637,
+              "since_initial": 2.49630757,
+              "relative_to_initial": 0.7330893
+            },
+            "ewc": {
+              "lambda": 0.0,
+              "penalty": 0.0,
+              "active": false,
+              "fisher_mean": null
+            }
+          },
+          "stream_seen": 480,
+          "buffer": {
+            "capacity": 600,
+            "size": 0,
+            "n_seen": 0,
+            "phishing": 0,
+            "legitimate": 0,
+            "phishing_fraction": 0.0
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.986667,
+            "precision": 0.974441,
+            "recall": 1.0,
+            "specificity": 0.972881,
+            "f1": 0.987055,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 0.973661,
+            "balanced_accuracy": 0.986441,
+            "brier": 0.011014,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 287,
+              "fp": 8,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.981667,
+            "precision": 0.964052,
+            "recall": 1.0,
+            "specificity": 0.963934,
+            "f1": 0.981697,
+            "roc_auc": 0.998789,
+            "pr_auc": 0.998436,
+            "mcc": 0.963993,
+            "balanced_accuracy": 0.981967,
+            "brier": 0.013222,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 294,
+              "fp": 11,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 480,
+            "available": true,
+            "accuracy": 0.975,
+            "precision": 0.952381,
+            "recall": 1.0,
+            "specificity": 0.95,
+            "f1": 0.97561,
+            "roc_auc": 0.998872,
+            "pr_auc": 0.998836,
+            "mcc": 0.95119,
+            "balanced_accuracy": 0.975,
+            "brier": 0.017349,
+            "confusion_matrix": {
+              "tp": 240,
+              "tn": 228,
+              "fp": 12,
+              "fn": 0
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.013456,
+            "max_abs_prob_shift": 0.967997,
+            "verdict_flips": 8
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.016561,
+            "max_abs_prob_shift": 0.967006,
+            "verdict_flips": 8
+          }
+        },
+        {
+          "round": 3,
+          "family": "typosquat",
+          "family_description": "Transposed or dropped character in the host label",
+          "reversible_by_normaliser": false,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 231,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.001435,
+            "loss_first": 0.003572,
+            "loss_last": 0.000308,
+            "n_train_urls": 240,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 0,
+              "n_seen": 0,
+              "phishing": 0,
+              "legitimate": 0,
+              "phishing_fraction": 0.0
+            },
+            "rehearsal_active": false,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 1.0,
+            "train_metrics": {
+              "n_samples": 240,
+              "available": true,
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": 1.0,
+              "f1": 1.0,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0,
+              "mcc": 1.0,
+              "balanced_accuracy": 1.0,
+              "brier": 0.0,
+              "confusion_matrix": {
+                "tp": 120,
+                "tn": 120,
+                "fp": 0,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 1.68967764,
+              "since_initial": 2.77966455,
+              "relative_to_initial": 0.60787106
+            },
+            "ewc": {
+              "lambda": 0.0,
+              "penalty": 0.0,
+              "active": false,
+              "fisher_mean": null
+            }
+          },
+          "stream_seen": 720,
+          "buffer": {
+            "capacity": 600,
+            "size": 0,
+            "n_seen": 0,
+            "phishing": 0,
+            "legitimate": 0,
+            "phishing_fraction": 0.0
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 1.0,
+            "balanced_accuracy": 1.0,
+            "brier": 0.0,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 295,
+              "fp": 0,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.996667,
+            "precision": 0.993266,
+            "recall": 1.0,
+            "specificity": 0.993443,
+            "f1": 0.996622,
+            "roc_auc": 0.998022,
+            "pr_auc": 0.996873,
+            "mcc": 0.993354,
+            "balanced_accuracy": 0.996721,
+            "brier": 0.002587,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 303,
+              "fp": 2,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 720,
+            "available": true,
+            "accuracy": 0.833333,
+            "precision": 1.0,
+            "recall": 0.666667,
+            "specificity": 1.0,
+            "f1": 0.8,
+            "roc_auc": 0.996929,
+            "pr_auc": 0.996756,
+            "mcc": 0.707107,
+            "balanced_accuracy": 0.833333,
+            "brier": 0.166635,
+            "confusion_matrix": {
+              "tp": 240,
+              "tn": 360,
+              "fp": 0,
+              "fn": 120
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.004836,
+            "max_abs_prob_shift": 0.902319,
+            "verdict_flips": 1
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.002969,
+            "max_abs_prob_shift": 0.273501,
+            "verdict_flips": 0
+          }
+        },
+        {
+          "round": 4,
+          "family": "path_shuffle",
+          "family_description": "Sensitive path segment moved into the query",
+          "reversible_by_normaliser": false,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 8,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.000221,
+            "loss_first": 0.000611,
+            "loss_last": 2.7e-05,
+            "n_train_urls": 240,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 0,
+              "n_seen": 0,
+              "phishing": 0,
+              "legitimate": 0,
+              "phishing_fraction": 0.0
+            },
+            "rehearsal_active": false,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.991667,
+            "train_metrics": {
+              "n_samples": 240,
+              "available": true,
+              "accuracy": 0.995833,
+              "precision": 0.991736,
+              "recall": 1.0,
+              "specificity": 0.991667,
+              "f1": 0.995851,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0,
+              "mcc": 0.991701,
+              "balanced_accuracy": 0.995833,
+              "brier": 0.004164,
+              "confusion_matrix": {
+                "tp": 120,
+                "tn": 119,
+                "fp": 1,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 1.54387836,
+              "since_initial": 3.21993292,
+              "relative_to_initial": 0.47947532
+            },
+            "ewc": {
+              "lambda": 0.0,
+              "penalty": 0.0,
+              "active": false,
+              "fisher_mean": null
+            }
+          },
+          "stream_seen": 960,
+          "buffer": {
+            "capacity": 600,
+            "size": 0,
+            "n_seen": 0,
+            "phishing": 0,
+            "legitimate": 0,
+            "phishing_fraction": 0.0
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.998333,
+            "precision": 0.996732,
+            "recall": 1.0,
+            "specificity": 0.99661,
+            "f1": 0.998363,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 0.996671,
+            "balanced_accuracy": 0.998305,
+            "brier": 0.001666,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 294,
+              "fp": 1,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.993333,
+            "precision": 0.986622,
+            "recall": 1.0,
+            "specificity": 0.986885,
+            "f1": 0.993266,
+            "roc_auc": 0.99925,
+            "pr_auc": 0.998966,
+            "mcc": 0.986754,
+            "balanced_accuracy": 0.993443,
+            "brier": 0.006802,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 301,
+              "fp": 4,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 960,
+            "available": true,
+            "accuracy": 0.872917,
+            "precision": 0.994475,
+            "recall": 0.75,
+            "specificity": 0.995833,
+            "f1": 0.855107,
+            "roc_auc": 0.997552,
+            "pr_auc": 0.997349,
+            "mcc": 0.769446,
+            "balanced_accuracy": 0.872917,
+            "brier": 0.12701,
+            "confusion_matrix": {
+              "tp": 360,
+              "tn": 478,
+              "fp": 2,
+              "fn": 120
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.004511,
+            "max_abs_prob_shift": 0.749953,
+            "verdict_flips": 1
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.00378,
+            "max_abs_prob_shift": 0.726123,
+            "verdict_flips": 1
+          }
+        },
+        {
+          "round": 5,
+          "family": "double_encode",
+          "family_description": "Extra layer of percent-encoding",
+          "reversible_by_normaliser": false,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 15,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 1e-05,
+            "loss_first": 2.5e-05,
+            "loss_last": 2e-06,
+            "n_train_urls": 240,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 0,
+              "n_seen": 0,
+              "phishing": 0,
+              "legitimate": 0,
+              "phishing_fraction": 0.0
+            },
+            "rehearsal_active": false,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 1.0,
+            "train_metrics": {
+              "n_samples": 240,
+              "available": true,
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": 1.0,
+              "f1": 1.0,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0,
+              "mcc": 1.0,
+              "balanced_accuracy": 1.0,
+              "brier": 0.0,
+              "confusion_matrix": {
+                "tp": 120,
+                "tn": 120,
+                "fp": 0,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 1.02008844,
+              "since_initial": 3.56213633,
+              "relative_to_initial": 0.28636985
+            },
+            "ewc": {
+              "lambda": 0.0,
+              "penalty": 0.0,
+              "active": false,
+              "fisher_mean": null
+            }
+          },
+          "stream_seen": 1200,
+          "buffer": {
+            "capacity": 600,
+            "size": 0,
+            "n_seen": 0,
+            "phishing": 0,
+            "legitimate": 0,
+            "phishing_fraction": 0.0
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 1.0,
+            "balanced_accuracy": 1.0,
+            "brier": 0.0,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 295,
+              "fp": 0,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.993333,
+            "precision": 0.986622,
+            "recall": 1.0,
+            "specificity": 0.986885,
+            "f1": 0.993266,
+            "roc_auc": 0.998205,
+            "pr_auc": 0.996323,
+            "mcc": 0.986754,
+            "balanced_accuracy": 0.993443,
+            "brier": 0.006666,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 301,
+              "fp": 4,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 1200,
+            "available": true,
+            "accuracy": 0.9,
+            "precision": 1.0,
+            "recall": 0.8,
+            "specificity": 1.0,
+            "f1": 0.888889,
+            "roc_auc": 0.997983,
+            "pr_auc": 0.997857,
+            "mcc": 0.816497,
+            "balanced_accuracy": 0.9,
+            "brier": 0.1,
+            "confusion_matrix": {
+              "tp": 480,
+              "tn": 600,
+              "fp": 0,
+              "fn": 120
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.004046,
+            "max_abs_prob_shift": 0.749947,
+            "verdict_flips": 1
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.003019,
+            "max_abs_prob_shift": 0.267205,
+            "verdict_flips": 0
+          }
+        },
+        {
+          "round": 6,
+          "family": "repeat_pad",
+          "family_description": "Repeated characters padded onto the host",
+          "reversible_by_normaliser": false,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 240,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.140135,
+            "loss_first": 7e-06,
+            "loss_last": 0.0,
+            "n_train_urls": 240,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 0,
+              "n_seen": 0,
+              "phishing": 0,
+              "legitimate": 0,
+              "phishing_fraction": 0.0
+            },
+            "rehearsal_active": false,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 1.0,
+            "train_metrics": {
+              "n_samples": 240,
+              "available": true,
+              "accuracy": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": 1.0,
+              "f1": 1.0,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0,
+              "mcc": 1.0,
+              "balanced_accuracy": 1.0,
+              "brier": 0.0,
+              "confusion_matrix": {
+                "tp": 120,
+                "tn": 120,
+                "fp": 0,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 1.03500646,
+              "since_initial": 3.83289875,
+              "relative_to_initial": 0.2700323
+            },
+            "ewc": {
+              "lambda": 0.0,
+              "penalty": 0.0,
+              "active": false,
+              "fisher_mean": null
+            }
+          },
+          "stream_seen": 1440,
+          "buffer": {
+            "capacity": 600,
+            "size": 0,
+            "n_seen": 0,
+            "phishing": 0,
+            "legitimate": 0,
+            "phishing_fraction": 0.0
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.996667,
+            "precision": 0.993485,
+            "recall": 1.0,
+            "specificity": 0.99322,
+            "f1": 0.996732,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 0.993353,
+            "balanced_accuracy": 0.99661,
+            "brier": 0.003332,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 293,
+              "fp": 2,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.991667,
+            "precision": 0.983333,
+            "recall": 1.0,
+            "specificity": 0.983607,
+            "f1": 0.991597,
+            "roc_auc": 0.996699,
+            "pr_auc": 0.993221,
+            "mcc": 0.98347,
+            "balanced_accuracy": 0.991803,
+            "brier": 0.008351,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 300,
+              "fp": 5,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 1440,
+            "available": true,
+            "accuracy": 0.9125,
+            "precision": 0.990099,
+            "recall": 0.833333,
+            "specificity": 0.991667,
+            "f1": 0.904977,
+            "roc_auc": 0.997378,
+            "pr_auc": 0.99725,
+            "mcc": 0.83554,
+            "balanced_accuracy": 0.9125,
+            "brier": 0.087496,
+            "confusion_matrix": {
+              "tp": 600,
+              "tn": 714,
+              "fp": 6,
+              "fn": 120
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.005898,
+            "max_abs_prob_shift": 0.996515,
+            "verdict_flips": 2
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.005451,
+            "max_abs_prob_shift": 0.99962,
+            "verdict_flips": 2
+          }
+        },
+        {
+          "round": 7,
+          "family": "homoglyph",
+          "family_description": "Cyrillic look-alike swapped into the host",
+          "reversible_by_normaliser": true,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 240,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.0,
+            "loss_first": 0.0,
+            "loss_last": 0.0,
+            "n_train_urls": 240,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 0,
+              "n_seen": 0,
+              "phishing": 0,
+              "legitimate": 0,
+              "phishing_fraction": 0.0
+            },
+            "rehearsal_active": false,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.991667,
+            "train_metrics": {
+              "n_samples": 240,
+              "available": true,
+              "accuracy": 0.995833,
+              "precision": 0.991736,
+              "recall": 1.0,
+              "specificity": 0.991667,
+              "f1": 0.995851,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0,
+              "mcc": 0.991701,
+              "balanced_accuracy": 0.995833,
+              "brier": 0.004166,
+              "confusion_matrix": {
+                "tp": 120,
+                "tn": 119,
+                "fp": 1,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 0.42330522,
+              "since_initial": 3.96860311,
+              "relative_to_initial": 0.10666353
+            },
+            "ewc": {
+              "lambda": 0.0,
+              "penalty": 0.0,
+              "active": false,
+              "fisher_mean": null
+            }
+          },
+          "stream_seen": 1680,
+          "buffer": {
+            "capacity": 600,
+            "size": 0,
+            "n_seen": 0,
+            "phishing": 0,
+            "legitimate": 0,
+            "phishing_fraction": 0.0
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.998333,
+            "precision": 0.996732,
+            "recall": 1.0,
+            "specificity": 0.99661,
+            "f1": 0.998363,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 0.996671,
+            "balanced_accuracy": 0.998305,
+            "brier": 0.001667,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 294,
+              "fp": 1,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.993333,
+            "precision": 0.986622,
+            "recall": 1.0,
+            "specificity": 0.986885,
+            "f1": 0.993266,
+            "roc_auc": 0.995082,
+            "pr_auc": 0.989933,
+            "mcc": 0.986754,
+            "balanced_accuracy": 0.993443,
+            "brier": 0.006667,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 301,
+              "fp": 4,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 1680,
+            "available": true,
+            "accuracy": 0.92619,
+            "precision": 0.994475,
+            "recall": 0.857143,
+            "specificity": 0.995238,
+            "f1": 0.920716,
+            "roc_auc": 0.997207,
+            "pr_auc": 0.99712,
+            "mcc": 0.860627,
+            "balanced_accuracy": 0.92619,
+            "brier": 0.073809,
+            "confusion_matrix": {
+              "tp": 720,
+              "tn": 836,
+              "fp": 4,
+              "fn": 120
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.004046,
+            "max_abs_prob_shift": 0.750046,
+            "verdict_flips": 1
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.003785,
+            "max_abs_prob_shift": 0.726409,
+            "verdict_flips": 1
+          }
+        },
+        {
+          "round": 8,
+          "family": "fullwidth",
+          "family_description": "Fullwidth Unicode character in the host",
+          "reversible_by_normaliser": true,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 240,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.0,
+            "loss_first": 0.0,
+            "loss_last": 0.0,
+            "n_train_urls": 240,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 0,
+              "n_seen": 0,
+              "phishing": 0,
+              "legitimate": 0,
+              "phishing_fraction": 0.0
+            },
+            "rehearsal_active": false,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.991667,
+            "train_metrics": {
+              "n_samples": 240,
+              "available": true,
+              "accuracy": 0.995833,
+              "precision": 0.991736,
+              "recall": 1.0,
+              "specificity": 0.991667,
+              "f1": 0.995851,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0,
+              "mcc": 0.991701,
+              "balanced_accuracy": 0.995833,
+              "brier": 0.004166,
+              "confusion_matrix": {
+                "tp": 120,
+                "tn": 119,
+                "fp": 1,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 0.23496438,
+              "since_initial": 4.03869036,
+              "relative_to_initial": 0.05817836
+            },
+            "ewc": {
+              "lambda": 0.0,
+              "penalty": 0.0,
+              "active": false,
+              "fisher_mean": null
+            }
+          },
+          "stream_seen": 1920,
+          "buffer": {
+            "capacity": 600,
+            "size": 0,
+            "n_seen": 0,
+            "phishing": 0,
+            "legitimate": 0,
+            "phishing_fraction": 0.0
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.998333,
+            "precision": 0.996732,
+            "recall": 1.0,
+            "specificity": 0.99661,
+            "f1": 0.998363,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 0.996671,
+            "balanced_accuracy": 0.998305,
+            "brier": 0.001667,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 294,
+              "fp": 1,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.993333,
+            "precision": 0.986622,
+            "recall": 1.0,
+            "specificity": 0.986885,
+            "f1": 0.993266,
+            "roc_auc": 0.993443,
+            "pr_auc": 0.986622,
+            "mcc": 0.986754,
+            "balanced_accuracy": 0.993443,
+            "brier": 0.006667,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 301,
+              "fp": 4,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 1920,
+            "available": true,
+            "accuracy": 0.934896,
+            "precision": 0.994083,
+            "recall": 0.875,
+            "specificity": 0.994792,
+            "f1": 0.930748,
+            "roc_auc": 0.997486,
+            "pr_auc": 0.997423,
+            "mcc": 0.8761,
+            "balanced_accuracy": 0.934896,
+            "brier": 0.065104,
+            "confusion_matrix": {
+              "tp": 840,
+              "tn": 955,
+              "fp": 5,
+              "fn": 120
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.004046,
+            "max_abs_prob_shift": 0.750046,
+            "verdict_flips": 1
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.003785,
+            "max_abs_prob_shift": 0.726409,
+            "verdict_flips": 1
+          }
+        },
+        {
+          "round": 9,
+          "family": "zero_width",
+          "family_description": "Zero-width separator inside the host",
+          "reversible_by_normaliser": true,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 186,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.0,
+            "loss_first": 0.0,
+            "loss_last": 0.0,
+            "n_train_urls": 240,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 0,
+              "n_seen": 0,
+              "phishing": 0,
+              "legitimate": 0,
+              "phishing_fraction": 0.0
+            },
+            "rehearsal_active": false,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.991667,
+            "train_metrics": {
+              "n_samples": 240,
+              "available": true,
+              "accuracy": 0.995833,
+              "precision": 0.991736,
+              "recall": 1.0,
+              "specificity": 0.991667,
+              "f1": 0.995851,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0,
+              "mcc": 0.991701,
+              "balanced_accuracy": 0.995833,
+              "brier": 0.003612,
+              "confusion_matrix": {
+                "tp": 120,
+                "tn": 119,
+                "fp": 1,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 0.14470001,
+              "since_initial": 4.07931964,
+              "relative_to_initial": 0.0354716
+            },
+            "ewc": {
+              "lambda": 0.0,
+              "penalty": 0.0,
+              "active": false,
+              "fisher_mean": null
+            }
+          },
+          "stream_seen": 2160,
+          "buffer": {
+            "capacity": 600,
+            "size": 0,
+            "n_seen": 0,
+            "phishing": 0,
+            "legitimate": 0,
+            "phishing_fraction": 0.0
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.998333,
+            "precision": 0.996732,
+            "recall": 1.0,
+            "specificity": 0.99661,
+            "f1": 0.998363,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 0.996671,
+            "balanced_accuracy": 0.998305,
+            "brier": 0.001652,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 294,
+              "fp": 1,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.993333,
+            "precision": 0.986622,
+            "recall": 1.0,
+            "specificity": 0.986885,
+            "f1": 0.993266,
+            "roc_auc": 0.993443,
+            "pr_auc": 0.986622,
+            "mcc": 0.986754,
+            "balanced_accuracy": 0.993443,
+            "brier": 0.006667,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 301,
+              "fp": 4,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 2160,
+            "available": true,
+            "accuracy": 0.941667,
+            "precision": 0.993789,
+            "recall": 0.888889,
+            "specificity": 0.994444,
+            "f1": 0.938416,
+            "roc_auc": 0.997718,
+            "pr_auc": 0.99767,
+            "mcc": 0.888296,
+            "balanced_accuracy": 0.941667,
+            "brier": 0.058211,
+            "confusion_matrix": {
+              "tp": 960,
+              "tn": 1074,
+              "fp": 6,
+              "fn": 120
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.004046,
+            "max_abs_prob_shift": 0.750046,
+            "verdict_flips": 1
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.003778,
+            "max_abs_prob_shift": 0.722151,
+            "verdict_flips": 1
+          }
+        },
+        {
+          "round": 10,
+          "family": "scheme_upper",
+          "family_description": "Uppercased URL scheme",
+          "reversible_by_normaliser": true,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 240,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.0,
+            "loss_first": 0.0,
+            "loss_last": 0.0,
+            "n_train_urls": 240,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 0,
+              "n_seen": 0,
+              "phishing": 0,
+              "legitimate": 0,
+              "phishing_fraction": 0.0
+            },
+            "rehearsal_active": false,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.991667,
+            "train_metrics": {
+              "n_samples": 240,
+              "available": true,
+              "accuracy": 0.995833,
+              "precision": 0.991736,
+              "recall": 1.0,
+              "specificity": 0.991667,
+              "f1": 0.995851,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0,
+              "mcc": 0.991701,
+              "balanced_accuracy": 0.995833,
+              "brier": 0.004112,
+              "confusion_matrix": {
+                "tp": 120,
+                "tn": 119,
+                "fp": 1,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 0.06674341,
+              "since_initial": 4.10044191,
+              "relative_to_initial": 0.01627713
+            },
+            "ewc": {
+              "lambda": 0.0,
+              "penalty": 0.0,
+              "active": false,
+              "fisher_mean": null
+            }
+          },
+          "stream_seen": 2400,
+          "buffer": {
+            "capacity": 600,
+            "size": 0,
+            "n_seen": 0,
+            "phishing": 0,
+            "legitimate": 0,
+            "phishing_fraction": 0.0
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.998333,
+            "precision": 0.996732,
+            "recall": 1.0,
+            "specificity": 0.99661,
+            "f1": 0.998363,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 0.996671,
+            "balanced_accuracy": 0.998305,
+            "brier": 0.001645,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 294,
+              "fp": 1,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.993333,
+            "precision": 0.986622,
+            "recall": 1.0,
+            "specificity": 0.986885,
+            "f1": 0.993266,
+            "roc_auc": 0.993443,
+            "pr_auc": 0.986622,
+            "mcc": 0.986754,
+            "balanced_accuracy": 0.993443,
+            "brier": 0.006667,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 301,
+              "fp": 4,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 2400,
+            "available": true,
+            "accuracy": 0.947083,
+            "precision": 0.99356,
+            "recall": 0.9,
+            "specificity": 0.994167,
+            "f1": 0.944469,
+            "roc_auc": 0.997956,
+            "pr_auc": 0.997919,
+            "mcc": 0.898158,
+            "balanced_accuracy": 0.947083,
+            "brier": 0.052727,
+            "confusion_matrix": {
+              "tp": 1080,
+              "tn": 1193,
+              "fp": 7,
+              "fn": 120
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.004046,
+            "max_abs_prob_shift": 0.750046,
+            "verdict_flips": 1
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.003774,
+            "max_abs_prob_shift": 0.719902,
+            "verdict_flips": 1
+          }
+        },
+        {
+          "round": 11,
+          "family": "trailing_dot",
+          "family_description": "Fully-qualified trailing dot on the host",
+          "reversible_by_normaliser": true,
+          "batch": {
+            "n": 240,
+            "n_actually_changed": 240,
+            "phishing_fraction": 0.5
+          },
+          "update": {
+            "skipped": false,
+            "steps": 8,
+            "lr": 0.001,
+            "loss": 0.0,
+            "loss_first": 0.0,
+            "loss_last": 0.0,
+            "n_train_urls": 240,
+            "batch_composition": {
+              "requested_batch_size": 32,
+              "mean_positive_fraction": 0.5,
+              "first_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "last_batch": {
+                "size": 32,
+                "positive": 16,
+                "negative": 16,
+                "positive_fraction": 0.5,
+                "degenerate": false
+              },
+              "buffer_had_both_classes": true
+            },
+            "buffer": {
+              "capacity": 600,
+              "size": 0,
+              "n_seen": 0,
+              "phishing": 0,
+              "legitimate": 0,
+              "phishing_fraction": 0.0
+            },
+            "rehearsal_active": false,
+            "recall_phishing": 1.0,
+            "recall_legitimate": 0.983333,
+            "train_metrics": {
+              "n_samples": 240,
+              "available": true,
+              "accuracy": 0.991667,
+              "precision": 0.983607,
+              "recall": 1.0,
+              "specificity": 0.983333,
+              "f1": 0.991736,
+              "roc_auc": 0.991667,
+              "pr_auc": 0.983607,
+              "mcc": 0.98347,
+              "balanced_accuracy": 0.991667,
+              "brier": 0.008333,
+              "confusion_matrix": {
+                "tp": 120,
+                "tn": 118,
+                "fp": 2,
+                "fn": 0
+              }
+            },
+            "drift": {
+              "since_previous_update": 0.26949331,
+              "since_initial": 4.13317354,
+              "relative_to_initial": 0.06520251
+            },
+            "ewc": {
+              "lambda": 0.0,
+              "penalty": 0.0,
+              "active": false,
+              "fisher_mean": null
+            }
+          },
+          "stream_seen": 2640,
+          "buffer": {
+            "capacity": 600,
+            "size": 0,
+            "n_seen": 0,
+            "phishing": 0,
+            "legitimate": 0,
+            "phishing_fraction": 0.0
+          },
+          "original": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0,
+            "mcc": 1.0,
+            "balanced_accuracy": 1.0,
+            "brier": 0.0,
+            "confusion_matrix": {
+              "tp": 305,
+              "tn": 295,
+              "fp": 0,
+              "fn": 0
+            }
+          },
+          "clean": {
+            "n_samples": 600,
+            "available": true,
+            "accuracy": 0.993333,
+            "precision": 0.986622,
+            "recall": 1.0,
+            "specificity": 0.986885,
+            "f1": 0.993266,
+            "roc_auc": 0.995082,
+            "pr_auc": 0.989933,
+            "mcc": 0.986754,
+            "balanced_accuracy": 0.993443,
+            "brier": 0.006662,
+            "confusion_matrix": {
+              "tp": 295,
+              "tn": 301,
+              "fp": 4,
+              "fn": 0
+            }
+          },
+          "stream": {
+            "n_samples": 2640,
+            "available": true,
+            "accuracy": 0.953788,
+            "precision": 0.998336,
+            "recall": 0.909091,
+            "specificity": 0.998485,
+            "f1": 0.951626,
+            "roc_auc": 0.9976,
+            "pr_auc": 0.996758,
+            "mcc": 0.911224,
+            "balanced_accuracy": 0.953788,
+            "brier": 0.046212,
+            "confusion_matrix": {
+              "tp": 1200,
+              "tn": 1318,
+              "fp": 2,
+              "fn": 120
+            }
+          },
+          "clean_shift": {
+            "mean_abs_prob_shift": 0.004044,
+            "max_abs_prob_shift": 0.750046,
+            "verdict_flips": 1
+          },
+          "original_shift": {
+            "mean_abs_prob_shift": 0.00303,
+            "max_abs_prob_shift": 0.273549,
+            "verdict_flips": 0
+          }
+        }
+      ],
+      "seconds": 111.51,
+      "forgetting": {
+        "original": {
+          "n_points": 12,
+          "final_mean_abs_prob_shift": 0.00303,
+          "max_mean_abs_prob_shift": 0.095652,
+          "f1_at_round_0": 1.0,
+          "f1_final": 1.0,
+          "final_change": 0.0,
+          "worst_f1": 0.92006,
+          "worst_change": -0.07994,
+          "recovered": true,
+          "final_verdict_flips": 0,
+          "n_samples": 600
+        },
+        "clean": {
+          "n_points": 12,
+          "final_mean_abs_prob_shift": 0.004044,
+          "max_mean_abs_prob_shift": 0.092958,
+          "f1_at_round_0": 0.994941,
+          "f1_final": 0.993266,
+          "final_change": -0.001675,
+          "worst_f1": 0.919003,
+          "worst_change": -0.075938,
+          "recovered": true,
+          "final_verdict_flips": 1,
+          "n_samples": 600
+        },
+        "stream": {
+          "n_points": 11,
+          "final_mean_abs_prob_shift": null,
+          "max_mean_abs_prob_shift": null,
+          "f1_at_round_0": 0.866426,
+          "f1_final": 0.951626,
+          "final_change": 0.0852,
+          "worst_f1": 0.8,
+          "worst_change": -0.066426,
+          "recovered": true,
+          "final_verdict_flips": null,
+          "n_samples": 2640
+        }
+      }
+    }
+  ],
+  "comparison": {
+    "available": true,
+    "clean_final_f1_rehearsal_ewc": 0.996622,
+    "clean_final_f1_baseline": 0.993266,
+    "clean_worst_f1_rehearsal_ewc": 0.920437,
+    "clean_worst_f1_baseline": 0.919003,
+    "clean_final_change_rehearsal_ewc": 0.001681,
+    "clean_final_change_baseline": -0.001675,
+    "clean_final_change_advantage_of_protection": 0.003356,
+    "original_final_change_rehearsal_ewc": 0.0,
+    "original_final_change_baseline": 0.0,
+    "clean_final_prob_shift_rehearsal_ewc": 0.004553,
+    "clean_final_prob_shift_baseline": 0.004044,
+    "clean_max_prob_shift_rehearsal_ewc": 0.088238,
+    "clean_max_prob_shift_baseline": 0.092958,
+    "clean_final_verdict_flips_rehearsal_ewc": 1,
+    "clean_final_verdict_flips_baseline": 1,
+    "stream_final_f1_rehearsal_ewc": 0.99811,
+    "stream_final_f1_baseline": 0.951626,
+    "stream_f1_at_first_round": 0.866426,
+    "verdict": "Clean-holdout F1 with rehearsal+EWC changed by +0.0017 (worst -0.0745, 1 verdict flips); without it, -0.0017 (worst -0.0759, 1 verdict flips). Mean absolute probability shift on the same holdout was 0.0046 protected vs 0.0040 unprotected. Caveat on resolution: the two arms differ by 0.0034 F1 on a holdout of 600 URLs, which is a handful of individual verdicts. The sign of that gap is not established by this run and must not be quoted as evidence either way. The protected arm ended with no clean-set F1 loss. Whether that is the protection working or the ceiling simply not moving is the question the caveat above leaves open. On the adaptation side the difference is real: stream F1 finished at 0.9981 protected vs 0.9516 unprotected (from 0.8664 after the first round). Rehearsal plus EWC therefore bought adaptation, not immunity: the protection measurably improved how well the model handled the newly observed URLs while leaving the forgetting question above unanswered."
+  },
+  "honesty_note": "Every number here is measured in this run. Negative final_change means the metric is worse than the shipped model. No arm's results were selected post hoc; when the protection failed to help, the verdict string says so."
+}

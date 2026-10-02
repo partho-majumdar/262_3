@@ -1,0 +1,42 @@
+{
+  "guard_allowed_schemes": "unknown (config default http/https)",
+  "url_guard_results": {
+    "wikipedia.org/wiki/Main_Page": "BLOCKED: URL has no scheme",
+    "http://wikipedia.org/wiki/Main_Page": "ALLOWED",
+    "https://ok.example.com/": "ALLOWED",
+    "ftp://files.example.com/a.txt": "BLOCKED: scheme 'ftp' is not allowed (permitted: http, https)",
+    "hxxp://evil.example.com/login": "BLOCKED: scheme 'hxxp' is not allowed (permitted: http, https)",
+    "htpp://typo.example.com": "BLOCKED: scheme 'htpp' is not allowed (permitted: http, https)",
+    "http://user:pw@creds.example.com/": "BLOCKED: URL must not embed credentials"
+  },
+  "detected_columns": [
+    "URL",
+    "Label"
+  ],
+  "make_splits_url_col_detection": "REJECTED: RuntimeError: No URL column detected among ['URL', 'Label']",
+  "registered_domain_examples": {
+    "wikipedia.org/wiki/Main_Page": "wikipedia.org",
+    "http://wikipedia.org/wiki/Main_Page": "wikipedia.org"
+  },
+  "label_mapping": {
+    "bad": 1,
+    "good": 0,
+    "phishing": 1,
+    "legitimate": 0
+  },
+  "after_normalization_dryrun": {
+    "total": 549346,
+    "dup_url": 42154,
+    "unparseable_host": 137,
+    "bad_scheme": 0,
+    "usable": 507055,
+    "bad": 114228,
+    "good": 392827
+  },
+  "normalized_unique_hosts": {
+    "bad": 59738,
+    "good": 130466
+  },
+  "normalized_host_label_conflicts": 75,
+  "good_vs_bad_ratio": 3.44
+}

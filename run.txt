@@ -1,0 +1,4 @@
+Frontend:
+
+Backend:
+(.venv) PS E:\UIU\TRIMESTER - 11\Computer Security\CS_Project\Backend> python -m uvicorn app.api.main:app --host 127.0.0.1 --port 8000

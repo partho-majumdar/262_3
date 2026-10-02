@@ -1,0 +1,2147 @@
+{
+  "summary": {
+    "bad": {
+      "probed": 120,
+      "status_counts": {
+        "reachable": 35,
+        "connection_error": 75,
+        "connect_timeout": 7,
+        "read_timeout": 1,
+        "unparseable": 1,
+        "invalid_url": 1
+      },
+      "reachable_pct": 29.2,
+      "html_like_pct": 24.2,
+      "login_form_pct": 0.0,
+      "parked_hint_pct": 0.0,
+      "http_code_counts": {
+        "200": 7,
+        "307": 1,
+        "403": 2,
+        "404": 21,
+        "503": 3,
+        "504": 1
+      }
+    },
+    "good": {
+      "probed": 120,
+      "status_counts": {
+        "reachable": 92,
+        "connection_error": 24,
+        "connect_timeout": 2,
+        "ssl_error": 1,
+        "read_timeout": 1
+      },
+      "reachable_pct": 76.7,
+      "html_like_pct": 70.8,
+      "login_form_pct": 0.8,
+      "parked_hint_pct": 1.7,
+      "http_code_counts": {
+        "200": 47,
+        "202": 2,
+        "400": 3,
+        "403": 14,
+        "404": 21,
+        "410": 2,
+        "429": 1,
+        "503": 1,
+        "520": 1
+      }
+    }
+  },
+  "details": {
+    "bad": [
+      {
+        "url": "www.gzyangcheng.com/tab/",
+        "host": "www.gzyangcheng.com",
+        "status": "reachable",
+        "http_code": 503,
+        "content_type": "text/html",
+        "final_host": "www.gzyangcheng.com",
+        "bytes_sampled": 51,
+        "looks_like_html": false,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "'www.ysgrp.com.cn/js/?us.battle.net/login/en/?ref=http\\%3A\\%2F\\%2Fus.battle.net\\%2Fd3\\%2Fen\\%2Findex&amp;app=com-d3'",
+        "host": "'www.ysgrp.com.cn",
+        "status": "connection_error"
+      },
+      {
+        "url": "linux.esfelgueiras.org/comenius/freem",
+        "host": "linux.esfelgueiras.org",
+        "status": "connection_error"
+      },
+      {
+        "url": "betononasos24.com/modules/log/d/g.w/auth/view/document/index.html",
+        "host": "betononasos24.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "bdt.com.pl/nato/LoginVerification.php",
+        "host": "bdt.com.pl",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html",
+        "final_host": "bdt.com.pl",
+        "bytes_sampled": 492,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.cfpf.org.uk/~tracbcom/images/wbsccr.php?cmd=_processing&dispatch=5885d80a13c0db1fb6947b0aeae66fdbfb2119927117e3a6f876e0fd34af43650a0550451c07a8cbdfc0442a82b384190a0550451c07a8cbdfc0442a82b38419",
+        "host": "www.cfpf.org.uk",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html",
+        "final_host": "www.cfpf.org.uk",
+        "bytes_sampled": 564,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.paypal.com.us.cgi-bin.webscr.cmd.login.processing.login.cmd.login.done.login.access.1331385338.designgirl.com.au/.www.paypal.com/us/cgi-bin/webscr.htm?cmd=_login-run",
+        "host": "www.paypal.com.us.cgi-bin.webscr.cmd.login.processing.login.cmd.login.done.login.access.1331385338.designgirl.com.au",
+        "status": "connection_error"
+      },
+      {
+        "url": "playjared.net/0k4j7bge",
+        "host": "playjared.net",
+        "status": "connection_error"
+      },
+      {
+        "url": "chat-by-orkut5.blogspot.de/",
+        "host": "chat-by-orkut5.blogspot.de",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "chat-by-orkut5.blogspot.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "103.56.63.233:3212/dewq1",
+        "host": "103.56.63.233",
+        "status": "connect_timeout"
+      },
+      {
+        "url": "syamasahithi.com/JHgy64HJBRd/",
+        "host": "syamasahithi.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "pandurokri.fr/1a566c6f309f280f92cb934b6b0a3d58/validation.html?g4d3bdOsiuarHDdBl0bEP6dBVy_wP1WJ6XZDh7nemRp9bv2mHJ0HYZaZV6xWExsS",
+        "host": "pandurokri.fr",
+        "status": "connection_error"
+      },
+      {
+        "url": "kohthai.com.hk/wp-content/plugins/vodafone.co.uk/index.html",
+        "host": "kohthai.com.hk",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html",
+        "final_host": "kohthai.com.hk",
+        "bytes_sampled": 548,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "us.battle.net.ok.xx-rs.com/login/en/login.html?app=wam&ref=www.battle.net/account/&eor=0&app=bam",
+        "host": "us.battle.net.ok.xx-rs.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "eshopsstar.com/lookingforpcaidonline/",
+        "host": "eshopsstar.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "distribuidoraav.cl/reader/dropbox/785ccd8e5eb6ceae6f5ea61524b99520/",
+        "host": "distribuidoraav.cl",
+        "status": "connection_error"
+      },
+      {
+        "url": "s3-ap-southeast-1.amazonaws.com/onekeysdk/downloaderUpdate/downloader_201502121005_241nogame.apk",
+        "host": "s3-ap-southeast-1.amazonaws.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "application/xml",
+        "final_host": "s3-ap-southeast-1.amazonaws.com",
+        "bytes_sampled": 299,
+        "looks_like_html": false,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "bit.ly/SWeTMu",
+        "host": "bit.ly",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "",
+        "final_host": "www.iphone5promo.uni.me",
+        "bytes_sampled": 0,
+        "looks_like_html": false,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "adsgodzilla.info/",
+        "host": "adsgodzilla.info",
+        "status": "connection_error"
+      },
+      {
+        "url": "danartesmarciais.com.br/TD/dropboxx/dropbox/dropbox/spacebox/index.html",
+        "host": "danartesmarciais.com.br",
+        "status": "connection_error"
+      },
+      {
+        "url": "baitcalculator.com/78hceef",
+        "host": "baitcalculator.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "cancorrfiresafety.eaglecapusa.com/?xHiNdbSeJBrPDYY=l3SKfPrfJxzFGMSUb-nJDa9BNUXCRQLPh4SGhKrXCJ-ofSih17OIFxzsmTu2KTKvgJQyfu0SaGyj1BKeO10hjoUeWF8Z5e3x1RSL2x3fipSA9weLaApE_ZGSHbQ-2lzxmeBBIZklzxGB72QBn-gYVFtD4xgY0Q",
+        "host": "cancorrfiresafety.eaglecapusa.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "deckgamez.com/wp-content/plugins/docsign/es/",
+        "host": "deckgamez.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "50.117.38.164/Pictures/ooba_0823.24.jpg",
+        "host": "50.117.38.164",
+        "status": "connect_timeout"
+      },
+      {
+        "url": "gyqhcnfv.pw/checkupdate",
+        "host": "gyqhcnfv.pw",
+        "status": "connection_error"
+      },
+      {
+        "url": "kf25zx.com/images?us.battle.net/http://rhr.virtual.vps-host.net/joomla/qer/request.html",
+        "host": "kf25zx.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html",
+        "final_host": "kf25zx.com",
+        "bytes_sampled": 552,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "my.screenname.aol.com-cqr-login-login.ps-sitedomain-help.aol.com-sitestate-origurl-3dhttp3a-help.aol.com-help.maestrosplr.net/_cqr/0513d89ad2c4bafe7096458e219c0dd3/",
+        "host": "my.screenname.aol.com-cqr-login-login.ps-sitedomain-help.aol.com-sitestate-origurl-3dhttp3a-help.aol.com-help.maestrosplr.net",
+        "status": "connection_error"
+      },
+      {
+        "url": "'9d345009-a-62cb3a1a-s-sites.googlegroups.com/site/stickamcomlogindo/login.html?attachauth=ANoY7cpv1F33Mbxj71Kg7alVQggUXLD4Imx78fRXDdg2DKGe1h0qfU22L7mzlymRryoTfc_F8c-pzU3KuJsO9DRem_zaRWO-TYJu5TfGHcW382eb9gKAWUfxL_XS1Rnhh2xK0m6fPrW_lyAorf0sIs_fSFKnP-e2uJmUd3bgUiIXxoAjOjg8ihUuhJq-E8jFoM0mGWMq7YfhhCvcdrJJYOcmKR9hVrZ7Yg\\%3D\\%3D&amp;attredirects=2'",
+        "host": "'9d345009-a-62cb3a1a-s-sites.googlegroups.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "denvertracy.com/jhg45s",
+        "host": "denvertracy.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "denvertracy.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "yunali.gtacomputer.com/viewerf.html",
+        "host": "yunali.gtacomputer.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "salishancatering.com/seniorpeoplemeet.html",
+        "host": "salishancatering.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "salishancatering.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "'9d345009-a-62cb3a1a-s-sites.googlegroups.com/site/stickamcomlogindo/login.html?amp\\%3Battredirects=1&amp;attachauth=ANoY7crGmSBWLF2uF3G0xK6YE5FMdTIoO1KDRWjYd95KH3Bd3usPbSr3tQRpjdnn6OWH4UIR95ugJJvFu63CSpJpQyPNbniS-B-GurplUntm1EqnxWgPLn_5WjGjnikdXmPJR7D4MWvRhStmynFgyJb9QzEIi_meQtMKW4nZuh_QN66a9BwQXAzk7v9VlrnqAp0qVNb-_JBXEYYpWpCGhkWD2w5NWf4GDg\\%3D\\%3D&amp;attredirects=0'",
+        "host": "'9d345009-a-62cb3a1a-s-sites.googlegroups.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "universoslackline.com.br/admin/TWpVNE9ERTJOamcyTkRZPQ==/?login=&amp;.verify?service=mail/?&amp;rand.UTRNakUyTkRRPQ=",
+        "host": "universoslackline.com.br",
+        "status": "connection_error"
+      },
+      {
+        "url": "bobbyfritz.org/images/Logon.php?LOB=RBGLogon&amp;_pageLabel=page_logonform",
+        "host": "bobbyfritz.org",
+        "status": "connection_error"
+      },
+      {
+        "url": "home.comcast.net/~Darfff/5885d80a13c0db1f8e263663d3fa.html",
+        "host": "home.comcast.net",
+        "status": "reachable",
+        "http_code": 504,
+        "content_type": "",
+        "final_host": "home.comcast.net",
+        "bytes_sampled": 76,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "payza.com.cgi.bin.websicr.cmd.login.submit.dispatch.vmpa446f69dad17e8da6atklme8161b1f8e263663d3faee8d72.thehenhouserestaurant.com/payza/AccountLogin.php?BlZYMHFoQHJpcUxodXh3b3hGAw=pennyjustice.com/~fengxi/pay/197a212c3e638bcc4840f2a4ca61068b/index.html",
+        "host": "payza.com.cgi.bin.websicr.cmd.login.submit.dispatch.vmpa446f69dad17e8da6atklme8161b1f8e263663d3faee8d72.thehenhouserestaurant.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "d.techcdn.com/onekeysdk/downloaderUpdate/downloader_20150318_256nogame.apk",
+        "host": "d.techcdn.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "hairdesignbyoumou.com/property/",
+        "host": "hairdesignbyoumou.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "lpmxp1019.com",
+        "host": "lpmxp1019.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "kf25zx.com/images/?ref=http%3A%2F%2Falvtdlkus.battle.net%2Fd3%2Fen%2Findex&amp;app=com-d3",
+        "host": "kf25zx.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html",
+        "final_host": "kf25zx.com",
+        "bytes_sampled": 552,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "dmega.co.kr/dmega/data/qna/sec/page.php?email=bm9taW5hbGx5QHNwb3VzZS5vcmc=",
+        "host": "dmega.co.kr",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "dmega.co.kr",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "g0ffkdj3jfks2kdjf0s3jfv.blogspot.com/",
+        "host": "g0ffkdj3jfks2kdjf0s3jfv.blogspot.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "g0ffkdj3jfks2kdjf0s3jfv.blogspot.com",
+        "bytes_sampled": 3165,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "flyrecords.fr/Panel/",
+        "host": "flyrecords.fr",
+        "status": "connection_error"
+      },
+      {
+        "url": "josemedina.com/lqusgkq",
+        "host": "josemedina.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html",
+        "final_host": "josemedina.com",
+        "bytes_sampled": 114,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "maisconquiste.com/novo/perfil/",
+        "host": "maisconquiste.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "www.mnujnhss.com/",
+        "host": "www.mnujnhss.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "mnujnhss.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "anita-gd.com/images",
+        "host": "anita-gd.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "zerodha.com/z-connect/tradezerodha/margin-requirements/zerodha-margin-policies",
+        "host": "zerodha.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "zerodha.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "halleemahnash.com/FR/FR-FR462009684-TD0562200000/nash/Nouveau-new-mailimpots/Ref-gouv/9ed684ca8fe7d95b0b495d710425e3f7/redirection.php",
+        "host": "halleemahnash.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "",
+        "final_host": "halleemahnash.com",
+        "bytes_sampled": 0,
+        "looks_like_html": false,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "videoss.in.ua",
+        "host": "videoss.in.ua",
+        "status": "connection_error"
+      },
+      {
+        "url": "uhimwogwgocdc.pw/information.cgi",
+        "host": "uhimwogwgocdc.pw",
+        "status": "connection_error"
+      },
+      {
+        "url": "ivxcsystncfp.cigarnervous.ru/setsearchm.exe",
+        "host": "ivxcsystncfp.cigarnervous.ru",
+        "status": "connection_error"
+      },
+      {
+        "url": "esxcc.com/js/index.htm?ref=ttztfkbus.battle.net/d3/en/index",
+        "host": "esxcc.com",
+        "status": "reachable",
+        "http_code": 503,
+        "content_type": "text/html",
+        "final_host": "esxcc.com",
+        "bytes_sampled": 51,
+        "looks_like_html": false,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.ansonkr.com/update/webscr.php?cmd=_login-run&dispatch=5885d80a13c0db1f1ff80d546411d7f8a8350c132bc41e0934cfc023d4e8f9e5a6748d9df8ed7a1f190c23c85359a763a6748d9df8ed7a1f190c23c85359a763",
+        "host": "www.ansonkr.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.ansonkr.com",
+        "bytes_sampled": 566,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "derinceozelders.com/house/dropbox/158ea132f30962183900a871e8d5a6f6",
+        "host": "derinceozelders.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "trin-design.cz/products/DM-PROPERTIES/google/Ed/Ed/",
+        "host": "trin-design.cz",
+        "status": "connect_timeout"
+      },
+      {
+        "url": "www.bl35.org/images/?us.battle.net/login/en/?ref=liqjbuyus.battle.net/d3/en/index&amp;app=com-d3",
+        "host": "www.bl35.org",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html",
+        "final_host": "www.bl35.org",
+        "bytes_sampled": 1486,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "inflazz.com/wp-admin/css/colors/light/alibaba.htm?email=abuse@yaho.com.cn",
+        "host": "inflazz.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "na.aiononline.com.uhlogin.com/login/?",
+        "host": "na.aiononline.com.uhlogin.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "d.techcdn.com/onekeysdk/downloaderUpdate/demo10_0413.apk",
+        "host": "d.techcdn.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "epm.pl/aol/",
+        "host": "epm.pl",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "epm.pl",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "jojkntfrtgynvctaa.work/information.cgi",
+        "host": "jojkntfrtgynvctaa.work",
+        "status": "connection_error"
+      },
+      {
+        "url": "rentavettedfw.com/",
+        "host": "rentavettedfw.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "akfjsh.com/images/",
+        "host": "akfjsh.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "rollingstonecafe.co.id/",
+        "host": "rollingstonecafe.co.id",
+        "status": "connection_error"
+      },
+      {
+        "url": "intimit.ru/includes/phpmailer/source.php",
+        "host": "intimit.ru",
+        "status": "connection_error"
+      },
+      {
+        "url": "muinai.com/.www/index.php?wreply=amFjcXVlc0Bzb2x1Y29ycC5xYy5jYQ0",
+        "host": "muinai.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "muinai.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "home.earthlink.net/~ilili.iiil/ii/Sign%20In.htm",
+        "host": "home.earthlink.net",
+        "status": "connection_error"
+      },
+      {
+        "url": "morelgobernador.com/https-paysecure-resoultion-ppid=4456.4898879887778954446213254/index.php",
+        "host": "morelgobernador.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "nyanshenyesecondary.com/remax/index.htm",
+        "host": "nyanshenyesecondary.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "ilkhaberadana.com/cbhzr1mp",
+        "host": "ilkhaberadana.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "mariomanadong.com/Global/mailbox/mailbox/index.php?email=abuse@ril.com",
+        "host": "mariomanadong.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "www.bienestaromni.com/sample/index.html",
+        "host": "www.bienestaromni.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "theexcelconsultant.com/nbv364",
+        "host": "theexcelconsultant.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "theexcelconsultant.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "173.216.247.74/Ares13.zip",
+        "host": "173.216.247.74",
+        "status": "connect_timeout"
+      },
+      {
+        "url": "jessieward.com/index/index.html",
+        "host": "jessieward.com",
+        "status": "read_timeout"
+      },
+      {
+        "url": "www.pspmrsmtumpat.com/076wc",
+        "host": "www.pspmrsmtumpat.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html",
+        "final_host": "www.pspmrsmtumpat.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "living4u.80port.net/zb/doc/file.index.htm/remax-securelogin_files/remax-secure_login_files/remax0-0secure0login_files/remax-securelogin_files/remax-securelogin_files/remax-securelogin_files/remax-securelogin_files/Remax%20-%20Secure%20Login_files/a/",
+        "host": "living4u.80port.net",
+        "status": "connection_error"
+      },
+      {
+        "url": "fazan-pacir.rs/temp/libraries/ipad",
+        "host": "fazan-pacir.rs",
+        "status": "connection_error"
+      },
+      {
+        "url": "kamperemprzezswiat.pl/wp-includes/css/northrock.htm",
+        "host": "kamperemprzezswiat.pl",
+        "status": "connection_error"
+      },
+      {
+        "url": "diamondcreationslb.com/cms/brand/lo/draft",
+        "host": "diamondcreationslb.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "creative-catalyst.com/sincr/acessoseguro.sincronizacao.itauToken",
+        "host": "creative-catalyst.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=iso-8859-1",
+        "final_host": "www.creative-catalyst.com",
+        "bytes_sampled": 288,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "m.yofee2u.com/wp-content/themes/WB-Tarif",
+        "host": "m.yofee2u.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "ekuxmydc.org/upload/_dispatch.php",
+        "host": "ekuxmydc.org",
+        "status": "connection_error"
+      },
+      {
+        "url": "linkedin.com.blink.simpleredirect.0vclzmu6lvtcvffmjb9zcnc39arcbjpn8jpmrlq5zlpbfgu.mikagroup.com.au/linkedin/",
+        "host": "linkedin.com.blink.simpleredirect.0vclzmu6lvtcvffmjb9zcnc39arcbjpn8jpmrlq5zlpbfgu.mikagroup.com.au",
+        "status": "connection_error"
+      },
+      {
+        "url": "universalsupply.com.my/main/Megan/pp/qazxsw/webscr.htm",
+        "host": "universalsupply.com.my",
+        "status": "connection_error"
+      },
+      {
+        "url": "ippartner.cl/wp-content/Purchase.order",
+        "host": "ippartner.cl",
+        "status": "connection_error"
+      },
+      {
+        "url": "stolefarsgnom.com/sl/gate.php",
+        "host": "stolefarsgnom.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "bllhicksco.com/ServiceLogin/source/verification.php",
+        "host": "bllhicksco.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "appartamentidellanonna.com/lightbox/pana/G.Docs/",
+        "host": "appartamentidellanonna.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "kimclo.com/will/admin.php",
+        "host": "kimclo.com",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "kimclo.com",
+        "bytes_sampled": 1454,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "210.116.102.7/2s4x7",
+        "host": "210.116.102.7",
+        "status": "connect_timeout"
+      },
+      {
+        "url": "92.63.103.170/Pane/",
+        "host": "92.63.103.170",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html",
+        "final_host": "92.63.103.170",
+        "bytes_sampled": 4047,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.babinet.cz/avatars/19889/hires/dir/416a5ec3ccae40634c653537bd0e6ef2/",
+        "host": "www.babinet.cz",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "babinet.cz",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "ilonedone.com/Share%20Files/?code=personaldoc",
+        "host": "ilonedone.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "https.poypal.com.cgi.bin.webscr.cmd.login.submit.dispatch.5885d80a13c0db1f8e263663d3fae8d1954646632.amandapinson.com/us/34745be86a69a3f2fd6c09f23b119678/websrc.html?cmd=_login-run",
+        "host": "",
+        "status": "unparseable"
+      },
+      {
+        "url": "modyuniversity.ac.in/cfdm/images/auto-reply/confirming.html",
+        "host": "modyuniversity.ac.in",
+        "status": "reachable",
+        "http_code": 307,
+        "content_type": "text/html",
+        "final_host": "modyuniversity.ac.in",
+        "bytes_sampled": 1267,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "hopstops.info/",
+        "host": "hopstops.info",
+        "status": "connection_error"
+      },
+      {
+        "url": "yesiloglugrup.com/8fh34f3",
+        "host": "yesiloglugrup.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html",
+        "final_host": "yesiloglugrup.com",
+        "bytes_sampled": 1251,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "sparkdeal.in/secure/oi59398jz6g2vsume3o88rj1p1o8jalxjgxcgwm5ssxeaiqeb4damn11fgzo/",
+        "host": "sparkdeal.in",
+        "status": "connection_error"
+      },
+      {
+        "url": "cyberiy.xyz/1/",
+        "host": "cyberiy.xyz",
+        "status": "connection_error"
+      },
+      {
+        "url": "ngvqbcnmjos.info/linuxsucks.php",
+        "host": "ngvqbcnmjos.info",
+        "status": "connection_error"
+      },
+      {
+        "url": "shima.tv/OS0eCX1R/zoUxMZcd8l9J2t.php",
+        "host": "shima.tv",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html; charset=iso-8859-1",
+        "final_host": "shima.tv",
+        "bytes_sampled": 301,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "tabernadeltemple.com/nb4vervge",
+        "host": "tabernadeltemple.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "valanoice.org/dallas/rocket.rar",
+        "host": "valanoice.org",
+        "status": "connection_error"
+      },
+      {
+        "url": "as.santruptiprojects.com/pagedoc/985fbef523378a501257aa966c3ad3b6",
+        "host": "as.santruptiprojects.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "paypal-verification.nicheprofitsociety.com/paypal",
+        "host": "paypal-verification.nicheprofitsociety.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "185.86.148.188:2080/forms/",
+        "host": "185.86.148.188",
+        "status": "connect_timeout"
+      },
+      {
+        "url": "6i3cb6owitcouepv.micropaysearch.com/img/rt.png",
+        "host": "6i3cb6owitcouepv.micropaysearch.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "www.tkkf.koszalin.pl/media/Orange.Fr/info.php?cmd=_Processing&amp;dispatch=5885d80a13c0db1fb6947b0aeae66fdbfb2119927117e3a6f876e0fd34af4365749a27a191cb7063ebf5af398dafca6b749a27a191cb7063ebf5af398dafca6b",
+        "host": "www.tkkf.koszalin.pl",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "tkkf.koszalin.pl",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "us.battle.net.ok.wwweb.asia/",
+        "host": "us.battle.net.ok.wwweb.asia",
+        "status": "connection_error"
+      },
+      {
+        "url": "www.anonyweb.biz/d6cfad3ad8517673ef25d26ae1e520ac/",
+        "host": "www.anonyweb.biz",
+        "status": "connection_error"
+      },
+      {
+        "url": "esxcc.com/js/index.htm?ref=whqospous.battle.net/d3/en/index",
+        "host": "esxcc.com",
+        "status": "reachable",
+        "http_code": 503,
+        "content_type": "text/html",
+        "final_host": "esxcc.com",
+        "bytes_sampled": 51,
+        "looks_like_html": false,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "'9d345009-a-62cb3a1a-s-sites.googlegroups.com/site/stickamcomlogindo/login.html?attachauth=ANoY7crihXc9E-KESTz1IKHX7i0JhK7V3yP0YoGjyJgt_LhPX21xndIQloaqMPRH-madkzhWamhKZFOivmH1xHtqNLyjPPLG5WXN6bPNgl2jFU4BlylZK3J81jXbNMvrcWcehJLoy52Ffy--NMfKH7PaW7Dg4-1vAVISBB2YMNnwtYDggtSzmC96X9WO451v-DGrtWN0rfp9EaZLZoJS8_NhRxeyun2weQ\\%3D\\%3D&amp;amp;attredirects=2'",
+        "host": "'9d345009-a-62cb3a1a-s-sites.googlegroups.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "www.villakeratea.it/JHgy64HJBRd/",
+        "host": "www.villakeratea.it",
+        "status": "connection_error"
+      },
+      {
+        "url": "app-facebook2017.com/apps/",
+        "host": "app-facebook2017.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "www.muliajaya.com/Gbr/StainlessSteel/iweb-online/ppl-verification/confirmation.account-information/",
+        "host": "www.muliajaya.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.hugedomains.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "noproblemslove.com/ro/support.php",
+        "host": "noproblemslove.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "50.7.138.138/file_x/x_910.exe",
+        "host": "50.7.138.138",
+        "status": "connect_timeout"
+      },
+      {
+        "url": "bdnanaccfbabmnae.info /",
+        "host": "bdnanaccfbabmnae.info ",
+        "status": "invalid_url"
+      }
+    ],
+    "good": [
+      {
+        "url": "faqs.org/tax-exempt/TX/Holy-Family-Catholic-Church-Copperas-Cove-Texas.html",
+        "host": "faqs.org",
+        "status": "reachable",
+        "http_code": 429,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.faqs.org",
+        "bytes_sampled": 2256,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "kennedyrealestate.ca/community-profiles/edmonton/gariepy",
+        "host": "kennedyrealestate.ca",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "",
+        "final_host": "kennedyrealestate.ca",
+        "bytes_sampled": 0,
+        "looks_like_html": false,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "nupikealum.com/",
+        "host": "nupikealum.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "lyricsmode.com/lyrics/b/bonnie_pointer/",
+        "host": "lyricsmode.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.lyricsmode.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.eplus.com/web/HomePage.aspx",
+        "host": "www.eplus.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.eplus.com",
+        "bytes_sampled": 397,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "ticketseating.com/montreal-canadiens-tickets/",
+        "host": "ticketseating.com",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.ticketseating.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "yellowpages.ca/bus/Quebec/Montreal-Neurological-Institute/1082637.html",
+        "host": "yellowpages.ca",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html",
+        "final_host": "yellowpages.ca",
+        "bytes_sampled": 919,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "blog.sfgate.com/inoakland/2011/07/04/cyclist-reported-missing-in-oaklandberkeley-hills/",
+        "host": "blog.sfgate.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.sfgate.com",
+        "bytes_sampled": 3038,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "tnsoccer.org/programs/Soccer_Across_America.htm",
+        "host": "tnsoccer.org",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.tnsoccer.org",
+        "bytes_sampled": 1,
+        "looks_like_html": false,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "legacy.com/obituaries/bostonglobe/obituary.aspx?n=janet-s-finley-mason&pid=152558688&fhid=3982",
+        "host": "legacy.com",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.legacy.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "politicalgraveyard.com/bio/blackburn.html",
+        "host": "politicalgraveyard.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html",
+        "final_host": "politicalgraveyard.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "salarylist.com/company/Sony-Pictures-Entertainment-Salary.htm",
+        "host": "salarylist.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.salarylist.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "accesshollywood.com/modern-familys-sarah-hyland-unleashes-her-inner-harry-potter-geek_article_51590",
+        "host": "accesshollywood.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.youtube.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "bigpicture.typepad.com/comments/2008/09/bill-moyers-kev.html",
+        "host": "bigpicture.typepad.com",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.networksolutions.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "sunsite.informatik.rwth-aachen.de/dblp/db/indices/a-tree/t/Turgeon:Jean_M=.html",
+        "host": "sunsite.informatik.rwth-aachen.de",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=iso-8859-1",
+        "final_host": "sunsite.informatik.rwth-aachen.de",
+        "bytes_sampled": 340,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "ebay.com/sch/i.html?_nkw=477+don+ferrarese",
+        "host": "ebay.com",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html",
+        "final_host": "www.ebay.com",
+        "bytes_sampled": 1832,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "en.wikipedia.org/wiki/Counts_of_La_Marche",
+        "host": "en.wikipedia.org",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "en.wikipedia.org",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "facebook.com/pages/Bill-Wennington/113647628649199",
+        "host": "facebook.com",
+        "status": "reachable",
+        "http_code": 400,
+        "content_type": "text/html; charset=\"utf-8\"",
+        "final_host": "www.facebook.com",
+        "bytes_sampled": 1542,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.rsmusic.ca/studio/index.shtml",
+        "host": "www.rsmusic.ca",
+        "status": "connection_error"
+      },
+      {
+        "url": "yelp.com/biz/brenzel-greg-rl-est-louisville",
+        "host": "yelp.com",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html;charset=utf-8",
+        "final_host": "yelp.com",
+        "bytes_sampled": 776,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "yasni.com/andre+leo+lauzon/check+people",
+        "host": "yasni.com",
+        "status": "reachable",
+        "http_code": 503,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "yasni.com",
+        "bytes_sampled": 418,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "pipl.com/directory/name/Hardie/Kimberly",
+        "host": "pipl.com",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html",
+        "final_host": "pipl.com",
+        "bytes_sampled": 886,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "hockeyshare.com/tournaments/",
+        "host": "hockeyshare.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.hockeyshare.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "espn.go.com/blog/collegebasketballnation/tag/_/name/north-carolina-tar-heels",
+        "host": "espn.go.com",
+        "status": "reachable",
+        "http_code": 202,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "espn.go.com",
+        "bytes_sampled": 0,
+        "looks_like_html": false,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "igapyear.com/profile/ea-ski-snowboard-training-1892.aspx",
+        "host": "igapyear.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "atung.net/",
+        "host": "atung.net",
+        "status": "connection_error"
+      },
+      {
+        "url": "punchcad.com/",
+        "host": "punchcad.com",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "punchcad.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "thepiratebay.org/torrent/5874705/Pumzi_[2009]_The_outside_is_dead_[avi]",
+        "host": "thepiratebay.org",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "thepiratebay.org",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "rottentomatoes.com/m/ils/",
+        "host": "rottentomatoes.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.rottentomatoes.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "ifp.org/",
+        "host": "ifp.org",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "ifp.org",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "ontheradio.net/kmel/commercials",
+        "host": "ontheradio.net",
+        "status": "connection_error"
+      },
+      {
+        "url": "greetingcardsfree.biginfo1.com/?Free-Printable-Hallmark-Cards-for-last-minute-greetings.--&share=7080",
+        "host": "greetingcardsfree.biginfo1.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "en.wikipedia.org/wiki/A25_road_(Ireland)",
+        "host": "en.wikipedia.org",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "en.wikipedia.org",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "b-westerns.com/wmorris.htm",
+        "host": "b-westerns.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html",
+        "final_host": "b-westerns.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "en.wikipedia.org/wiki/Hanna_(film)",
+        "host": "en.wikipedia.org",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "en.wikipedia.org",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "letrs.indiana.edu/cgi/t/text/text-idx?c=wright2;cc=wright2;view=text;rgn=main;idno=wright2-1672",
+        "host": "letrs.indiana.edu",
+        "status": "connection_error"
+      },
+      {
+        "url": "kirkwoodmo.org/content/City-Departments/1999/building-remodeling-and-repairs.aspx",
+        "host": "kirkwoodmo.org",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html",
+        "final_host": "www.kirkwoodmo.org",
+        "bytes_sampled": 470,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.rotomec.com/usa/",
+        "host": "www.rotomec.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.rotomec.com",
+        "bytes_sampled": 0,
+        "looks_like_html": false,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "nflfootballstadiums.com/Metrodome.htm",
+        "host": "nflfootballstadiums.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html",
+        "final_host": "www.nflfootballstadiums.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "wn.com/James_Ross_@_Judith_Judy_McAllister__Executive_Director__Music__COGIC",
+        "host": "wn.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html",
+        "final_host": "wn.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "gonebatty.net/",
+        "host": "gonebatty.net",
+        "status": "connection_error"
+      },
+      {
+        "url": "www.cs.brandeis.edu/~storer/",
+        "host": "www.cs.brandeis.edu",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.cs.brandeis.edu",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "bioethics.stanford.edu/research/programs/neuroethics.html",
+        "host": "bioethics.stanford.edu",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html;charset=utf-8",
+        "final_host": "med.stanford.edu",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "answers.com/topic/quebec-city-quebec",
+        "host": "answers.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.answers.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "twitter.com/snclavalin",
+        "host": "twitter.com",
+        "status": "reachable",
+        "http_code": 520,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "twitter.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "movies.yahoo.com/feature/missionimpossible3.html",
+        "host": "movies.yahoo.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.yahoo.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.logisoftar.com/ProductsRexxbos.htm",
+        "host": "www.logisoftar.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html",
+        "final_host": "www.logisoftar.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "msn.foxsports.com/foxsoccer/worldcup/story/fifa-to-meet-qatar-2022-bid-whistleblower-over-bribery-claim",
+        "host": "msn.foxsports.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html;charset=utf-8",
+        "final_host": "www.foxsports.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "metroactive.com/papers/metro/01.29.98/idiotflesh-9804.html",
+        "host": "metroactive.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=ISO-8859-1",
+        "final_host": "www.metroactive.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.apple2.org/marinetti/",
+        "host": "www.apple2.org",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.apple2.org",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.gamerz.net/pbmserv/",
+        "host": "www.gamerz.net",
+        "status": "connect_timeout"
+      },
+      {
+        "url": "youtube.com/watch?v=SxK6-wO1Zys",
+        "host": "youtube.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.youtube.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "getlawyer.ca/quebec--lawyers-64/",
+        "host": "getlawyer.ca",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "getlawyer.ca",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.vdraft.com/vtools.html",
+        "host": "www.vdraft.com",
+        "status": "reachable",
+        "http_code": 400,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.vdraft.com",
+        "bytes_sampled": 2201,
+        "looks_like_html": true,
+        "parked_hint": true,
+        "looks_like_login": false
+      },
+      {
+        "url": "lamsade.dauphine.fr/mcda/biblio/",
+        "host": "lamsade.dauphine.fr",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html",
+        "final_host": "www.lamsade.dauphine.fr",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "caselaw.findlaw.com/us-4th-circuit/1374317.html",
+        "host": "caselaw.findlaw.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "caselaw.findlaw.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "chihuahuaexpress.net/",
+        "host": "chihuahuaexpress.net",
+        "status": "connection_error"
+      },
+      {
+        "url": "spokeo.com/David+Torrance",
+        "host": "spokeo.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.spokeo.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "flixster.com/actor/lisa-seagram",
+        "host": "flixster.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.fandango.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "localsearch.com/business/Radio-Stations/Hogansburg-NY/",
+        "host": "localsearch.com",
+        "status": "ssl_error"
+      },
+      {
+        "url": "en.wikipedia.org/wiki/Liam_Miller",
+        "host": "en.wikipedia.org",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "en.wikipedia.org",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "pipl.com/directory/people/Naki/Yurter",
+        "host": "pipl.com",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html",
+        "final_host": "pipl.com",
+        "bytes_sampled": 886,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "kansascity.com/sports/chiefs/",
+        "host": "kansascity.com",
+        "status": "read_timeout"
+      },
+      {
+        "url": "oemink.cn/sdp/99253/4/pd-998694/4066771-500464.html",
+        "host": "oemink.cn",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "oemink.cn",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "databasefootball.com/players/playerpage.htm?ilkid=MARSHJAM01",
+        "host": "databasefootball.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "databasefootball.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "itunes.apple.com/us/album/band-of-joy/id386247344",
+        "host": "itunes.apple.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html",
+        "final_host": "music.apple.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "letrs.indiana.edu/cgi/t/text/text-idx?c=wright2;cc=wright2;view=text;rgn=main;idno=wright2-1018A",
+        "host": "letrs.indiana.edu",
+        "status": "connection_error"
+      },
+      {
+        "url": "youtube.com/watch?v=LCIAjKdkdgU",
+        "host": "youtube.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.youtube.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "trumanlibrary.org/oralhist/symton.htm",
+        "host": "trumanlibrary.org",
+        "status": "connection_error"
+      },
+      {
+        "url": "hbs-neo.org/",
+        "host": "hbs-neo.org",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.hbs-neo.org",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "wigix.com/index.php/sku_search/rootgalleryview",
+        "host": "wigix.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "wigix.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "ushr.com/news/20030601",
+        "host": "ushr.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.ushr.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "casttv.com/shows/blue-mountain-state",
+        "host": "casttv.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "texaschainsawtours.com/1974.htm",
+        "host": "texaschainsawtours.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "texaschainsawtours.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "singer-eg.com/",
+        "host": "singer-eg.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "axa-art.com/content.asp?IDAREA=13&TIPO=A&C=1",
+        "host": "axa-art.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "einpresswire.com/article/72629-maglev-2000-names-ernest-m-fazio-director-of-communications",
+        "host": "einpresswire.com",
+        "status": "reachable",
+        "http_code": 410,
+        "content_type": "text/html",
+        "final_host": "www.einpresswire.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": true
+      },
+      {
+        "url": "infoplease.com/atlas/country/czechrepublic.html",
+        "host": "infoplease.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.infoplease.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "facebook.com/group.php?gid=5793688321&v=wall",
+        "host": "facebook.com",
+        "status": "reachable",
+        "http_code": 400,
+        "content_type": "text/html; charset=\"utf-8\"",
+        "final_host": "www.facebook.com",
+        "bytes_sampled": 1542,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "c2.com/cgi/wiki?SpecializationIsForInsects",
+        "host": "c2.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "wiki.c2.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "new.music.yahoo.com/constance-demby/",
+        "host": "new.music.yahoo.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.yahoo.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "livingword.com/",
+        "host": "livingword.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "livingword.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.bhg.com/home/Desktop-Wallpaper.html",
+        "host": "www.bhg.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html;charset=utf-8",
+        "final_host": "www.bhg.com",
+        "bytes_sampled": 1614,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "absoluteastronomy.com/topics/Legislative_Council_of_the_Province_of_Canada",
+        "host": "absoluteastronomy.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "absoluteastronomy.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www2.mta.ac.il/~gideon/",
+        "host": "www2.mta.ac.il",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www2.mta.ac.il",
+        "bytes_sampled": 8,
+        "looks_like_html": false,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "myspace.com/driftaustralia/blog",
+        "host": "myspace.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "myspace.com",
+        "bytes_sampled": 3536,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "lyricstime.com/cryptopsy-the-end-lyrics.html",
+        "host": "lyricstime.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "markosweb.com/www/vrak.tv/",
+        "host": "markosweb.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.markosweb.com",
+        "bytes_sampled": 1334,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "myspace.com/ericpetersondisciples",
+        "host": "myspace.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "myspace.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "lakearrowheadproperty.com/",
+        "host": "lakearrowheadproperty.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "www.morel-bellein.com/gpresent.htm",
+        "host": "www.morel-bellein.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "www.tik.ee.ethz.ch/~topsy/",
+        "host": "www.tik.ee.ethz.ch",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=iso-8859-1",
+        "final_host": "people.ee.ethz.ch",
+        "bytes_sampled": 280,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "washingtonsportshof.com/basketball.htm",
+        "host": "washingtonsportshof.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "washingtonsportshof.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "referenceforbusiness.com/history2/64/M-tro-Inc.html",
+        "host": "referenceforbusiness.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.referenceforbusiness.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.di-mgt.com.au/crypto.html",
+        "host": "www.di-mgt.com.au",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html",
+        "final_host": "di-mgt.com.au",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "malayalamhorrorfilms.blogspot.com/",
+        "host": "malayalamhorrorfilms.blogspot.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "malayalamhorrorfilms.blogspot.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.research.ibm.com/visual/projects/history_flow/",
+        "host": "www.research.ibm.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "research.ibm.com",
+        "bytes_sampled": 3463,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "www.acapellastella.com/samplecards.html",
+        "host": "www.acapellastella.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "123people.com/c/david+emerson",
+        "host": "123people.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "123people.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "udk.openoffice.org/python/python-bridge.html",
+        "host": "udk.openoffice.org",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=iso-8859-1",
+        "final_host": "udk.openoffice.org",
+        "bytes_sampled": 315,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "imdb.com/title/tt0222850/",
+        "host": "imdb.com",
+        "status": "reachable",
+        "http_code": 202,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.imdb.com",
+        "bytes_sampled": 0,
+        "looks_like_html": false,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "movie-megaupload.com/2009/01/13/traffic-2000.html",
+        "host": "movie-megaupload.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "sandbox.pair.com/abstract/greenthinkcd.html",
+        "host": "sandbox.pair.com",
+        "status": "connect_timeout"
+      },
+      {
+        "url": "tachrev.com/GTO2.htm",
+        "host": "tachrev.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html",
+        "final_host": "www.tachrev.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": true,
+        "looks_like_login": false
+      },
+      {
+        "url": "gennum.com/about/leadership/gary-m-beauchamp",
+        "host": "gennum.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html",
+        "final_host": "gennum.com",
+        "bytes_sampled": 114,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "jewishentertainment.net/",
+        "host": "jewishentertainment.net",
+        "status": "connection_error"
+      },
+      {
+        "url": "letrs.indiana.edu/cgi/t/text/text-idx?c=wright2;cc=wright2;view=text;rgn=main;idno=wright2-0371",
+        "host": "letrs.indiana.edu",
+        "status": "connection_error"
+      },
+      {
+        "url": "comfibook.com/n/Andre+Chagas",
+        "host": "comfibook.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html",
+        "final_host": "comfibook.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "yelp.com/search?find_desc=ymca&find_loc=Redondo+Beach%2C+CA",
+        "host": "yelp.com",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html;charset=utf-8",
+        "final_host": "yelp.com",
+        "bytes_sampled": 831,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "mlive.com/news/saginaw/index.ssf/2010/06/bike_routes_bring_big_bucks_wi.html",
+        "host": "mlive.com",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html;charset=utf-8",
+        "final_host": "www.mlive.com",
+        "bytes_sampled": 769,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "moviesplanet.com/names/133324/yannick-bisson",
+        "host": "moviesplanet.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "firstcheer.com/",
+        "host": "firstcheer.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html",
+        "final_host": "firstcheer.com",
+        "bytes_sampled": 1251,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "music.yahoo.com/isabel-varell/",
+        "host": "music.yahoo.com",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.yahoo.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "fjc.gov/servlet/nGetInfo?jid=3189&cid=999&ctype=na&instate=na",
+        "host": "fjc.gov",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=utf-8",
+        "final_host": "www.fjc.gov",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "christianitytoday.com/ct/2003/july/31.28.html",
+        "host": "christianitytoday.com",
+        "status": "reachable",
+        "http_code": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "www.christianitytoday.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "freepages.genealogy.rootsweb.ancestry.com/~cassb/CASS/",
+        "host": "freepages.genealogy.rootsweb.ancestry.com",
+        "status": "reachable",
+        "http_code": 403,
+        "content_type": "text/html; charset=UTF-8",
+        "final_host": "freepages.genealogy.rootsweb.ancestry.com",
+        "bytes_sampled": 4096,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "acordpublications.com/performer-harden-grenade-co-brass/",
+        "host": "acordpublications.com",
+        "status": "connection_error"
+      },
+      {
+        "url": "allencountygeology.indiana.edu/",
+        "host": "allencountygeology.indiana.edu",
+        "status": "connection_error"
+      },
+      {
+        "url": "spoke.com/info/pEszmKX/JeremyKinsman",
+        "host": "spoke.com",
+        "status": "reachable",
+        "http_code": 410,
+        "content_type": "text/html",
+        "final_host": "spoke.com",
+        "bytes_sampled": 4,
+        "looks_like_html": false,
+        "parked_hint": false,
+        "looks_like_login": false
+      },
+      {
+        "url": "dot.ca.gov/dist10/environmental/projects/fergusonslide/index.htm",
+        "host": "dot.ca.gov",
+        "status": "reachable",
+        "http_code": 404,
+        "content_type": "text/html",
+        "final_host": "dot.ca.gov",
+        "bytes_sampled": 1654,
+        "looks_like_html": true,
+        "parked_hint": false,
+        "looks_like_login": false
+      }
+    ]
+  }
+}

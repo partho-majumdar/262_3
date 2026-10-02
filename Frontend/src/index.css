@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-base font-sans text-base text-content-primary antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply tracking-tight;
+  }
+
+  /* One visible focus treatment everywhere, using the accent ring. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent-ring ring-offset-2 ring-offset-base;
+  }
+
+  ::selection {
+    @apply bg-accent-soft text-content-primary;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-white/10;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-white/20;
+  }
+}
+
+@layer components {
+  /* ---------- surfaces ---------- */
+  .card {
+    @apply rounded-card border border-line bg-surface shadow-card;
+  }
+
+  .card-quiet {
+    @apply rounded-card border border-line bg-elevated;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    @apply inline-flex select-none items-center justify-center gap-2 rounded-lg
+           px-4 py-2 text-sm font-medium transition
+           disabled:pointer-events-none disabled:opacity-45;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-white shadow-card hover:bg-accent-hover active:bg-accent-active;
+  }
+
+  .btn-secondary {
+    @apply btn border border-line-strong bg-elevated text-content-primary
+           hover:border-white/25 hover:bg-white/[0.06] active:bg-white/[0.09];
+  }
+
+  .btn-ghost {
+    @apply btn text-content-secondary hover:bg-white/[0.06] hover:text-content-primary;
+  }
+
+  .btn-danger {
+    @apply btn bg-danger text-white hover:brightness-110 active:brightness-95;
+  }
+
+  /* ---------- form controls ---------- */
+  .field {
+    @apply w-full rounded-lg border border-line bg-elevated px-3 py-2 text-sm
+           text-content-primary placeholder:text-content-muted
+           transition focus:border-accent focus:outline-none
+           focus:shadow-focus-accent disabled:opacity-50;
+  }
+
+  /* ---------- type ---------- */
+  .label {
+    @apply text-xs font-medium uppercase tracking-wider text-content-secondary;
+  }
+
+  .hint {
+    @apply text-xs leading-relaxed text-content-muted;
+  }
+
+  /* ---------- status pill ---------- */
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line
+           px-2.5 py-1 text-2xs font-medium;
+  }
+
+  /* ---------- numeric readouts ---------- */
+  .numeric {
+    @apply font-mono tabular-nums;
+  }
+}
+
+@layer utilities {
+  /* Very light top gradient, used once behind the page header. */
+  .bg-app-glow {
+    background-image: radial-gradient(
+      60rem 24rem at 50% -8rem,
+      rgba(99, 102, 241, 0.14),
+      transparent 70%
+    );
+  }
+}
+
+/* Respect the user's motion preference across every transition. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
